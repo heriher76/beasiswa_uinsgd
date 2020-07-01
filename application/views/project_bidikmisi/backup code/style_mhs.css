@@ -1,0 +1,225 @@
+body{
+	background-color: #ffffff;
+}
+.modal-new{
+width:560px;
+}
+
+/*Notifikasi*/
+.notifikasi{
+	position: absolute;
+	top:10px;
+}
+/*End Notifikasi*/pen
+
+/*SideBar*/
+.sidebar-buat{
+	padding-left: 30px;
+	margin-bottom: 13px;
+}
+
+.h3-sidebar{
+	padding-left: 24px;
+}
+/*End SideBar*/
+
+/*Wrapper*/
+.wrapper{
+	max-width: 960px;
+	margin:0px auto;
+	background-color: #ffffff;
+}
+/*End Wrapper*/
+
+/*input*/
+.input{
+	font-family: "Arial";
+	font-size: 13px;
+}
+/*end input*/
+
+/*Penting*/
+.penting{
+	margin-top: 20px;
+	color: red;
+}
+/*end Penting*/
+
+/*Clear*/
+.clear{
+	clear:both;
+}
+/*End Clear*/
+
+/*Tahap*/
+.tahap{
+	text-align: center;
+}
+/*end Tahap*/
+
+/*asterik*/
+.asterik{
+	color:red;
+}
+/*end asterik*/
+
+/*Header*/
+header{
+	background-color: #009e0f;
+	padding-top:10px;
+	padding-bottom: 10px;
+}
+
+header img{
+	width:15%;
+	float:left;
+}
+
+header h1{
+	font-size: 25px;
+	font-family: "Arial";
+	color:#ffffff;
+}
+
+.navbar-header nav li a{
+	font-size: 12px;
+	font-family: "Arial";
+	background-color: #274e13; 
+	border:2px solid #274e13;
+	padding:10px 15px 10px 15px;
+	border-radius: 40px;
+}
+/*End Header*/
+
+/*Biodata Pendaftar*/
+#judul-biodata h2{
+	font-family: "Arial";
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#salam{
+	font-family: "Arial";
+	font-size:15px;
+	margin-top: 20px;
+	float:left;
+}
+/*End Biodata Pendaftar*/
+
+/*Upload Foto*/
+#judul-upload-foto h2{
+	font-family: "Arial";
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#input-foto input{
+	font-family: "Arial";
+	font-size: 13px;
+	text-align: center;
+}
+/*End Upload Foto*/
+
+/*Identitas Diri*/
+#identitas-diri h2{
+	font-family: "Arial";
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+/*End Identitas Diri*/
+
+/*Data Ortu*/
+#data-ortu h2{
+	font-family: "Arial";
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+/*End Data Ortu*/
+
+/*Data Kondisi Rumah*/
+#data-kondisi-rumah h2{
+	font-family: "Arial";
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+/*End Data Kondisi Rumah*/
+
+/*Data Sekolah*/
+#data-sekolah h2{
+	font-family: "Arial";
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+/*End Data Sekolah*/
+
+/*Data Pesantren*/
+#data-pesantren h2{
+	font-family: "Arial";
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+/*End Data Pesantren*/
+
+/*Keterampilan*/
+#keterampilan h2{
+	font-family: "Arial";
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+/*End Keterampilan*/
+
+/*Persyaratan Dokumen*/
+#persyaratan-dokumen h2{
+	font-family: "Arial";
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+/*End Persyaratan Dokumen*/
+
+/*Verifikasi*/
+#verifikasi h2{
+	font-family: "Arial";
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+/*End Verifikasi*/
+
+/*Upload Dokumen Pendukung*/
+#upload-dokumen-pendukung h2{
+	font-family: "Arial";
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+/*End Upload Dokumen Pendukung*/
+
+/*Button*/
+.button-all{
+	margin-right: 25px;
+}
+/*End Button*/
+
+/*Cetak Formulir*/
+.table-buat{
+	width:70%; 
+	line-height: 1.5;
+}
+/*End Cetak Formulir*/
+
+/*Footer*/
+footer{
+	font-size: 10px;
+	font-family: "Arial";
+	margin-top: 40px;
+}
+/*End Footer*/

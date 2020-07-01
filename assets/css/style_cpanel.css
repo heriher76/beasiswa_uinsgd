@@ -1,0 +1,167 @@
+body{
+	margin:0 !important;
+	padding:0 !important;
+	max-width: 100%;
+	overflow-x: hidden;
+}
+
+.user-login{
+	margin:0;
+	padding:0;
+}
+
+img.img-responsive{
+	position: relative;
+	margin-left: -14.6px;
+	max-width:712px;
+	height:664px;
+}
+
+.pnl{
+	position: relative;
+	max-width:713px;
+	height:664px;
+	margin-bottom: unset;
+}
+
+@media(min-width:0px) AND (max-width:574px){
+	img.img-responsive{
+		width:576px;
+		height:200px;
+	}
+}
+
+@media(min-width:575px) AND (max-width:675px){
+	img.img-responsive{
+		width:676px;
+		height:200px;
+	}
+}
+
+@media(min-width:1400px) AND (max-width:1899px){
+	img.img-responsive{
+		max-width:1056px;
+		height:995px;
+	}
+
+	.pnl{
+		max-width:1056px;
+		/*height:995px;*/
+	}
+}
+
+
+@media(min-width:1900px) AND (max-width:4500px){
+	img.img-responsive{
+		max-width:3056px;
+		height:2695px;
+	}
+
+	.pnl{
+		max-width:3056px;
+		height:2695px;
+	}
+}
+
+.alert.alert-success{
+	margin:1px 1px 15px 1px;
+	padding:0;
+}
+
+.text ::placeholder{
+	color:rgb(58, 58, 58);
+}
+
+input.form-control{
+	color: black;
+}
+
+select.form-control{
+	color: black;
+}
+
+.form-group.text label{
+	color: black;
+}
+
+.col-md-6.col-style{
+	margin:0;
+	padding:0;
+}
+
+.panel-ini.panel-heading{
+	background-color: #ffff;
+	margin:0;
+	padding:0;
+}
+
+.bordeles td, .bordeles tr{
+	border:none !important;
+}
+
+table.table.bordeles{
+	margin:0;
+	padding:0;
+}
+
+.vertical-offset-50{
+    padding-top:50px;
+}
+
+.vertical-offset-100{
+	padding-top:100px;
+}
+
+.float-left{
+	float: left;
+}
+
+.float-rigth{
+	float:right;
+}
+/*Clear*/
+.clear{
+	clear: both;
+}
+/*End Clear*/
+
+/*Form Login*/
+
+/*Style Cpanel.php*/
+#img-uin-mhs img{
+	width:45%;
+	background-color: #ffff;
+}
+
+.margin-padding{
+	margin-top: 35px;
+}
+
+.show-button{
+	position:absolute;right:2px;top:50%;
+	transform:translate(0,-50%);
+	-webkit-transform:translate(0,-50%);
+	-o-transform:translate(0,-50%);
+	padding: 2px 7px;
+	font-size:12px;cursor:pointer;
+}
+/*End Style Cpanel.php*/
+
+/*Style Cpanel_Admin.php*/
+#img-uin img{
+	width:50%;
+	background-color: #ffff;
+}
+/*End Style Cpanel_Admin.php*/
+
+#form-password .glyphicon{
+	cursor: pointer;
+}
+/*End Form Login*/
+
+/*Footer*/
+.footer{
+	color:#aaaa;
+	font-size: 10px;
+}
+/*End Footer*/

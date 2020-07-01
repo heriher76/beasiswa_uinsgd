@@ -1,0 +1,62 @@
+[16-Jul-2018 08:39:14 UTC] PHP Fatal error:  Call to undefined method M_utama::viewByPropinsi() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 572
+[16-Jul-2018 12:48:37 UTC] PHP Fatal error:  Call to undefined function tgl_indonesia() in /home/bidikmisi/public_html/application/views/project_bidikmisi/pimpinan/dashboard.php on line 67
+[23-Jul-2018 07:19:29 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/bidikmisi/public_html/application/helpers/tgl_indo_helper.php on line 2
+[23-Jul-2018 07:19:48 UTC] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT) in /home/bidikmisi/public_html/application/helpers/tgl_indo_helper.php on line 2
+[23-Jul-2018 09:15:35 UTC] PHP Fatal error:  Call to undefined method M_utama::get_tgl() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 802
+[23-Jul-2018 09:15:36 UTC] PHP Fatal error:  Call to undefined method M_utama::get_tgl() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 802
+[23-Jul-2018 09:16:05 UTC] PHP Fatal error:  Call to undefined method M_utama::get_tgl() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 802
+[23-Jul-2018 09:16:31 UTC] PHP Fatal error:  Call to undefined method M_utama::get_tgl() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 802
+[23-Jul-2018 09:18:28 UTC] PHP Fatal error:  Call to undefined method M_utama::get_tgl() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 802
+[23-Jul-2018 09:19:42 UTC] PHP Fatal error:  Call to undefined method M_utama::get_tgl() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 802
+[23-Jul-2018 09:19:43 UTC] PHP Fatal error:  Call to undefined method M_utama::get_tgl() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 802
+[23-Jul-2018 16:13:08 UTC] PHP Fatal error:  Call to a member function ip_address() on null in /home/bidikmisi/public_html/application/controllers/C_login.php on line 16
+[25-Jul-2018 03:50:43 UTC] PHP Fatal error:  Call to undefined method M_utama::getTahun_lulus() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 947
+[25-Jul-2018 06:53:13 UTC] PHP Fatal error:  Call to undefined method M_utama::getTahun_lulus() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 947
+[25-Jul-2018 06:54:55 UTC] PHP Fatal error:  Call to undefined method M_utama::getTahun_lulus() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 947
+[25-Jul-2018 06:55:59 UTC] PHP Fatal error:  Call to undefined method M_utama::getTahun_lulus() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 947
+[25-Jul-2018 07:14:39 UTC] PHP Fatal error:  Call to undefined method M_mhs::getTahun_lulus() in /home/bidikmisi/public_html/application/controllers/C_mhs.php on line 89
+[25-Jul-2018 07:15:12 UTC] PHP Fatal error:  Call to undefined method M_mhs::getTahun_lulus() in /home/bidikmisi/public_html/application/controllers/C_mhs.php on line 89
+[25-Jul-2018 07:15:34 UTC] PHP Fatal error:  Call to undefined method M_mhs::getTahun_lulus() in /home/bidikmisi/public_html/application/controllers/C_mhs.php on line 88
+[25-Jul-2018 08:58:24 UTC] PHP Fatal error:  Call to undefined method M_utama::get_tgl() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 802
+[26-Jul-2018 04:26:59 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/bidikmisi/public_html/application/controllers/C_mhs.php on line 184
+[27-Jul-2018 05:48:09 UTC] PHP Parse error:  syntax error, unexpected '&' in /home/bidikmisi/public_html/application/models/M_utama.php on line 247
+[27-Jul-2018 05:48:44 UTC] PHP Fatal error:  Call to undefined method M_utama::jml_pendaf() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 30
+[27-Jul-2018 07:07:57 UTC] PHP Fatal error:  Call to a member function row() on boolean in /home/bidikmisi/public_html/application/models/M_utama.php on line 361
+[27-Jul-2018 07:35:27 UTC] PHP Fatal error:  Cannot use object of type stdClass as array in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 772
+[27-Jul-2018 07:55:35 UTC] PHP Fatal error:  Call to a member function row() on boolean in /home/bidikmisi/public_html/application/models/M_utama.php on line 97
+[27-Jul-2018 08:08:39 UTC] PHP Fatal error:  Call to a member function row() on boolean in /home/bidikmisi/public_html/application/models/M_utama.php on line 346
+[29-Jul-2018 00:34:30 UTC] PHP Fatal error:  Call to undefined method M_utama::query() in /home/bidikmisi/public_html/application/models/M_utama.php on line 226
+[29-Jul-2018 00:34:45 UTC] PHP Fatal error:  Call to undefined method M_utama::query() in /home/bidikmisi/public_html/application/models/M_utama.php on line 226
+[29-Jul-2018 00:37:01 UTC] PHP Fatal error:  Call to undefined method M_utama::query() in /home/bidikmisi/public_html/application/models/M_utama.php on line 226
+[29-Jul-2018 00:39:32 UTC] PHP Fatal error:  Call to undefined method M_utama::query() in /home/bidikmisi/public_html/application/models/M_utama.php on line 226
+[29-Jul-2018 06:23:30 UTC] PHP Fatal error:  Call to undefined method Auth1::view8() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 780
+[20-Aug-2018 05:55:38 UTC] PHP Parse error:  syntax error, unexpected 'as' (T_AS), expecting ']' in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 1337
+[20-Aug-2018 06:02:27 UTC] PHP Fatal error:  Cannot use [] for reading in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 1349
+[20-Aug-2018 06:08:31 UTC] PHP Fatal error:  Call to a member function num_rows() on array in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 1360
+[24-Aug-2018 04:05:39 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/bidikmisi/public_html/application/views/project_bidikmisi/admin/dashboard.php on line 126
+[03-Sep-2018 09:35:13 UTC] PHP Fatal error:  Call to a member function num_rows() on array in /home/bidikmisi/public_html/application/views/project_bidikmisi/admin/form_cetak_laporan.php on line 277
+[24-Sep-2018 08:43:48 UTC] PHP Fatal error:  Call to undefined method M_utama::upload() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 161
+[24-Sep-2018 09:05:29 UTC] PHP Fatal error:  Call to undefined method M_utama::upload() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 161
+[24-Sep-2018 09:07:08 UTC] PHP Fatal error:  Call to undefined method M_utama::upload() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 161
+[24-Sep-2018 09:38:40 UTC] PHP Fatal error:  Call to a member function result() on array in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 225
+[24-Sep-2018 09:45:48 UTC] PHP Parse error:  syntax error, unexpected '=', expecting ']' in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 228
+[24-Sep-2018 10:00:50 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/bidikmisi/public_html/application/models/M_utama.php on line 447
+[24-Sep-2018 10:01:40 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/bidikmisi/public_html/application/models/M_utama.php on line 447
+[24-Sep-2018 10:02:59 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/bidikmisi/public_html/application/models/M_utama.php on line 447
+[24-Sep-2018 10:03:41 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/bidikmisi/public_html/application/models/M_utama.php on line 447
+[24-Sep-2018 10:04:23 UTC] PHP Fatal error:  Call to a member function result_array() on boolean in /home/bidikmisi/public_html/application/models/M_utama.php on line 447
+[24-Sep-2018 17:16:45 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '?' in /home/bidikmisi/public_html/application/views/project_bidikmisi/mahasiswa/pengumuman.php on line 136
+[24-Sep-2018 17:16:54 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '?' in /home/bidikmisi/public_html/application/views/project_bidikmisi/mahasiswa/pengumuman.php on line 136
+[24-Sep-2018 17:17:11 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '?' in /home/bidikmisi/public_html/application/views/project_bidikmisi/mahasiswa/pengumuman.php on line 136
+[24-Sep-2018 17:17:16 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '?' in /home/bidikmisi/public_html/application/views/project_bidikmisi/mahasiswa/pengumuman.php on line 136
+[24-Sep-2018 17:18:27 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '?' in /home/bidikmisi/public_html/application/views/project_bidikmisi/mahasiswa/pengumuman.php on line 136
+[24-Sep-2018 17:18:41 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '?' in /home/bidikmisi/public_html/application/views/project_bidikmisi/mahasiswa/pengumuman.php on line 136
+[30-Sep-2018 03:53:33 UTC] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/bidikmisi/public_html/application/views/project_bidikmisi/admin/detail_pendaftar.php on line 39
+[24-Oct-2018 20:44:27 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '}' in /home/bidikmisi/public_html/application/views/project_bidikmisi/mahasiswa/pengumuman.php on line 274
+[24-Oct-2018 20:44:44 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '}' in /home/bidikmisi/public_html/application/views/project_bidikmisi/mahasiswa/pengumuman.php on line 274
+[24-Oct-2018 20:46:15 Asia/Jakarta] PHP Parse error:  syntax error, unexpected '}' in /home/bidikmisi/public_html/application/views/project_bidikmisi/mahasiswa/pengumuman.php on line 274
+[25-Oct-2018 00:30:56 UTC] PHP Fatal error:  Call to a member function result() on boolean in /home/bidikmisi/public_html/application/models/M_utama.php on line 441
+[25-Oct-2018 01:30:02 UTC] PHP Fatal error:  Call to a member function do_upload() on null in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 1526
+[31-Jan-2019 05:12:24 UTC] PHP Parse error:  syntax error, unexpected '$this' (T_VARIABLE) in /home/bidikmisi/public_html/application/controllers/C_mhs.php on line 35
+[05-Sep-2019 15:00:34 UTC] PHP Fatal error:  Call to undefined method M_utama::cek_sudah_berkas() in /home/bidikmisi/public_html/application/controllers/Auth1.php on line 47
+[09-Sep-2019 03:30:25 UTC] PHP Fatal error:  Call to undefined method Admin::view15() in /home/bidikmisi/public_html/application/controllers/Admin.php on line 644

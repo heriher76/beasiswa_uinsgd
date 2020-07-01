@@ -1,0 +1,316 @@
+ /* Style the buttons */
+.btnn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Style the active class (and buttons on mouse-over) */
+.activee, .btnn:hover {
+  background-color: #666;
+  color: white;
+} 
+
+.padding-mack{
+	padding-bottom: 45px;
+}
+
+.float-left{
+	float: left;
+}
+
+.float-right{
+	float:right;
+}
+
+.modal-new{
+	width:560px;
+}
+
+/*Notifikasi*/
+.notifikasi{
+	position: absolute;
+	top:0px;
+}
+/*End Notifikasi*/
+
+/*SideBar*/
+.sidebar-buat{
+	padding-left: 30px;
+	margin-bottom: 13px;
+}
+
+.h3-sidebar{
+	padding-left: 24px;
+}
+/*End SideBar*/
+
+/*Wrapper*/
+.wrapper{
+	max-width: 960px;
+	margin:0px auto;
+	background-color: #ffffff;
+}
+/*End Wrapper*/
+
+/*input*/
+.input{
+	font-family: "Arial";
+	font-size: 13px;
+}
+/*end input*/
+
+/*Penting*/
+.penting{
+	margin-top: 20px;
+	color: red;
+}
+/*end Penting*/
+
+/*Clear*/
+.clear{
+	clear:both;
+}
+/*End Clear*/
+
+/*asterik*/
+.asterik{
+	color:red;
+}
+/*end asterik*/
+
+/*Header*/
+header{
+	background-color: #00a65a;
+}
+
+.header-bg{
+	background-color: #7FFFD4;
+}
+
+.header-bd{
+	background-color: white;
+}
+
+
+.header-bg img{
+	width: 20%;
+}
+
+.header-bg h1{
+	float:left;
+	margin-left:12px;
+	margin-top:40px;
+	font-size: 20px;
+	font-family: "Arial";
+}
+
+.navbar-teal{
+	background-color: #ffff;
+}
+
+.navbar-teal > .navbar-header > a{
+	color:#000000;
+}
+
+.navbar-teal > .navbar-header > a:hover{
+	color:#000000;
+}
+
+.navbar-teal > .navbar-collapse > ul > li > a{
+	color:#000000;
+}
+
+.navbar-teal > .navbar-collapse > ul > li > a:hover{
+	color:#5F9EA0;
+}
+
+.header-button{
+	margin-left: 40px;
+	margin-top: 4px;
+}
+
+.header-button a{
+	color:white;
+	font-size: 15px;
+	text-decoration: none;
+}
+
+.header-button a:hover{
+	color:#FF6347;
+}
+
+.button-date{
+	margin-top: 6px;
+	font-size: 12px;
+	margin-right: 8px;
+}
+
+.header-button ul {
+	list-style: none;
+}
+/*End Header*/
+
+/*Biodata Pendaftar*/
+#judul-biodata h2{
+	font-family: "Arial";
+	font-size: 20px;
+}
+
+#salam{
+	font-family: "Arial";
+	font-size:15px;
+	margin-top: 20px;
+	float:left;
+}
+/*End Biodata Pendaftar*/
+
+/*Upload Foto*/
+#judul-upload-foto h2{
+	font-family: "Arial";
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#input-foto input{
+	font-family: "Arial";
+	font-size: 13px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.img-upload-foto img{
+	margin-top: 30px;
+	width: 130px; 
+	height: 130px;
+}
+/*End Upload Foto*/
+
+/*Identitas Diri*/
+#identitas-diri h2{
+	font-family: "Arial";
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+/*End Identitas Diri*/
+
+/*Data Ortu*/
+#data-ortu h2{
+	font-family: "Arial";
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+/*End Data Ortu*/
+
+/*Data Kondisi Rumah*/
+#data-kondisi-rumah h2{
+	font-family: "Arial";
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+/*End Data Kondisi Rumah*/
+
+/*Data Sekolah*/
+#data-sekolah h2{
+	font-family: "Arial";
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+/*End Data Sekolah*/
+
+/*Data Pesantren*/
+#data-pesantren h2{
+	font-family: "Arial";
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+/*End Data Pesantren*/
+
+/*Keterampilan*/
+#keterampilan h2{
+	font-family: "Arial";
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+/*End Keterampilan*/
+
+/*Persyaratan Dokumen*/
+#persyaratan-dokumen h2{
+	font-family: "Arial";
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+/*End Persyaratan Dokumen*/
+
+/*Verifikasi*/
+#verifikasi h2{
+	font-family: "Arial";
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+/*End Verifikasi*/
+
+/*Upload Dokumen Pendukung*/
+#upload-dokumen-pendukung h2{
+	font-family: "Arial";
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+/*End Upload Dokumen Pendukung*/
+
+/*Cetak Formulir*/
+.table-buat{
+	width:70%; 
+	line-height: 1.5;
+}
+/*End Cetak Formulir*/
+
+/*Report Prestasi.php*/
+.nav-tabs a{
+	color:black;
+}
+
+.nav-tabs a:hover{
+	color: green;
+}
+/*End Report Prestasi.php*/
+
+/*Footer*/
+footer{
+	font-size: 10px;
+	font-family: "Arial";
+	margin-top: 40px;
+}
+/*End Footer*/
+
+div.circle-avatar{
+	/* make it responsive */
+	max-width: 100%;
+	width:40%;
+	height:auto;
+	display:block;
+	/* div height to be the same as width*/
+	padding-top:40%;
+
+	/* make it a circle */
+	border-radius:50%;
+
+	/* Centering on image`s center*/
+	background-position-y: center;
+	background-position-x: center;
+	background-repeat: no-repeat;
+
+	/* it makes the clue thing, takes smaller dimension to fill div */
+	background-size: cover;
+
+	/* it is optional, for making this div centered in parent*/
+	margin: 0 auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}

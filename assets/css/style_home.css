@@ -1,0 +1,146 @@
+.float-right{
+    float: right;
+}
+
+.float-left{
+    float:left;
+}
+
+.clear{
+    both:clear;
+}
+
+/* Navbar */
+.ini-navbar nav{
+    background-color:#009e0f;
+}
+.navbar-header img{
+    width:145px;
+    position: relative;
+    top:-12px;
+    background-color:#ffffff;
+}
+
+.ini-navbar nav .navbar-nav a{
+    color:#ffffff;
+}
+
+.ini-navbar nav .navbar-nav a:hover{
+    background-color:#ababab;
+}
+
+.ini-navbar nav .navbar-nav .dropdown a:hover{
+    background-color:#ababab;
+}
+
+.ini-navbar nav .navbar-nav .dropdown-menu a{
+    color:#000000;
+} 
+
+.ini-navbar nav .navbar-nav .dropdown-menu a:hover{
+    background-color:#ababab;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a{
+    color:#000000;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a:hover{
+    background-color:#ababab;
+}
+
+.navbar-nav .open .dropdown-menu {
+    background-color: #ffff;
+}
+/* End Navbar */
+
+/* Carousel */
+.carousel {
+    margin-top:80px;
+}
+
+.carousel .carousel-inner .item img{
+    width:1200px;
+    height:500px;
+}
+/* End Carousel */
+
+/* Content */
+.ini-margin{
+    margin-top:30px;
+}
+
+.ini-margin .content-judul h2{
+    border-bottom: 2px solid #009e0f;
+    margin-left:16px;
+    margin-right: 16px;
+    font-size:20px
+}
+
+.ini-margin .panel-primary .panel-body img{
+    width:400px;
+    height:165px;
+    margin-top:10px;
+}
+
+.ini-margin .panel-primary .panel-body .ini-img img{
+    width:1200px;
+    height:500px;
+    margin-top:10px;
+}
+
+.ini-margin .panel-primary .panel-heading a{
+    text-decoration: none;
+    font-size:17px;
+}
+
+.ini-margin .panel-primary .panel-heading{
+    text-align: center;
+}
+
+.ini-margin .panel-primary .panel-body .float-left b{
+    font-size:10px;
+    color: #2b78e4;
+}
+
+.ini-margin .panel-primary .panel-body .col-md-offset-5 b{
+    font-size:10px;
+    color: #2b78e4;
+}
+
+.ini-margin .panel-primary .panel-body .col-md-offset-9 b{
+    font-size:10px;
+    color: #2b78e4;
+    margin-left:70px;
+}
+
+.ini-margin .panel-primary .panel-body p{
+    margin-top:10px;
+    font-size:12px;
+    line-height: 1.5;
+}
+
+.ini-margin .panel-primary .panel-body .ini-news p{
+    margin-top:10px;
+    font-size:14px;
+    line-height: 1.5;
+}
+
+.pagination{
+    margin:unset;
+}
+
+.pagination a{
+    text-decoration: none;
+    text-align: center;
+}
+/* End Content */
+
+/* Footer */
+.footer{
+    margin-top:10px;
+    text-align: center;
+    padding:50px 0px 50px 0px;
+    background-color: #eeeeee;
+}
+/* End Footer */

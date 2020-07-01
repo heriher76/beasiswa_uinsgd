@@ -1,0 +1,48 @@
+public function aksilogin()
+{
+	if(!$this->session->userdata('nim')){
+		$nim = $this->input->post('username');
+		$password = $this->input->post('password');
+		if(!$nim == NULL && !$password == NULL){
+			$arrContextOptions=array(
+				"ssl"=>array(
+					"verify_peer"=>false,
+					"verify_peer_name"=>false,
+				)
+			);
+
+			$login = file_get_contents("https://simak.uinsgd.ac.id/portal/serviceres/services/service.php?username=".$nim."&password=".$password."&api=1234", false, stream_context_create($arrContextOptions));
+
+			if ($login == "<?xml version='1.0'?><data><response>TRUE</response></data>") {
+				$session = array(
+					'nim'=>$nim
+				);
+				$this->session->set_userdata($session);
+				$data = $this->session->userdata('nim');
+				$datauser = $this->Datas->checkNIM($data);
+				foreach($datauser as $datas){
+				    $session = array(
+					'status_lulus'=> $datas->status_lulus
+					
+				);
+				$this->session->set_userdata($session);
+				}
+
+					redirect('bea');
+				}
+				else{
+				    $this->login();
+				}
+			}
+			else{
+				echo $this->session->flashdata('salah');
+				$this->login();
+			}
+		}
+		elseif($nim == NULL || $password == NULL){
+			redirect('bea/login');
+		}
+		else{
+			redirect('bea/login');
+		}
+	}
