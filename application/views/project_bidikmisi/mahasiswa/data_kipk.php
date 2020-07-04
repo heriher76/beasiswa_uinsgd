@@ -114,7 +114,7 @@
 											<form action="<?=base_url('C_mhs/direct8'); ?>" method="POST">
 											    	<div class="form-group">
 													<label>Jenis KIP-K <i class="asterik">*</i></label>
-													<select class="form-control input" required="required" name="kemampuan_btq">
+													<select class="form-control input" required="required" name="jenis_kipk">
 														<?php if($value->jenis_kipk == null || $value->jenis_kipk == '0') { ?>
 															<option value="">-Pilih SalahSatu-</option>
 															<option value="kip">Kartu Indonesia Pintar(KIP)</option>
