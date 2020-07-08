@@ -14,11 +14,11 @@ class C_login extends CI_Controller {
 			'script_captcha' => $this->recaptcha->getScriptTag(),
 			'timer' => $this->M_mhs->timer()
 		);
-		$this->load->view('project_bidikmisi/login/cpanel', $data);
+		$this->load->view('project_Beasiswa KIP-K/login/cpanel', $data);
 	}
 
 	public function cpanel(){
-		$this->load->view('project_bidikmisi/login/cpanel_utama');
+		$this->load->view('project_Beasiswa KIP-K/login/cpanel_utama');
 	}
 
 	public function login(){
@@ -43,11 +43,11 @@ class C_login extends CI_Controller {
         $jadwal_tutup = $this->session->userdata('tutup_sistem');
 
 	    if($tgl_sekarang < $jadwal_buka){
-        	$this->session->set_flashdata('belum_buka','<script>alert("Portal Bidikmisi Uin Bandung Belum Buka"); </script>');
+        	$this->session->set_flashdata('belum_buka','<script>alert("Portal Beasiswa KIP-K Uin Bandung Belum Buka"); </script>');
         	echo $this->session->flashdata('belum_buka');
         	$this->index();
         }else if($tgl_sekarang > $jadwal_tutup){
-			$this->session->set_flashdata('tutup','<script>alert("Portal Bidikmisi Uin Bandung Sudah Tutup"); </script>');
+			$this->session->set_flashdata('tutup','<script>alert("Portal Beasiswa KIP-K Uin Bandung Sudah Tutup"); </script>');
         	echo $this->session->flashdata('tutup');
         	$this->index();
 		}else if($tgl_sekarang >= $jadwal_buka && $tgl_sekarang <= $jadwal_tutup){
@@ -66,7 +66,7 @@ class C_login extends CI_Controller {
     		))->row();
 
     		$this->session->set_flashdata('msg','<script>alert("Login Gagal, Silahkan input ulang No Pendaftaran atau Nim, Password, dan Recaptcha"); </script>');
-    		$this->session->set_flashdata('gagal', '<script>alert("Anda Tidak Diizinkan Masuk Sistem BidikMisi"); </script>;');
+    		$this->session->set_flashdata('gagal', '<script>alert("Anda Tidak Diizinkan Masuk Sistem Beasiswa KIP-K"); </script>;');
     		$this->session->set_flashdata('gagal2', '<script>alert("Login Tidak Valid"); </script>');
 
             if($login == "<?xml version='1.0'?><data><response>TRUE</response></data>" && ($response['success'] == TRUE)) {
