@@ -14,11 +14,11 @@ class C_login extends CI_Controller {
 			'script_captcha' => $this->recaptcha->getScriptTag(),
 			'timer' => $this->M_mhs->timer()
 		);
-		$this->load->view('project_Beasiswa KIP-K/login/cpanel', $data);
+		$this->load->view('project_bidikmisi/login/cpanel', $data);
 	}
 
 	public function cpanel(){
-		$this->load->view('project_Beasiswa KIP-K/login/cpanel_utama');
+		$this->load->view('project_bidikmisi/login/cpanel_utama');
 	}
 
 	public function login(){

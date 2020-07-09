@@ -26,7 +26,7 @@
 							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							  <strong>Perhatian!</strong>
 							  <div class="penting">
-		    							<p>Tanda Asterik (*) Wajib diisi</p>
+		    							<p>Jika belum mempunyai kartu KIP, boleh lewati dan ke tahap selanjutnya</p>
 		    						</div>
 
 		    						<p>Silahkan klik tabs <b>Edit Data KIP-K</b> dibawah, jika ada kesalahan/data anda belum diisi</p>
@@ -98,13 +98,13 @@
 													<td>Jenis KIP-K</td>
 													<td>:</td>
 													<td><?php echo $value->jenis_kipk; ?></td>
-													<td><i class="asterik">*</i></td>
+													<td><i class="asterik"></i></td>
 												</tr>
 												<tr>
 													<td>Nomor KIP-K</td>
 													<td>:</td>
 													<td><?php echo $value->nomor_kipk; ?></td>
-													<td><i class="asterik">*</i></td>
+													<td><i class="asterik"></i></td>
 												</tr>
 											</table>
 											<!--End KIP-K-->
@@ -113,8 +113,8 @@
 										<div class="tab-pane" id="edit">
 											<form action="<?=base_url('C_mhs/direct8'); ?>" method="POST">
 											    	<div class="form-group">
-													<label>Jenis KIP-K <i class="asterik">*</i></label>
-													<select class="form-control input" required="required" name="jenis_kipk">
+													<label>Jenis KIP-K <i class="asterik"></i></label>
+													<select class="form-control input" name="jenis_kipk">
 														<?php if($value->jenis_kipk == null || $value->jenis_kipk == '0') { ?>
 															<option value="">-Pilih SalahSatu-</option>
 															<option value="kip">Kartu Indonesia Pintar(KIP)</option>
@@ -131,8 +131,8 @@
 												</div>
 
 												<div class="form-group">
-													<label>Nomor KIP-K <b class="asterik">*</b></label>
-													<input class="form-control input" type="text" placeholder="Nomor KIP-K" name="nomor_kipk" required="required" value="<?php echo $value->nomor_kipk; ?>">
+													<label>Nomor KIP-K <b class="asterik"></b></label>
+													<input class="form-control input" type="text" placeholder="Nomor KIP-K" name="nomor_kipk" value="<?php echo $value->nomor_kipk; ?>">
 												</div>
 
 												<div class="text-center">

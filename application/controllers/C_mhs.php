@@ -1208,20 +1208,16 @@ class C_mhs extends CI_Controller{
 			redirect('C_mhs/biodata');
 		}else if($sekarang >= $buka && $sekarang <= $tutup){
 			$no_pendaftaran 	= $this->session->userdata('no_pendaftaran');
-			$kem_bhs_arab 		= $this->input->post('kemampuan_bahasa_arab');
-			$kem_bhs_inggris 	= $this->input->post('kemampuan_bahasa_inggris');
-			$kem_komputer 		= $this->input->post('kemampuan_komputer');
-			$kem_btq 	    	= $this->input->post('kemampuan_btq');
+			$jenis_kipk 		= $this->input->post('jenis_kipk');
+			$nomor_kipk 	= $this->input->post('nomor_kipk');
 
-			$data = ['kem_bhs_arab' 	=> $kem_bhs_arab,
-					  'kem_bhs_inggris' => $kem_bhs_inggris,
-					  'kem_komputer' 	=> $kem_komputer,
-					  'kem_btq' 	=> $kem_btq
+			$data = ['jenis_kipk' 	=> $jenis_kipk,
+					  'nomor_kipk' => $nomor_kipk
 			];
 			$this->M_mhs->edit_data($no_pendaftaran, $data);
-			$this->session->set_flashdata('direct7_success',
+			$this->session->set_flashdata('direct8_success',
 				'<div class="alert alert-success">
-					<p>Data Keterampilan Anda sudah Tersimpan, Silahkan Lanjut Ke tahap Selanjutnya</p>
+					<p>Data KIPK Anda sudah Tersimpan, Silahkan Lanjut Ke tahap Selanjutnya</p>
 				</div>');
 
 			$this->step8();

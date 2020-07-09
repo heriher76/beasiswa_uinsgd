@@ -95,7 +95,8 @@
 										<?php foreach($data_diri as $value) { ?>
 										<table class="table">
 											<tr>
-												<td>Kartu Peserta Jalur <?php echo $value->jalur_pendaftaran.' '.date('Y'); ?></td>
+												<!-- <td>Kartu Peserta Jalur echo $value->jalur_pendaftaran.' '.date('Y'); </td> -->
+												<td>Kartu Tes Pendaftaran UIN Sunan Gunung Djati Bandung (SNMPTN, SPAN-PTKIN, SBMPTN, UM-PTKIN, & Mandiri)</td>
 												<td>:</td>
 												<td><?php echo $value->kartu_tes; ?></td>
 												<td><i class="asterik">*</i></td>
@@ -186,7 +187,7 @@
 										<form action="<?=base_url('C_mhs/direct10'); ?>" method="POST">
 											<?php foreach($data_diri as $value) { ?>
 											<div class="form-group">
-												<label class="input">Kartu Tes Pendaftaran Jalur <?php echo $value->jalur_pendaftaran; ?> <i class="asterik">*</i></label>
+												<label class="input"><!-- Kartu Tes Pendaftaran Jalur echo $value->jalur_pendaftaran; --> Kartu Tes Pendaftaran UIN Sunan Gunung Djati Bandung (SNMPTN, SPAN-PTKIN, SBMPTN, UM-PTKIN, & Mandiri) <i class="asterik">*</i></label>
 												<select class="form-control input" required="required" name="kartu_tes">
 													<?php if($value->kartu_tes == null) {?>
 														<option value="">-Pilih SalahSatu-</option>

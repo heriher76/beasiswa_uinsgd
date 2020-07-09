@@ -45,6 +45,7 @@
 					  <div class="penting">
 								<p>Maksimal Ukuran Foto 1 MB</p>
 								<p>Format Foto : JPG, JPEG, dan PNG</p>
+								<p>Tanda Asterik (*) Wajib diisi</p>
 							</div>
 
 							<p>Jika ingin ganti fotonya, silahkan klik tabs <b>Edit Dokumen Pendukung</b> dan ceklis terlebih dahulu kotak sebelah kiri disamping kata <b>Ceklis</b>. setelah itu kemudian pilih file yang ingin di upload dan jangan lupa klik tombol simpan.</p>
@@ -129,7 +130,7 @@
 											<td>Foto KIP-K</td>
 											<td>:</td>
 											<td></td>
-											<td><i class="asterik">*</i></td>
+											<td><i class="asterik"></i></td>
 										</tr>
 										<?php } ?>
 
