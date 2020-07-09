@@ -5,8 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // link: http://www.google.com/recaptcha/admin
 
 //for production
-$config['recaptcha_site_key'] = '6LfvLWQUAAAAAGvvUiiulVM4-53ySPL8CA3Fmzlu';
-$config['recaptcha_secret_key'] = '6LfvLWQUAAAAACR9StkDDbvecouruct7plFlWw2Y';
+$config['recaptcha_site_key'] = '6Lf8jq8ZAAAAAAojb1T4syj0MakiMRm0_LEnIdUj';
+$config['recaptcha_secret_key'] = '6Lf8jq8ZAAAAABahf3Z0KMthtf73RHCA2Gt9ea3y';
 
 //for localhost
 // $config['recaptcha_site_key'] = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
