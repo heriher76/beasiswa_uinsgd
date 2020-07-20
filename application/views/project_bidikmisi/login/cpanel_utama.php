@@ -5,13 +5,6 @@
 	<body style="background-image: url(<?=base_url('assets/img/bg3.jpg'); ?>);background-size: cover;background-repeat: no-repeat;background-position: 0 0;background-attachment: fixed;">
 		<div class="user-login">
 			<div class="row">
-				<!--Bg-->
-				<div class="col-md-6">
-					<a href="#" id="adLink1">
-						<img class="img-responsive" id="adBanner1" src="<?=base_url('assets/img/bg-uin.jpg'); ?>" style="min-height: 100vh; min-width: 102vw;">
-					</a>
-				</div>
-				<!--End Bg-->
 
 				<!--Form Login-->
 				<div class="col-md-12 col-xd-12 col-sm-12">
