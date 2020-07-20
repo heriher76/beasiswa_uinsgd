@@ -19,9 +19,9 @@
 
 						<div class="panel-body">
 							<div class="alert alert-info">
-								<p><b>*)</b> Halaman Login Bidikmisi Administrator/Executive Bidikmisi UIN SGD Bandung</p>
-								<p><b>*)</b> Gunakan akun username dan password yang telah dibuat oleh aplikasi bidikmisi UIN SGD Bandung</p>
-								<p><b>*)</b> Jangan Lupa Untuk Mensetting LEVEL Masuk Sebagai Administrator/Executive</p>
+								<p><b>*)</b> Halaman Login Administrator/Executive KIP-K UIN SGD Bandung</p>
+								<p><b>*)</b> Gunakan akun username dan password yang telah dibuat oleh aplikasi KIP-K UIN SGD Bandung</p>
+								<p><b>*)</b> Jangan Lupa Untuk Pilih LEVEL Masuk Sebagai Administrator/Executive</p>
 							</div>
 
 							<form autocomplete="off" accept-charset="UTF-8" role="form" action="<?=base_url('Login/login'); ?>" method="POST" enctype="multipart/form-data">
