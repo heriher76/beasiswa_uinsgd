@@ -199,6 +199,29 @@
 											<td><?php echo $value->kode_pos; ?></td>
 											<td><b class="asterik">*</b></td>
 										</tr>
+
+										<tr>
+											<td>IPK *min 3.00</td>
+											<td>:</td>
+											<td> </td>
+											<td><b class="asterik">*</b></td>
+										</tr>
+
+										<tr>
+											<td>Rencana Studi</td>
+											<td>:</td>
+											<td> </td>
+											<td><b class="asterik">*</b></td>
+										</tr>
+
+										<?php if(true){ ?>
+										<tr>
+											<td>Nilai rata-rata Raport</td>
+											<td>:</td>
+											<td> </td>
+											<td><b class="asterik">*</b></td>
+										</tr>
+										<?php } ?>
 									</table>
 									<!--End Identitas Diri-->
 								</div>
@@ -332,6 +355,11 @@
 										<div class="form-group">
 											<label>Kode Pos Alamat Anda <b class="asterik">*</b></label>
 											<input class="form-control input" type="text" placeholder="Kode Pos Alamat Anda" name="kode_pos" required="required" value="<?php echo $value->kode_pos; ?>">
+										</div>
+
+										<div class="form-group">
+											<label>Nilai rata-rata raport <b class="asterik">*</b></label>
+											<input class="form-control input" type="text" placeholder="Nilai rata-rata raport" name="nilai_rata_rata_raport" required="required" value="<?php echo 'belum diganti nih'; ?>">
 										</div>
 
 										<div class="text-center">

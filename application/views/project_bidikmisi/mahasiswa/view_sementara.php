@@ -1297,7 +1297,7 @@
                     <p>Jika saudara <b><?php echo $value->nama_mahasiswa; ?></b> sudah <b>yakin</b> dengan data yang telah dimasukan, silahkan klik tombol <b>Ya</b>
 
                     </div>
-					<form role="form" method="POST" action="<?=base_url('C_mhs/step11'); ?>">
+					<form role="form" method="POST" action="<?=base_url('C_mhs/step12'); ?>">
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-primary">Ya</button>
 							<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>

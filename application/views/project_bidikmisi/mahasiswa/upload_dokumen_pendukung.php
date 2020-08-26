@@ -32,6 +32,16 @@
 			<?php echo $this->session->flashdata('update8_foto_pbb_success'); ?>
 			<?php echo $this->session->flashdata('update8_foto_rek_listrik_error'); ?>
 			<?php echo $this->session->flashdata('update8_foto_rek_listrik_success'); ?>
+			<?php echo $this->session->flashdata('update8_surat_keterangan_error'); ?>
+			<?php echo $this->session->flashdata('update8_surat_keterangan_success'); ?>
+			<?php echo $this->session->flashdata('update8_surat_pernyataan_kebenaran_data_error'); ?>
+			<?php echo $this->session->flashdata('update8_surat_pernyataan_kebenaran_data_success'); ?>
+			<?php echo $this->session->flashdata('update8_surat_pernyataan_kipk_error'); ?>
+			<?php echo $this->session->flashdata('update8_surat_pernyataan_kipk_success'); ?>
+			<?php echo $this->session->flashdata('update8_fakta_integritas_error'); ?>
+			<?php echo $this->session->flashdata('update8_fakta_integritas_success'); ?>
+			<?php echo $this->session->flashdata('update8_scan_raport_error'); ?>
+			<?php echo $this->session->flashdata('update8_scan_raport_success'); ?>
 		</div>
 
 		<div class="container col-md-8">
@@ -46,6 +56,11 @@
 								<p>Maksimal Ukuran Foto 1 MB</p>
 								<p>Format Foto : JPG, JPEG, dan PNG</p>
 								<p>Tanda Asterik (*) Wajib diisi</p>
+								<p>1. Download Template Surat Keterangan Pemilik Rumah <a href="<?=base_url('assets/document/pendukung/Surat Keterangan Kepemilikan Rumah.docx'); ?>" target="_blank">Disini</a></p>
+								<p>2. Download Template Surat Fakta Integritas <a href="<?=base_url('assets/document/pendukung/PAKTA INTEGRITAS PENERIMA KIP KULIAH.docx'); ?>" target="_blank">Disini</a></p>
+								<p>3. Download Template Surat Pernyataan Kebenaran Data <a href="<?=base_url('assets/document/pendukung/Surat Keterangan Kepemilikan Rumah.docx'); ?>" target="_blank">Disini</a></p>
+								<p>4. Download Template Surat Pernyataan KIPK <a href="<?=base_url('assets/document/pendukung/SURAT PERNYATAAN KIP-K.docx'); ?>" target="_blank">Disini</a></p>
+								<p>Upload Surat Keterangan Pemilik Rumah, Surat Pernyataan KIPK, Surat Pernyataan Kebenaran Data dan Fakta Integritas (format PDF).</p>
 							</div>
 
 							<p>Jika ingin ganti fotonya, silahkan klik tabs <b>Edit Dokumen Pendukung</b> dan ceklis terlebih dahulu kotak sebelah kiri disamping kata <b>Ceklis</b>. setelah itu kemudian pilih file yang ingin di upload dan jangan lupa klik tombol simpan.</p>
@@ -120,6 +135,10 @@
 										$sess_foto_rumah_dalam 		= $this->session->userdata('foto_rumah_dalam');
 										$sess_foto_pbb 				= $this->session->userdata('foto_pbb');
 										$sess_foto_rek_listrik 		= $this->session->userdata('foto_rek_listrik');
+										$sess_surat_keterangan 		= $this->session->userdata('surat_keterangan');
+										$sess_surat_pernyataan 		= $this->session->userdata('surat_pernyataan');
+										$sess_fakta_integritas 		= $this->session->userdata('fakta_integritas');
+										$sess_scan_raport 		= $this->session->userdata('scan_raport');
 
 										foreach($data_diri as $value) {
 									?>
@@ -303,6 +322,106 @@
 										</tr>
 										<?php } ?>
 										<!--end Foto rekening listrik-->
+
+										<!--Upload Surat Keterangan-->
+										<?php if($sess_surat_keterangan == null) { ?>
+										<tr>
+											<td>Upload Surat Keterangan Pemilik Rumah (PDF)</td>
+											<td>:</td>
+											<td></td>
+											<td><i class="asterik">*</i></td>
+										</tr>
+										<?php } ?>
+
+										<?php if($sess_surat_keterangan != null) { ?>
+										<tr>
+											<td>Upload Surat Keterangan Pemilik Rumah (PDF)</td>
+											<td>:</td>
+											<td><img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_rek_listrik; ?>"></td>
+												<td><i class="asterik">*</i></td>
+										</tr>
+										<?php } ?>
+										<!--end Upload Surat Keterangan-->
+
+										<!--Upload Surat Pertanyaan-->
+										<?php if($sess_surat_pernyataan == null) { ?>
+										<tr>
+											<td>Upload Surat Pernyataan Kebenaran Data (PDF)</td>
+											<td>:</td>
+											<td></td>
+											<td><i class="asterik">*</i></td>
+										</tr>
+										<?php } ?>
+
+										<?php if($sess_surat_pernyataan != null) { ?>
+										<tr>
+											<td>Upload Surat Pernyataan Kebenaran Data (PDF)</td>
+											<td>:</td>
+											<td><img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_rek_listrik; ?>"></td>
+												<td><i class="asterik">*</i></td>
+										</tr>
+										<?php } ?>
+										<!--end Upload Surat Pertanyaan-->
+
+										<!--Upload Surat Pertanyaan-->
+										<?php if($sess_surat_pernyataan == null) { ?>
+										<tr>
+											<td>Upload Surat Pernyataan KIP-K (PDF)</td>
+											<td>:</td>
+											<td></td>
+											<td><i class="asterik">*</i></td>
+										</tr>
+										<?php } ?>
+
+										<?php if($sess_surat_pernyataan != null) { ?>
+										<tr>
+											<td>Upload Surat Pernyataan KIP-K (PDF)</td>
+											<td>:</td>
+											<td><img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_rek_listrik; ?>"></td>
+												<td><i class="asterik">*</i></td>
+										</tr>
+										<?php } ?>
+										<!--end Upload Surat Pertanyaan-->
+
+										<!--Upload Fakta Integritas-->
+										<?php if($sess_fakta_integritas == null) { ?>
+										<tr>
+											<td>Upload Fakta Integritas (PDF)</td>
+											<td>:</td>
+											<td></td>
+											<td><i class="asterik">*</i></td>
+										</tr>
+										<?php } ?>
+
+										<?php if($sess_fakta_integritas != null) { ?>
+										<tr>
+											<td>Upload Fakta Integritas (PDF)</td>
+											<td>:</td>
+											<td><img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_rek_listrik; ?>"></td>
+												<td><i class="asterik">*</i></td>
+										</tr>
+										<?php } ?>
+										<!--end Upload Fakta Integritas-->
+
+										<!--Upload Scan Raport-->
+										<?php if($sess_scan_raport == null && $value->tahun == date('Y')) { ?>
+										<tr>
+											<td>Upload Scan Raport (PDF)</td>
+											<td>:</td>
+											<td></td>
+											<td><i class="asterik">*</i></td>
+										</tr>
+										<?php } ?>
+
+										<?php if($sess_scan_raport != null && $value->tahun == date('Y')) { ?>
+										<tr>
+											<td>Upload Scan Raport (PDF)</td>
+											<td>:</td>
+											<td><img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_rek_listrik; ?>"></td>
+												<td><i class="asterik">*</i></td>
+										</tr>
+										<?php } ?>
+										<!--end Upload Scan Raport-->
 										<?php } ?>
 									</table>
 									<!--End Upload Dokumen Pendukung-->
@@ -339,6 +458,28 @@
 												<input type="checkbox" name="ubah_foto_rumah_kiri" value="4">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto Rumah Bagian Kiri
 												<input type="file" class="form-control" name="foto_rumah_kiri">
 											</div>
+
+											<div class="form-group">
+												<label>Surat Keterangan Pemilik Rumah (PDF)</label>
+												<br/>
+												<input type="checkbox" name="ubah_surat_keterangan_pemilik_rumah" value="10">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Surat Keterangan Pemilik Rumah
+												<input type="file" class="form-control" name="surat_keterangan_pemilik_rumah">
+											</div>
+
+											<div class="form-group">
+												<label>Surat Pernyataan Kebenaran Data (PDF)</label>
+												<br/>
+												<input type="checkbox" name="ubah_surat_pernyataan_kebenaran_data" value="11">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Surat Pernyataan Kebenaran Data
+												<input type="file" class="form-control" name="surat_pernyataan_kebenaran_data">
+											</div>
+
+											<div class="form-group">
+												<label>Fakta Integritas (PDF)</label>
+												<br/>
+												<input type="checkbox" name="ubah_fakta_integritas" value="12">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Fakta Integritas
+												<input type="file" class="form-control" name="fakta_integritas">
+											</div>
+
 										</div>
 
 										<div class="col-md-6">
@@ -376,9 +517,28 @@
 												<input type="checkbox" name="ubah_foto_kipk" value="9">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto KIP-K
 												<input type="file" class="form-control" name="foto_kipk">
 											</div>
+
+											<?php foreach ($data_diri as $item) { if($item->tahun == date('Y')) { ?>
+											<div class="form-group">
+												<label>Upload Scan Raport</label>
+												<br/>
+												<input type="checkbox" name="ubah_scan_raport" value="13">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah File Scan Raport
+												<input type="file" class="form-control" name="scan_raport">
+											</div>
+											<?php } } ?>
+
+
+											<div class="form-group">
+												<label>Surat Pernyataan KIP-K (PDF)</label>
+												<br/>
+												<input type="checkbox" name="ubah_surat_pernyataan_kipk" value="14">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Surat Pernyataan KIP-K
+												<input type="file" class="form-control" name="surat_pernyataan_kipk">
+											</div>
+
 										</div>
 
-										<div class="text-center">
+										<div class="col-md-12 text-center">
+											<br>
 											<button type="submit" class="btn btn-success">
 											<span class="glyphicon glyphicon-ok"></span>
 												Simpan

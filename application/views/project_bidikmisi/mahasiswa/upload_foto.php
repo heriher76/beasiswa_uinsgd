@@ -33,9 +33,10 @@
 						<p>Maksimal Ukuran Foto 100 Kb</p>
 						<p>Format Foto : JPG, JPEG, dan PNG</p>
 						<p>Foto Harus Resmi</p>
+						<p>Upload Foto Pribadi terbaru menggunakan almamater dengan background merah</p>
 					  </div>
 
-					  <p>Jika ingin ganti fotonya, silahkan klik tombol telusuri/browse</p>
+					  <p>Jika ingin ganti fotonya, silahkan klik tombol pilih file/browse</p>
 					  <p>Jika sudah Upload Silahkan klik Tombol Lanjut</p>
 					</div>
 

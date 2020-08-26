@@ -94,6 +94,7 @@
 									<div class="tab-pane active" id="data">
 										<?php foreach($data_diri as $value) { ?>
 										<table class="table">
+											<?php if($value->tahun == date('Y')) { ?>
 											<tr>
 												<!-- <td>Kartu Peserta Jalur echo $value->jalur_pendaftaran.' '.date('Y'); </td> -->
 												<td>Kartu Tes Pendaftaran UIN Sunan Gunung Djati Bandung (SNMPTN, SPAN-PTKIN, SBMPTN, UM-PTKIN, & Mandiri)</td>
@@ -101,14 +102,16 @@
 												<td><?php echo $value->kartu_tes; ?></td>
 												<td><i class="asterik">*</i></td>
 											</tr>
+											<?php } ?>
 
 											<tr>
-												<td>Formulir Pedaftaran Bidik Misi yang telah diisi</td>
+												<td>Formulir Pendaftaran Beasiswa KIP-K yang telah diisi</td>
 												<td>:</td>
 												<td><?php echo $value->formulir_pendaftaran; ?></td>
 												<td><i class="asterik">*</i></td>
 											</tr>
 
+											<?php if($value->tahun == date('Y')) { ?>
 											<tr>
 												<td>Surat Keterangan Lulus dari Kepala Sekolah</td>
 												<td>:</td>
@@ -144,6 +147,7 @@
 												<td><?php echo $value->surat_ket_prestasi; ?></td>
 												<td><i class="asterik">*</i></td>
 											</tr>
+											<?php } ?>
 
 											<tr>
 												<td>Surat Keterangan Penghasilan Ortu/Wali atau Surat Keterangan Tidak Mampu yang dikeluarkan Kepala Desa/Dusun/Instansi/Tokoh Masyarakat</td>
@@ -186,6 +190,7 @@
 									<div class="tab-pane" id="edit">
 										<form action="<?=base_url('C_mhs/direct10'); ?>" method="POST">
 											<?php foreach($data_diri as $value) { ?>
+											<?php if($value->tahun == date('Y')) { ?>
 											<div class="form-group">
 												<label class="input"><!-- Kartu Tes Pendaftaran Jalur echo $value->jalur_pendaftaran; --> Kartu Tes Pendaftaran UIN Sunan Gunung Djati Bandung (SNMPTN, SPAN-PTKIN, SBMPTN, UM-PTKIN, & Mandiri) <i class="asterik">*</i></label>
 												<select class="form-control input" required="required" name="kartu_tes">
@@ -201,7 +206,7 @@
 													<?php } ?>
 												</select>
 											</div>
-
+											<?php }  ?>
 											<div class="form-group">
 												<label class="input">Formulir Pendaftaran Bidik Misi yang telah diisi <i class="asterik">*</i></label>
 												<select class="form-control input" required="required" name="formulir_pendaftaran">
@@ -217,7 +222,7 @@
 													<?php } ?>
 												</select>
 											</div>
-
+											<?php if($value->tahun == date('Y')) { ?>
 											<div class="form-group">
 												<label class="input">Surat Keterangan Lulus dari Kepala Sekolah <i class="asterik">*</i></label>
 												<select class="form-control input" required="required" name="skl_dari_kepsek">
@@ -298,7 +303,7 @@
 													<?php } ?>
 												</select>
 											</div>
-
+											<?php } ?>
 											<div class="form-group">
 												<label class="input">Surat Keterangan Penghasilan Ortu/Wali atau Surat Keterangan Tidak Mampu yang dikeluarkan Kepala Desa/Dusun/Instansi/Tokoh Masyarakat <i class="asterik">*</i></label>
 												<select class="form-control input" required="required" name="keterangan_penghasilan_ortu_wali">

@@ -472,7 +472,8 @@ class C_mhs extends CI_Controller{
 
 			$this->session->set_flashdata('direct10_success', '
 							<div class="alert alert-success">
-								<p>Verifikasi Berhasil, Silahkan Tunggu Pengumuman Lulus/Tidak Lulus BidikMisi Anda</p>
+								<p>Verifikasi Berhasil, Silahkan Tunggu Pengumuman Lulus/Tidak Lulus</p>
+								<h4>Seluruh berkas persyaratan HVS ukuran F4 (Folio) dan dimasukkan dalam amplop berwarna sesuai fakultas masing-masing, pada pojok kanan atas ditulis Program KIP Kuliah Angkatan Tahun 2019, NAMA, NIM, Jurusan, dan Fakultas dikirimkan ke Bagian Kemahasiswaan dan Alumni Gedung O. Djauharudin lantai 4 UIN Sunan Gunung Djati Bandung Jl. A.H. Nasution No. 105 Cibiru Bandung.</h4>
 							</div>');
 			redirect('C_mhs/biodata');
 		}else if($buka < $sekarang){
@@ -1255,6 +1256,11 @@ class C_mhs extends CI_Controller{
 			$sess_foto_rumah_dalam 	= $this->session->userdata('foto_rumah_dalam');
 			$sess_foto_pbb 			= $this->session->userdata('foto_pbb');
 			$sess_foto_rek_listrik 	= $this->session->userdata('foto_rek_listrik');
+			$sess_surat_keterangan 	= $this->session->userdata('surat_keterangan_pemilik_rumah');
+			$sess_surat_pernyataan_kebenaran_data 	= $this->session->userdata('surat_pernyataan_kebenaran_data');
+			$sess_surat_pernyataan_kipk 	= $this->session->userdata('surat_pernyataan_kipk');
+			$sess_fakta_integritas 	= $this->session->userdata('fakta_integritas');
+			$sess_scan_raport 	= $this->session->userdata('scan_raport');
 
 			$foto = $this->M_mhs->getFoto($no_pendaftaran);
 
@@ -1266,7 +1272,12 @@ class C_mhs extends CI_Controller{
 			$ubah_foto_rumah_kanan 	= $this->input->post('ubah_foto_rumah_kanan');
 			$ubah_foto_rumah_dalam 	= $this->input->post('ubah_foto_rumah_dalam');
 			$ubah_foto_pbb 			= $this->input->post('ubah_foto_pbb');
-			$ubah_foto_rek		 	= $this->input->post('ubah_foto_rek');
+			$ubah_foto_rek_listrik		 	= $this->input->post('ubah_foto_rek_listrik');
+			$ubah_surat_keterangan		 	= $this->input->post('ubah_surat_keterangan');
+			$ubah_surat_pernyataan_kebenaran_data		 	= $this->input->post('ubah_surat_pernyataan_kebenaran_data');
+			$ubah_surat_pernyataan_kipk		 	= $this->input->post('ubah_surat_pernyataan_kipk');
+			$ubah_fakta_integritas		 	= $this->input->post('ubah_fakta_integritas');
+			$ubah_scan_raport		 	= $this->input->post('ubah_scan_raport');
 
 			$config['upload_path'] 		= './assets/foto_dokumen/';
 			$config['allowed_types'] 	= 'png|jpg|jpeg|JPEG|PNG|JPG';
@@ -1721,6 +1732,128 @@ class C_mhs extends CI_Controller{
 				}
 			}
 			//end update upload foto pbb, kipk dan rekening listrik
+
+			//update dokumen yang baru
+			if($sess_surat_keterangan != null){
+				switch($ubah_surat_keterangan == 10){
+					case 10 :
+					{
+						if(!$this->upload->do_upload('surat_keterangan')){
+						$this->session->set_flashdata('update8_surat_keterangan_error',
+							'<div class="alert alert-warning">
+								<p>Upload Surat Keterangan Pemilik Rumah Gagal, Silahkan Cek Kembali Ukuran dan Format File PDF Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							unlink('assets/dokumen_pdf/'.$foto->upload_surat_keterangan);
+
+							$data = ['upload_surat_keterangan' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('update8_surat_keterangan_success', '
+								<div class="alert alert-success">
+									<p>Data Surat Keterangan Pemilik Rumah Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+
+			if($sess_surat_pernyataan_kebenaran_data != null){
+				switch($ubah_surat_pernyataan_kebenaran_data == 11){
+					case 11 :
+					{
+						if(!$this->upload->do_upload('surat_pernyataan_kebenaran_data')){
+						$this->session->set_flashdata('update8_surat_pernyataan_kebenaran_data_error',
+							'<div class="alert alert-warning">
+								<p>Upload Surat Pernyataan Kebenaran Data Gagal, Silahkan Cek Kembali Ukuran dan Format File PDF Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							unlink('assets/dokumen_pdf/'.$foto->upload_surat_pernyataan_kebenaran_data);
+
+							$data = ['upload_surat_pernyataan_kebenaran_data' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('update8_surat_pernyataan_kebenaran_data_success', '
+								<div class="alert alert-success">
+									<p>Data Surat Pernyataan Kebenaran Data Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+
+			if($sess_fakta_integritas != null){
+				switch($ubah_fakta_integritas == 12){
+					case 12 :
+					{
+						if(!$this->upload->do_upload('fakta_integritas')){
+						$this->session->set_flashdata('update8_fakta_integritas_error',
+							'<div class="alert alert-warning">
+								<p>Upload Fakta Integritas Error, Silahkan Cek Kembali Ukuran dan Format File PDF Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							unlink('assets/dokumen_pdf/'.$foto->upload_fakta_integritas);
+
+							$data = ['upload_fakta_integritas' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('update8_fakta_integritas_success', '
+								<div class="alert alert-success">
+									<p>Data Fakta Integritas Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+
+			if($sess_scan_raport != null){
+				switch($ubah_scan_raport == 13){
+					case 13 :
+					{
+						if(!$this->upload->do_upload('scan_raport')){
+						$this->session->set_flashdata('update8_scan_raport_error',
+							'<div class="alert alert-warning">
+								<p>Upload Scan Raport Gagal, Silahkan Cek Kembali Ukuran dan Format File PDF Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							unlink('assets/dokumen_pdf/'.$foto->upload_scan_raport);
+
+							$data = ['upload_scan_raport' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('update8_scan_raport_success', '
+								<div class="alert alert-success">
+									<p>Data Scan Raport Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+
+			if($sess_surat_pernyataan_kipk != null){
+				switch($ubah_surat_pernyataan_kipk == 14){
+					case 14 :
+					{
+						if(!$this->upload->do_upload('surat_pernyataan_kipk')){
+						$this->session->set_flashdata('update8_surat_pernyataan_kipk_error',
+							'<div class="alert alert-warning">
+								<p>Upload Surat Pernyataan KIP-K Gagal, Silahkan Cek Kembali Ukuran dan Format File Surat Pernyataan Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							unlink('assets/dokumen_pdf/'.$foto->upload_surat_pernyataan_kipk);
+
+							$data = ['upload_surat_pernyataan_kipk' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('update8_surat_pernyataan_kipk_success', '
+								<div class="alert alert-success">
+									<p>Data Surat Pernyataan KIP-K Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+			//end update dokumen baru
 
 			redirect('C_mhs/step9');
 		}else if($buka < $sekarang){

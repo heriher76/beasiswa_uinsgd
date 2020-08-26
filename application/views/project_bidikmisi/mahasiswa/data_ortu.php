@@ -61,6 +61,10 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 
 			<div class="notif notifikasi col-md-offset-8">
 				<?php echo $this->session->flashdata('direct3_success'); ?>
+				<?php echo $this->session->flashdata('upload_foto_ktp_ayah_success'); ?>
+				<?php echo $this->session->flashdata('upload_foto_ktp_ayah_error'); ?>
+				<?php echo $this->session->flashdata('upload_foto_ktp_ibu_success'); ?>
+				<?php echo $this->session->flashdata('upload_foto_ktp_ibu_error'); ?>
 			</div>
 
 			<div class="container col-md-8">
@@ -71,9 +75,10 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 						<div class="alert alert-warning alert-dismissible" role="alert">
 						  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						  <strong>Perhatian!</strong>
-						  <div class="penting">
-	    							<p>Tanda Asterik (*) Wajib diisi</p>
-	    						</div>
+						  		<div class="penting">
+										<p>Tanda Asterik (*) Wajib diisi</p>
+										<p>Lampirkan surat keterangan penghasilan orang tua dari desa (jika tidak ada slip gaji) </p>
+									</div>
 
 	    						<p>Silahkan isi data orang tua anda, jika ada kesalahan/belum terisi silahkan klik tabs <b>Edit Data Orang Tua</b> dibawah.</p>
 	    						<p>Jika orang tua anda sudah almarhum/almarhumah silahkan edit, dibawah nama orang tua anda silahkan ceklis bagian almarhum/almarhumah. </p>
@@ -397,6 +402,27 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 														echo "> 8 Orang";
 													}
 												?></td>
+												<td><b class="asterik">*</b></td>
+											</tr>
+
+											<tr>
+												<td>Upload KTP Ayah</td>
+												<td>:</td>
+												<td> </td>
+												<td><b class="asterik">*</b></td>
+											</tr>
+
+											<tr>
+												<td>Upload KTP Ibu</td>
+												<td>:</td>
+												<td> </td>
+												<td><b class="asterik">*</b></td>
+											</tr>
+
+											<tr>
+												<td>Upload Foto Surat Keterangan Penghasilan Ortu</td>
+												<td>:</td>
+												<td> </td>
 												<td><b class="asterik">*</b></td>
 											</tr>
 										</table>
@@ -850,6 +876,27 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 														<option value="3">7 - 8 Orang</option>
 													<?php } ?>
 												</select>
+											</div>
+
+											<div class="form-group">
+												<label>Foto KTP Ayah</label>
+												<br/>
+												<input type="checkbox" name="ubah_foto_ktp_ayah" value="0">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto KTP Ayah
+												<input type="file" class="form-control" name="foto_ktp_ayah">
+											</div>
+
+											<div class="form-group">
+												<label>Foto KTP Ibu</label>
+												<br/>
+												<input type="checkbox" name="ubah_foto_ktp_ibu" value="1">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto KTP Ibu
+												<input type="file" class="form-control" name="foto_ktp_ibu">
+											</div>
+
+											<div class="form-group">
+												<label>Foto Surat Keterangan Penghasilan Orang tua</label>
+												<br/>
+												<input type="checkbox" name="ubah_foto_keterangan_penghasilan_ortu" value="2">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto Surat Keterangan Pengahasilan Orang Tua
+												<input type="file" class="form-control" name="foto_keterangan_penghasilan_ortu">
 											</div>
 
 											<div class="text-center">

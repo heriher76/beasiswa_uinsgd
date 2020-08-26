@@ -35,7 +35,7 @@
 
 	<body>
 		<div class="user-login">
-		    
+
 			<div class="col-md-12 col-xd-12 col-sm-12">
 				<!--Form Login-->
 				<br><br><br>
@@ -46,26 +46,26 @@
 								<img src="<?=base_url('assets/img/logo-resmi-kipk.jpeg'); ?>">
 							</div>
 						</div>
-						
+
 						<div class="panel-body">
 							<div class="alert alert-success">
 								<table class="table bordeles">
-									
-									<!--<tr>	
+
+									<!--<tr>
 										<td>Portal Login</td>
 										<td>:</td>
 										<td><b id="buka_portal_login"></b></td>
 									</tr>
                                    -->
-                                   
-                                   	
-									<tr>	
+
+
+									<tr>
 										<td>Pengumuman Tahap 1</td>
 										<td>:</td>
-										<td><b id="buka_pengumum">30 September 2019</b></td>
+										<td><b id="buka_pengumum">30 September 2020</b></td>
 									</tr>
 
-									<tr>	
+									<tr>
 										<td>Pendaftaran Beasiswa KIP-K</td>
 										<td>:</td>
 										<td><b id="buka_pendaftaran"></b></td>
@@ -80,13 +80,13 @@
 								<fieldset>
 									<div class="form-group text">
 										<label><b>Nomor Pendaftaran</b></label>
-										<input class="form-control" type="text" name="no_pendaftaran" placeholder="Ex : CBT-1810368297 Atau 1810368297" required="required" style="height: auto;">
+										<input class="form-control" type="text" name="no_pendaftaran" placeholder="Ex : 1810368297" required="required" style="height: auto;">
 									</div>
 
 									<div class="form-group text">
 										<label><b>Password</b></label>
 										<div style="position: relative;">
-											<input class="active form-control" type="password" value="" id="pass" name="password" placeholder="Ex : 2001-01-02 (Format : YYYY-MM-DD)" required="required" style="height: auto;">
+											<input class="active form-control" type="password" value="" id="pass" name="password" placeholder="...." required="required" style="height: auto;">
 											<div class="show-button">
 											    <span id="mybutton" onclick="change()"><i class="icon-eye-open" style="font-size: 20px;"></i></span>
 												<!--input class="btn btn-info btn-sm" type="button" id="show" value="Show" onclick="ShowPassword()">
@@ -97,7 +97,7 @@
 
 									<div class="col-md-12 col-style">
 										<div class="form-group captca">
-											<?php echo $captcha; ?>	
+											<?php echo $captcha; ?>
 										</div>
 									</div>
 									<div class="col-md-12 col-xd-12 col-sm-12 col-xs-12 col-style">
@@ -121,7 +121,7 @@
 				<!--End Form Login-->
 			</div>
 		</div>
-		
+
 		<script type="text/javascript">
 			//bg movement
 			var imgs1 = new Array("<?=base_url('assets/img/bg-uin.jpg'); ?>","<?=base_url('assets/img/ini-uin-2.jpg'); ?>","<?=base_url('assets/img/ini-uin.JPG'); ?>","<?=base_url('assets/img/bg2.jpg'); ?>");
@@ -154,11 +154,11 @@
 
 			  // Get todays date and time
 			  var now = new Date().getTime();
-			    
+
 			  // Find the distance between now and the count down date
 			  var tanggal_buka_sistem = buka_sistem - now;
 			  var tanggal_tutup_sistem = tutup_sistem - now;
-			    
+
 			  // Time calculations for days, hours, minutes and seconds
 			  var days = Math.floor(tanggal_buka_sistem / (1000 * 60 * 60 * 24));
 			  var hours = Math.floor((tanggal_buka_sistem % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -169,8 +169,8 @@
 			  var hour = Math.floor((tanggal_tutup_sistem % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 			  var minute = Math.floor((tanggal_tutup_sistem % (1000 * 60 * 60)) / (1000 * 60));
 			  var second = Math.floor((tanggal_tutup_sistem % (1000 * 60)) / 1000);
-			  
-			  // If the count down is over, write some text 
+
+			  // If the count down is over, write some text
 			  if (tanggal_buka_sistem > 0) {
 			 	// Output the result in an element with id="buka_portal_login"
 			  	document.getElementById("buka_portal_login").innerHTML = days + " Hari, " + hours + " Jam, " + minutes + " Menit, " + seconds + "Detik ";
@@ -188,20 +188,20 @@
 
 			  // Get todays date and time
 			  var noww = new Date().getTime();
-			    
+
 			  // Find the distance between noww and the count down date
 			  var tanggal_buka_daftar = buka_daftar - noww;
 			  var tanggal_tutup_daftar = tutup_daftar - noww;
 
-			    
+
 			  // Time calculations for days, hours, minutes and seconds
 			  var hari = Math.floor(tanggal_buka_daftar / (1000 * 60 * 60 * 24));
 			  var jam = Math.floor((tanggal_buka_daftar % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 			  var menit = Math.floor((tanggal_buka_daftar % (1000 * 60 * 60)) / (1000 * 60));
 			  var detik = Math.floor((tanggal_buka_daftar % (1000 * 60)) / 1000);
-			    
-			    
-			  // If the count down is over, write some text 
+
+
+			  // If the count down is over, write some text
 			  if (tanggal_buka_daftar > 0) {
 			  	// Output the result in an element with id="buka_pendaftaran"
 			  	document.getElementById("buka_pendaftaran").innerHTML = hari + " Hari, " + jam + " Jam, " + menit + " Menit, " + detik + " Detik ";
@@ -213,28 +213,28 @@
 			    document.getElementById("buka_pendaftaran").innerHTML = "BUKA";
 			 }
 			}, 1000);
-			
-			
+
+
 	// Update the count down every 1 second
 			var y = setInterval(function() {
 
 			  // Get todays date and time
 			  var nowww = new Date().getTime();
-			    
+
 			  // Find the distance between noww and the count down date
 			  var tanggal_buka_pengumuman = buka_pengumuman - nowww;
 			  var tanggal_tutup_pengumuman = tutup_pengumuman - nowww;
 
-			    
+
 			  // Time calculations for days, hours, minutes and seconds
 			  var hari = Math.floor(tanggal_buka_pengumuman / (1000 * 60 * 60 * 24));
 			  var jam = Math.floor((tanggal_buka_pengumuman % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 			  var menit = Math.floor((tanggal_buka_pengumuman % (1000 * 60 * 60)) / (1000 * 60));
 			  var detik = Math.floor((tanggal_buka_pengumuman % (1000 * 60)) / 1000);
-			    
+
 			    	// Output the result in an element with id="buka_pendaftaran"
 			  	document.getElementById("buka_pengumum").innerHTML = hari + " Hari, " + jam + " Jam, " + menit + " Menit, " + detik + " Detik ";
-			  // If the count down is over, write some text 
+			  // If the count down is over, write some text
 			  if (tanggal_buka_pengumuman > 0) {
 			  	// Output the result in an element with id="buka_pendaftaran"
 			  	document.getElementById("buka_pengumum").innerHTML = hari + " Hari, " + jam + " Jam, " + menit + " Menit, " + detik + " Detik ";
@@ -245,10 +245,10 @@
 			    clearInterval(x);
 			    document.getElementById("buka_pengumum").innerHTML = "BUKA";
 			 }
-			
-			  
+
+
 			}, 1000);
-			
+
 			/*Disable Klik Kanan*/
 			//var message="KLIK KANAN DIMATIIN YA";
 

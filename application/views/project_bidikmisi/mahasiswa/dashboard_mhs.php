@@ -264,7 +264,7 @@
 							  <div class="penting">
 		    							<p>Tanda Asterik (*) Wajib diisi</p>
 		    						</div>
-										<p>Akan ada <b style="color: red;">10 tahap</b> yang harus diisi oleh pendaftar bidikmisi tahun <?php echo date('Y'); ?> dan pada setiap tahap akan ada RULE/Peraturan dalam pengisian data bidikmisi.
+										<p>Akan ada <b style="color: red;">10 tahap</b> yang harus diisi oleh pendaftar Beasiswa KIP-K dan pada setiap tahap akan ada RULE/Peraturan dalam pengisian data Beasiswa KIP-K.
 										</p>
 
 										<p>Silahkan cek kembali biodata pendaftar dan <b style="color: red;">Tanda Asterik (*) Wajib diisi</b>, jika masih ada kekeliruan dengan biodata pendaftar, anda dapat mengeditnya dengan mengklik tombol Edit dibawah dan mengisi ulang kembali data. jika sudah yakin dengan biodata pendaftar yang sudah ada, silahkan untuk klik tombol <a class="btn btn-info" href="#" type="submit">Lanjut &raquo;</a> </p>

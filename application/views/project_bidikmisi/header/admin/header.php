@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="<?php echo base_url('assets/img/logo-uin.ico'); ?>">
 
 <!-- Bootstrap 3.3.4 -->
-<link href="<?php echo base_url(); ?>assets/adminlte/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
+<link href="<?php echo base_url(); ?>assets/adminlte/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <!--include datepicker bootstrap.css-->
 <link rel="stylesheet" href="<?=base_url('assets/admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css'); ?>">
 <!-- Datetimepicker -->
@@ -30,7 +30,7 @@
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/row/css/rowReorder.dataTables.min.css'); ?>">
 <link rel="stylesheet" type="text/css" href="<?=base_url('assets/responsive/css/responsive.dataTables.min.css'); ?>">
 
-    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
      folder instead of downloading all of them to reduce the load. -->
      <link href="<?php echo base_url(); ?>assets/adminlte/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
      <style>
@@ -122,7 +122,7 @@
             </li>
 
             <li class="treeview">
-              <a href="#"><i class="fa fa-list-ul fa-lg"></i> Data Pendaftar Tahun <?php echo date('Y'); ?><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+              <a href="#"><i class="fa fa-list-ul fa-lg"></i> Data Pendaftar<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
               <ul class="treeview-menu">
                 <li><a href="<?=base_url('Auth1/view13'); ?>"><i class="fa fa-circle-o"></i>Data Seluruh Peserta</a></li>
                 <li><a href="<?=base_url('Auth1/view1'); ?>"><i class="fa fa-circle-o"></i>Data Peserta</a></li>

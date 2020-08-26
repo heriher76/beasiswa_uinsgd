@@ -49,7 +49,7 @@
 						<nav>
 							<ul>
 								<li>
-									<a target="_blank" href="https://beasiswa.uinsgd.ac.id/assets/document/panduan aplikasi bidikmisi.pdf"><b>Panduan Penggunaan</b></a>
+									<a target="_blank" href="https://kipk.uinsgd.ac.id/assets/document/panduan aplikasi bidikmisi.pdf"><b>Panduan Penggunaan</b></a>
 									
 									<span>|</span>
 

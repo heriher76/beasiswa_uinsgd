@@ -21,6 +21,23 @@ class C_login extends CI_Controller {
 		$this->load->view('project_bidikmisi/login/cpanel_utama');
 	}
 
+	private function httpPost($url, $data)
+	{
+		$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$server_output = curl_exec($ch);
+
+		curl_close ($ch);
+
+		return json_decode($server_output, true);
+	}
+
 	public function login(){
 		$no_pendaftaran = $this->input->post('no_pendaftaran');
 		$password = $this->input->post('password');
@@ -52,24 +69,31 @@ class C_login extends CI_Controller {
         	$this->index();
 		}else if($tgl_sekarang >= $jadwal_buka && $tgl_sekarang <= $jadwal_tutup){
     		//login mahasiswa
-            $arrContextOptions=array(
-                "ssl"=>array(
-                    "verify_peer"=>false,
-                    "verify_peer_name"=>false,
-                )
-            );
-            $login = file_get_contents("https://simak.uinsgd.ac.id/portal/serviceres/services/service.php?username=".$no_pendaftaran."&password=".$password."&api=1234", false, stream_context_create($arrContextOptions));
+            // $arrContextOptions=array(
+            //     "ssl"=>array(
+            //         "verify_peer"=>false,
+            //         "verify_peer_name"=>false,
+            //     )
+            // );
+						$dataLogin = [
+							'username' => $no_pendaftaran,
+							'password' => $password
+						];
+						$url_login_salam = 'https://api.uinsgd.ac.id/salam/Auth/Login';
+						$login = $this->httpPost($url_login_salam, $dataLogin);
+
+            // $login = file_get_contents("https://simak.uinsgd.ac.id/portal/serviceres/services/service.php?username=".$no_pendaftaran."&password=".$password."&api=1234", false, stream_context_create($arrContextOptions));
 
             $login_mhs = $this->db->get_where('mastermhs_new',array(
-    			'no_pendaftaran' => $no_pendaftaran,
-    			'pin' => sha1(md5(sha1(md5(sha1($password)))))
-    		))->row();
+		    			'no_pendaftaran' => $no_pendaftaran,
+		    			'pin' => sha1(md5(sha1(md5(sha1($password)))))
+		    		))->row();
 
     		$this->session->set_flashdata('msg','<script>alert("Login Gagal, Silahkan input ulang No Pendaftaran atau Nim, Password, dan Recaptcha"); </script>');
     		$this->session->set_flashdata('gagal', '<script>alert("Anda Tidak Diizinkan Masuk Sistem Beasiswa KIP-K"); </script>;');
     		$this->session->set_flashdata('gagal2', '<script>alert("Login Tidak Valid"); </script>');
 
-            if($login == "<?xml version='1.0'?><data><response>TRUE</response></data>" && ($response['success'] == TRUE)) {
+            if($login['status'] == 1 && ($response['success'] == TRUE)) {
                 $session = array(
                     'nim'       => $no_pendaftaran,
                     'token'     => '77400cmmsadmfAkdieO03Adkjd009ADk22dkd'

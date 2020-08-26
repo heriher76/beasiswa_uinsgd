@@ -15,6 +15,8 @@
 	<body>
 		<div class="notif notifikasi col-md-offset-8">
 			<?php echo $this->session->flashdata('direct4_success'); ?>
+			<?php echo $this->session->flashdata('upload_foto_keterangan_kepemilikan_rumah_success'); ?>
+			<?php echo $this->session->flashdata('upload_foto_keterangan_kepemilikan_rumah_error'); ?>
 		</div>
 
 		<div class="container col-md-8">
@@ -206,6 +208,13 @@
 											<td>Mata Pencaharian Setempat Pada Umumnya</td>
 											<td>:</td>
 											<td><?php echo $value->mata_pencaharian; ?></td>
+											<td><b class="asterik">*</b></td>
+										</tr>
+
+										<tr>
+											<td>Upload Foto Surat Keterangan Kepemilikan Rumah</td>
+											<td>:</td>
+											<td> </td>
 											<td><b class="asterik">*</b></td>
 										</tr>
 									</table>
@@ -473,6 +482,13 @@
 													<option value="Lain - Lain">Lain - Lain</option>
 												<?php } ?>
 											</select>
+										</div>
+
+										<div class="form-group">
+											<label>Foto Surat Keterangan Kepemilikan Rumah</label>
+											<br/>
+											<input type="checkbox" name="ubah_foto_keterangan_kepemilikan_rumah" value="3">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto Surat Keterangan Kepemilikan Rumah
+											<input type="file" class="form-control" name="foto_keterangan_kepemilikan_rumah">
 										</div>
 
 										<div class="text-center">
