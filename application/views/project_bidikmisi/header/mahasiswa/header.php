@@ -165,10 +165,10 @@
                                         <li>
                                             <?php if($doc->year == $thn_sekarang) { ?>
             							        <a href="<?=base_url().'assets/document/'.$doc->nama_document; ?>">
-        								            Document Bidikmisi
+        								            Document Beasiswa KIP-K
         							     	   </a>
                                             <?php }else if($doc->year != $thn_sekarang) { ?>
-                                                <a href="#">Document Bidikmisi Sudah EXPIRED</a>
+                                                <a href="#">Document Beasiswa KIP-K Sudah EXPIRED</a>
                                             <?php } ?>
         								</li>
                                         <?php } ?>
@@ -177,10 +177,10 @@
                                         <li>
                                             <?php if($doc->year == $thn_sekarang) { ?>
             							        <a href="<?=base_url().'assets/document/'.$doc->nama_document; ?>">
-        								            Pengumuman Lulus Tahap 2 Bidikmisi
+        								            Pengumuman Lulus Tahap 2 Beasiswa KIP-K
         								        </a>
                                             <?php }else if($doc->year != $thn_sekarang) { ?>
-                                                <a href="#">Pengumuman Bidikmisi Tahap 2 Sudah EXPIRED</a>
+                                                <a href="#">Pengumuman Beasiswa KIP-K Tahap 2 Sudah EXPIRED</a>
                                             <?php } ?>
         								</li>
                                         <?php } ?>
@@ -251,7 +251,7 @@
                                 </a></li>
                                 <br>
                                 <li><a href="<?=base_url('C_mhs/report_bidikmisi'); ?>"><span class="glyphicon glyphicon-exclamation-sign"></span>
-                                    Report Bidikmisi
+                                    Report Beasiswa KIP-K
                                 </a></li>
                             <?php
                                }else if($reg == 0 || $reg == 1){
@@ -308,10 +308,10 @@
                                         <li>
                                             <?php if($doc->year == $thn_sekarang) { ?>
                                                 <a href="<?=base_url().'assets/document/'.$doc->nama_document; ?>">
-                                                    Document Bidikmisi
+                                                    Document Beasiswa KIP-K
                                                </a>
                                             <?php }else if($doc->year != $thn_sekarang) { ?>
-                                                <a href="#">Document Bidikmisi Sudah EXPIRED</a>
+                                                <a href="#">Document Beasiswa KIP-K Sudah EXPIRED</a>
                                             <?php } ?>
                                         </li>
                                         <?php } ?>
@@ -320,10 +320,10 @@
                                         <li>
                                             <?php if($doc->year == $thn_sekarang) { ?>
                                                 <a href="<?=base_url().'assets/document/'.$doc->nama_document; ?>">
-                                                    Pengumuman Lulus Tahap 2 Bidikmisi
+                                                    Pengumuman Lulus Tahap 2 Beasiswa KIP-K
                                                 </a>
                                             <?php }else if($doc->year != $thn_sekarang) { ?>
-                                                <a href="#">Pengumuman Bidikmisi Tahap 2 Sudah EXPIRED</a>
+                                                <a href="#">Pengumuman Beasiswa KIP-K Tahap 2 Sudah EXPIRED</a>
                                             <?php } ?>
                                         </li>
                                         <?php } ?>

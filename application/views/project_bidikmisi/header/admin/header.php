@@ -127,6 +127,7 @@
                 <li><a href="<?=base_url('Auth1/view13'); ?>"><i class="fa fa-circle-o"></i>Data Seluruh Peserta</a></li>
                 <li><a href="<?=base_url('Auth1/view1'); ?>"><i class="fa fa-circle-o"></i>Data Peserta</a></li>
                 <li><a href="<?=base_url('Auth1/v_report_lulus'); ?>"><i class="fa fa-circle-o"></i>Data Peserta Lulus Tahap 1</a></li>
+                <li><a href="<?=base_url('Auth1/verifikasi_berkas'); ?>"><i class="fa fa-circle-o"></i>Verifikasi Berkas Tahap 1</a></li>
                 <li><a href="<?=base_url('Auth1/v_report_lulus2'); ?>"><i class="fa fa-circle-o"></i>Data Peserta Lulus Tahap 2</a></li>
                 <li><a href="<?=base_url('Auth1/v_report_tdk_lulus'); ?>"><i class="fa fa-circle-o"></i>Data Peserta Tidak Lulus</a></li>
                 <li><a href="<?=base_url('Auth1/v_report_verifikasi'); ?>"><i class="fa fa-circle-o"></i>Data Peserta Verifikasi</a></li>

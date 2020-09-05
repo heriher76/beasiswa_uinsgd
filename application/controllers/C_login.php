@@ -57,16 +57,18 @@ class C_login extends CI_Controller {
     $tgl_sekarang = date('Y-m-d H:i:s');
     $jadwal = $this->M_mhs->jadwal();
     foreach($jadwal->result() as $value){
-      $sess['buka_sistem'] = $value->tanggal_buka_sistem;
-      $sess['tutup_sistem'] = $value->tanggal_tutup_sistem;
-      $sess['buka'] = $value->tanggal_buka;
+        $sess['buka_sistem'] = $value->tanggal_buka_sistem;
+        $sess['tutup_sistem'] = $value->tanggal_tutup_sistem;
+        $sess['buka'] = $value->tanggal_buka;
     	$sess['tutup'] = $value->tanggal_tutup;
     	$sess['pengumuman'] = $value->tanggal_pengumuman;
+    	$sess['check_ukt'] = $value->check_ukt;
 
     	$this->session->set_userdata($sess);
     }
     $jadwal_buka = $this->session->userdata('buka_sistem');
     $jadwal_tutup = $this->session->userdata('tutup_sistem');
+    $check_ukt = $this->session->userdata('check_ukt');
 
     if($tgl_sekarang < $jadwal_buka){
       	$this->session->set_flashdata('belum_buka','<script>alert("Portal Beasiswa KIP-K Uin Bandung Belum Buka"); </script>');
@@ -77,22 +79,24 @@ class C_login extends CI_Controller {
       	echo $this->session->flashdata('tutup');
       	$this->index();
 		}else if($tgl_sekarang >= $jadwal_buka && $tgl_sekarang <= $jadwal_tutup){
-				//cek apakah sudah bayar ukt atau belum
-				$arrContextOptions=array(
-					"ssl"=>array(
-						"verify_peer"=>false,
-						"verify_peer_name"=>false,
-					)
-				);
-				$wskey = 'Y9SdptijlddozZo_3D';
-				$getUKT = file_get_contents("http://keuangan.uinsgd.ac.id/b2b/SPP/status/nim/".$no_pendaftaran."?wskey=".$wskey, false, stream_context_create($arrContextOptions));
-				$decodedUKT = json_decode($getUKT, true);
+				//cek apakah sudah bayar ukt atau belum tapi lihat dulu settingan web nya
+				if($check_ukt == 1) {
+					$arrContextOptions=array(
+						"ssl"=>array(
+							"verify_peer"=>false,
+							"verify_peer_name"=>false,
+						)
+					);
+					$wskey = 'Y9SdptijlddozZo_3D';
+					$getUKT = file_get_contents("http://keuangan.uinsgd.ac.id/b2b/SPP/status/nim/".$no_pendaftaran."?wskey=".$wskey, false, stream_context_create($arrContextOptions));
+					$decodedUKT = json_decode($getUKT, true);
 
-				if ($decodedUKT['status'] != false) {
-					if($decodedUKT['data']['ket_lunas'] == 'BELUM LUNAS') {
-						$this->session->set_flashdata('tutup','<script>alert("Anda tidak bisa login ke dalam web ini. Karena belum membayar UKT."); </script>');
-						echo $this->session->flashdata('tutup');
-						return $this->index();
+					if ($decodedUKT['status'] != false) {
+						if($decodedUKT['data']['ket_lunas'] == 'BELUM LUNAS') {
+							$this->session->set_flashdata('tutup','<script>alert("Anda tidak bisa login ke dalam web ini. Karena belum membayar UKT."); </script>');
+							echo $this->session->flashdata('tutup');
+							return $this->index();
+						}
 					}
 				}
 				//login mahasiswa
@@ -150,7 +154,7 @@ class C_login extends CI_Controller {
 					$time = date('Y-m-d H:i:s');
 					$ip_address = $this->input->ip_address();
 
-					if (substr($no_pendaftaran,0,3) == 118) { //belum diedit
+					if (substr($no_pendaftaran,0,3) == 119) { //belum diedit
 						$tahunnya = 2019;
 					}else if (substr($no_pendaftaran,0,3) == 120){
 						$tahunnya = 2020;
@@ -234,7 +238,14 @@ class C_login extends CI_Controller {
 			$no_pendaftaran = $this->input->post('no_pendaftaran');
 			$password = $this->input->post('password');
 			$recaptcha = $this->input->post('g-recaptcha-response');
-	    $response = $this->recaptcha->verifyResponse($recaptcha);
+	    	$response = $this->recaptcha->verifyResponse($recaptcha);
+
+	    	$this->session->set_flashdata('gagal2', '<script>alert("Anda tidak diperkenankan register KIP-K"); </script>');
+
+	    	if (substr($no_pendaftaran,0,3) != 119 || substr($no_pendaftaran,0,3) != 120) { 
+				echo $this->session->flashdata('gagal2');
+				return $this->index();
+			}
 
 			$checkMhs = $this->db->get_where('mastermhs_new',array(
 				'no_pendaftaran' => $no_pendaftaran
@@ -250,9 +261,9 @@ class C_login extends CI_Controller {
 	    $tgl_sekarang = date('Y-m-d H:i:s');
 	    $jadwal = $this->M_mhs->jadwal();
 	    foreach($jadwal->result() as $value){
-	      $sess['buka_sistem'] = $value->tanggal_buka_sistem;
-	      $sess['tutup_sistem'] = $value->tanggal_tutup_sistem;
-	      $sess['buka'] = $value->tanggal_buka;
+	        $sess['buka_sistem'] = $value->tanggal_buka_sistem;
+	        $sess['tutup_sistem'] = $value->tanggal_tutup_sistem;
+	        $sess['buka'] = $value->tanggal_buka;
 	    	$sess['tutup'] = $value->tanggal_tutup;
 	    	$sess['pengumuman'] = $value->tanggal_pengumuman;
 
@@ -296,7 +307,7 @@ class C_login extends CI_Controller {
 	public function logout(){
 		$this->session->unset_userdata('reg');
 		$this->session->unset_userdata('no_pendaftaran');
-    $this->session->unset_userdata('nim');
+    	$this->session->unset_userdata('nim');
 		$this->session->unset_userdata('foto');
 		$this->session->unset_userdata('foto_rumah_depan');
 		$this->session->unset_userdata('foto_rumah_kiri');
@@ -306,8 +317,8 @@ class C_login extends CI_Controller {
 		$this->session->unset_userdata('token');
 		$this->session->unset_userdata('buka');
 		$this->session->unset_userdata('tutup');
-    $this->session->unset_userdata('buka_sistem');
-    $this->session->unset_userdata('tutup_sistem');
+    	$this->session->unset_userdata('buka_sistem');
+    	$this->session->unset_userdata('tutup_sistem');
 		$this->session->unset_userdata('tutup_pengumuman');
 		redirect('C_login');
 	}

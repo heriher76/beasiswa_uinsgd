@@ -27,14 +27,14 @@
 						<?php foreach($data as $value) { ?>
 						<div class="alert alert-warning alert-dismissible col-md-offset-1" role="alert">
 						  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<b>Assalamu'alaikum, <?php echo $value->nama_mahasiswa; ?> selamat datang</b>
-								<br><br>
-						  <strong>Perhatian!</strong>
-						  <div class="penting">
-	    							<p>Tanda Asterik (*) Wajib diisi</p>
-	    						</div>
-									<p>Silahkan untuk mengedit Biodata Mahasiswa dengan mengklik tabs <b>Edit Mahasiswa</b> di Biodata Mahasiswa jika biodata mahasiswa anda masih kosong atau ada perubahan data</p>
-									<!-- <p>Silahkan klik <b>Report Bidikmisi</b> pada menu bidikmisi, untuk melaporkan prestasi semester anda saat ini.</p> -->
+							<b>Assalamu'alaikum, <?php echo $value->nama_mahasiswa; ?> selamat datang</b>
+							<br><br>
+					  		<strong>Perhatian!</strong>
+					  		<div class="penting">
+    							<p>Tanda Asterik (*) Wajib diisi</p>
+    						</div>
+								<p>Silahkan untuk mengedit Biodata Mahasiswa dengan mengklik tabs <b>Edit Mahasiswa</b> di Biodata Mahasiswa jika biodata mahasiswa anda masih kosong atau ada perubahan data</p>
+								<!-- <p>Silahkan klik <b>Report Bidikmisi</b> pada menu bidikmisi, untuk melaporkan prestasi semester anda saat ini.</p> -->
 						</div>
 						<br>
 						<!--End Rule-->
@@ -256,23 +256,26 @@
 					<div class="panel-group">
 						<br>
 							<?php foreach($data as $value) { ?>
+									<div class="alert alert-warning alert-dismissible col-md-offset-1" role="alert">
+									  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+										<?php if($value->reg == 2) { ?>
+											<h3 style="color: red;">Wajib Diperhatikan!</h3>
+											<h2>Seluruh berkas persyaratan HVS ukuran F4 (Folio) dan dimasukkan dalam <b>amplop berwarna sesuai fakultas masing-masing, pada pojok kanan atas ditulis Program KIP Kuliah Angkatan Tahun 2019, NAMA, NIM, Jurusan, dan Fakultas</b> dikirimkan ke Bagian Kemahasiswaan dan Alumni Gedung O. Djauharudin lantai 4 UIN Sunan Gunung Djati Bandung Jl. A.H. Nasution No. 105 Cibiru Bandung.</h2>  	
+										  <?php } else { ?>
+										<b>Assalamu'alaikum, <?php echo $value->nama_mahasiswa; ?> selamat datang</b>
+										<br><br>
+									  <strong>Perhatian!</strong>
+									  <div class="penting">
+				    							<p>Tanda Asterik (*) Wajib diisi</p>
+				    						</div>
+												<p>Akan ada <b style="color: red;">11 tahap</b> yang harus diisi oleh pendaftar Beasiswa KIP-K dan pada setiap tahap akan ada RULE/Peraturan dalam pengisian data Beasiswa KIP-K.
+												</p>
 
-							<div class="alert alert-warning alert-dismissible col-md-offset-1" role="alert">
-							  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<b>Assalamu'alaikum, <?php echo $value->nama_mahasiswa; ?> selamat datang</b>
-									<br><br>
-							  <strong>Perhatian!</strong>
-							  <div class="penting">
-		    							<p>Tanda Asterik (*) Wajib diisi</p>
-		    						</div>
-										<p>Akan ada <b style="color: red;">11 tahap</b> yang harus diisi oleh pendaftar Beasiswa KIP-K dan pada setiap tahap akan ada RULE/Peraturan dalam pengisian data Beasiswa KIP-K.
-										</p>
-
-										<p>Silahkan cek kembali biodata pendaftar dan <b style="color: red;">Tanda Asterik (*) Wajib diisi</b>, jika masih ada kekeliruan dengan biodata pendaftar, anda dapat mengeditnya dengan mengklik tombol Edit dibawah dan mengisi ulang kembali data. jika sudah yakin dengan biodata pendaftar yang sudah ada, silahkan untuk klik tombol <a class="btn btn-info" href="#" type="submit">Lanjut &raquo;</a> </p>
-							</div>
-							<br>
-							<!--End Rule-->
-
+												<p>Silahkan cek kembali biodata pendaftar dan <b style="color: red;">Tanda Asterik (*) Wajib diisi</b>, jika masih ada kekeliruan dengan biodata pendaftar, anda dapat mengeditnya dengan mengklik tombol Edit dibawah dan mengisi ulang kembali data. jika sudah yakin dengan biodata pendaftar yang sudah ada, silahkan untuk klik tombol <a class="btn btn-info" href="#" type="submit">Lanjut &raquo;</a> </p>
+										<?php } ?>
+									</div>
+									<br>
+									<!--End Rule-->
 						<div class="panel panel-success col-md-offset-1">
 							<div class="panel-heading">
 								<h3><span class="label label-default">Biodata Pendaftar</span></h3>

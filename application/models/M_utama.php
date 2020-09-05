@@ -387,6 +387,11 @@ class M_utama extends CI_Model{
 	}
 	//end function get grafik
 
+	public function verifikasi_berkas(){
+		$report2 = $this->db->query("SELECT * FROM mastermhs_new WHERE reg=2 and getLulus='LULUS'");
+		return $report2->result();
+	}
+
 	public function report1($where1,$where2){
 		$year = date('Y');
 		$report1 = $this->db->query("SELECT * FROM mastermhs_new where almarhum = '$where1' and almarhumah = '$where2' and reg > 0 and tahun = '$year'");

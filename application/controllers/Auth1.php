@@ -74,6 +74,7 @@ class Auth1 extends CI_Controller{
 		$tgl_tutup = $this->input->post('tgl_tutup');
 		$tgl_pengumuman = $this->input->post('tgl_pengumuman');
 		$tgl_tutup_pengumuman = $this->input->post('tgl_tutup_pengumuman');
+		$check_ukt = $this->input->post('check_ukt');
 
 		$data = [
 			'tanggal_buka_sistem' => $tgl_buka_sistem,
@@ -81,7 +82,8 @@ class Auth1 extends CI_Controller{
 			'tanggal_buka' => $tgl_buka,
 			'tanggal_tutup' => $tgl_tutup,
 			'tanggal_pengumuman' => $tgl_pengumuman,
-			'tanggal_tutup_pengumuman' => $tgl_tutup_pengumuman
+			'tanggal_tutup_pengumuman' => $tgl_tutup_pengumuman,
+			'check_ukt' => $check_ukt
 		];
 		$this->M_utama->edit_data_jadwal($data);
 		$this->M_utama->activity_admin($id_admin,$nama_admin,$ip,$ket);
@@ -889,6 +891,33 @@ class Auth1 extends CI_Controller{
 		echo "<script>window.close();</script>";
 	}
 	//end function edit data pendaftar admin rahasia
+
+	//verifikasi berkas peserta lolos tahap 1
+	public function verifikasi_berkas(){
+		$data = array(
+			'user' =>  $this->M_utama->verifikasi_berkas(),
+			'provinsi' => $this->M_utama->propinsi(),
+			'kota' => $this->M_utama->kab_kota(),
+			'fakultas' => $this->M_utama->fakultas(),
+			'jurusan' => $this->M_utama->jurusan(),
+			'para' => 't1',
+			'parameter_judul' => 'Verifikasi Berkas'
+		);
+		$this->load->view('project_bidikmisi/admin/verifikasi_berkas', $data);
+	}
+
+	//function view detail pendaftar untuk verifikasi
+	public function verifikasi_berkas_detail($no_pendaftaran){
+		$data = array(
+			'user' =>  $this->M_utama->getData_mhs($no_pendaftaran),
+			'provinsi' => $this->M_utama->propinsi(),
+			'kota' => $this->M_utama->kab_kota(),
+			'fakultas' => $this->M_utama->fakultas(),
+			'jurusan' => $this->M_utama->jurusan()
+		);
+
+		$this->load->view('project_bidikmisi/admin/verifikasi_berkas_detail', $data);
+	}
 
 	//report ortu masih ada
 	public function v_report_ortu(){

@@ -543,6 +543,7 @@ class C_mhs extends CI_Controller{
         }
 		$data = array(
 			'data' => $this->M_mhs->getData_login($no_pendaftaran)->result(),
+			'data_diri' => $this->M_mhs->getData_login($no_pendaftaran)->result(),
 			'jadwal' => $this->M_mhs->jadwal()->result(),
 			'fakultas' => $this->M_mhs->fakultas(),
 			'jurusan' => $this->M_mhs->jurusan(),

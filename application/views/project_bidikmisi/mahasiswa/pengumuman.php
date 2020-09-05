@@ -6,9 +6,10 @@
 	<body>
 		<div class="container col-md-8">
 			<div class="row">
-				<div class="panel panel-info col-md-offset-1">
+				<br>
+				<div class="panel panel-success col-md-offset-1">
 					<div class="panel-heading">
-						<h3>Pengumuman Kelulusan Bidikmisi Tahun <?php echo date('Y'); ?></h3>
+						<h3>Pengumuman Kelulusan Beasiswa KIP-K Tahun <?php echo date('Y'); ?></h3>
 					</div>
 
 					<div class="panel-body">
@@ -118,8 +119,8 @@
 
 								<?php if($value->prioritas == 1) { ?>
 									<div style="background-color: orange; padding:10px; color:white;">
-										<p>Maaf, Anda hanya dinyatakan <u><b><?php echo $value->getLulus; ?></b></u> dalam Tahap 1 program Bidikmisi Universitas Islam Negeri Sunan Gunung Djati Bandung Tahun <?php echo date('Y'); ?>, Namun pada Tahap 2 Anda dinyatakan <u><b>TIDAK LULUS</b></u>.
-										Pengumuman Bidikmisi Akan Ditutup Pada Hari/Tanggal <b><u><?php echo tgl_indonesia($tgl_tutup_pengumuman); ?></u></b>
+										<p>Maaf, Anda hanya dinyatakan <u><b><?php echo $value->getLulus; ?></b></u> dalam Tahap 1 program Beasiswa KIP-K Universitas Islam Negeri Sunan Gunung Djati Bandung Tahun <?php echo date('Y'); ?>, Namun pada Tahap 2 Anda dinyatakan <u><b>TIDAK LULUS</b></u>.
+										Pengumuman Beasiswa KIP-K Akan Ditutup Pada Hari/Tanggal <b><u><?php echo tgl_indonesia($tgl_tutup_pengumuman); ?></u></b>
 										</p>
 									</div>
 								<?php }else{ ?>
@@ -183,7 +184,7 @@
 									</table>
 								
 									<div style="background-color: #BF9000; padding:10px; color:white;">
-										<p>Status Bidikmisi anda masih dinyatakan <u><b><?php echo $value->getLulus; ?></b></u> Silahkan hubungi bagian kemahasiswaan Universitas Islam Negeri Sunan Gunung Djati Bandung.</p>
+										<p>Status Beasiswa KIP-K anda masih dinyatakan <u><b><?php echo $value->getLulus; ?></b></u> Silahkan hubungi bagian kemahasiswaan Universitas Islam Negeri Sunan Gunung Djati Bandung.</p>
 									</div>
 								<?php }else if($value->getLulus == 'LULUS' && $value->reg == 3) { ?>
 								    <table class="table">
@@ -239,24 +240,22 @@
 						<center>
 						<?php } else if($tgl_sekarang < $tgl_pengumuman){ ?>
 								<div class="alert alert-warning">
-									<p>Hasil Kelulusan Bidikmisi Anda Belum Keluar, Akan Keluar pada Hari/Tanggal <br/><b><?php echo tgl_indonesia($tgl_pengumuman); ?></b></p>
+									<p>Hasil Kelulusan KIP-K Anda Belum Keluar, Akan Keluar pada Hari/Tanggal <br/><b><?php echo tgl_indonesia($tgl_pengumuman); ?></b></p>
 								</div>
 						<?php }else if($tgl_sekarang > $tgl_tutup_pengumuman){ ?>
 						        <div class="alert alert-warning">
-						            <p>Pengumuman Bidikmisi UIN SGD Bandung Telah di <b><u>TUTUP</u></b></p>
+						            <p>Pengumuman Beasiswa KIP-K UIN SGD Bandung Telah di <b><u>TUTUP</u></b></p>
 						        </div>
 						<?php } ?>
 						</center>
 					</div> <!--End class="panel-body"-->
 				</div> <!--End class="panel panel-info"-->
-
-				<div class="text-center">
-				<?php
-					//load footer
-					$this->load->view('project_bidikmisi/footer/footer');
-				?>
-				</div>
 			</div> <!--End class="row"-->
-		</div> <!--End class="container col-md-8"-->		
+		</div> <!--End class="container col-md-8"-->	
+		<div class="col-md-12 panel-footer" style="background-color: #00a65a !important; width: 100%; left: 0px;">
+			<div class="footer text-center" style="color:grey; font-size: 12px;">
+				<?php $this->load->view('project_bidikmisi/footer/footer'); ?>
+			</div>
+		</div>	
 	</body>
 </html>

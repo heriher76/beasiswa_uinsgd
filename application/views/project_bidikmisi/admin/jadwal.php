@@ -37,6 +37,15 @@
 										<input placeholder="Example : 2015-12-05 13:30:34" type="text" class="form-control" name="tgl_buka" required="required" value="<?php echo $value->tanggal_buka; ?>">
 										<span class="add-on"><i class="icon-th"></i></span>
 									</div>
+
+									<div class="form-group">
+										<label>Aktifkan Pengecekan UKT ketika Login/Register?</label>
+										<select name="check_ukt" class="form-control">
+											<option value="1" <?php if($value->check_ukt == 1) echo 'selected'; ?>>Ya</option>
+											<option value="0" <?php if($value->check_ukt == 0) echo 'selected'; ?>>Tidak</option>
+										</select>
+										<span class="add-on"><i class="icon-th"></i></span>
+									</div>
 								</div>
 
 								<div class="col-md-6">
