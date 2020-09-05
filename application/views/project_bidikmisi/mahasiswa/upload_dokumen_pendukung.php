@@ -58,7 +58,7 @@
 								<p>Tanda Asterik (*) Wajib diisi</p>
 								<p>1. Download Template Surat Keterangan Pemilik Rumah <a href="<?=base_url('assets/document/pendukung/Surat Keterangan Kepemilikan Rumah.docx'); ?>" target="_blank">Disini</a></p>
 								<p>2. Download Template Surat Fakta Integritas <a href="<?=base_url('assets/document/pendukung/PAKTA INTEGRITAS PENERIMA KIP KULIAH.docx'); ?>" target="_blank">Disini</a></p>
-								<p>3. Download Template Surat Pernyataan Kebenaran Data <a href="<?=base_url('assets/document/pendukung/Surat Keterangan Kepemilikan Rumah.docx'); ?>" target="_blank">Disini</a></p>
+								<p>3. Download Template Surat Pernyataan Kebenaran Data <a href="<?=base_url('assets/document/pendukung/SURAT PERNYATAAN KEBENARAN DATA.docx'); ?>" target="_blank">Disini</a></p>
 								<p>4. Download Template Surat Pernyataan KIPK <a href="<?=base_url('assets/document/pendukung/SURAT PERNYATAAN KIP-K.docx'); ?>" target="_blank">Disini</a></p>
 								<p>Upload Surat Keterangan Pemilik Rumah, Surat Pernyataan KIPK, Surat Pernyataan Kebenaran Data dan Fakta Integritas (format PDF).</p>
 							</div>
@@ -136,7 +136,7 @@
 										$sess_foto_pbb 				= $this->session->userdata('foto_pbb');
 										$sess_foto_rek_listrik 		= $this->session->userdata('foto_rek_listrik');
 										$sess_surat_keterangan 		= $this->session->userdata('surat_keterangan');
-										$sess_surat_pernyataan 		= $this->session->userdata('surat_pernyataan');
+										$sess_surat_pernyataan 		= $this->session->userdata('surat_pernyataan_kebenaran_data');
 										$sess_fakta_integritas 		= $this->session->userdata('fakta_integritas');
 										$sess_scan_raport 		= $this->session->userdata('scan_raport');
 
@@ -324,7 +324,7 @@
 										<!--end Foto rekening listrik-->
 
 										<!--Upload Surat Keterangan-->
-										<?php if($sess_surat_keterangan == null) { ?>
+										<?php if(!isset($value->upload_surat_keterangan_kepemilikan_rumah)) { ?>
 										<tr>
 											<td>Upload Surat Keterangan Pemilik Rumah (PDF)</td>
 											<td>:</td>
@@ -333,18 +333,20 @@
 										</tr>
 										<?php } ?>
 
-										<?php if($sess_surat_keterangan != null) { ?>
+										<?php if(isset($value->upload_surat_keterangan_kepemilikan_rumah)) { ?>
 										<tr>
 											<td>Upload Surat Keterangan Pemilik Rumah (PDF)</td>
 											<td>:</td>
-											<td><img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_rek_listrik; ?>"></td>
+											<td>
+												<iframe src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_surat_keterangan_kepemilikan_rumah; ?>" style="height:250px;"></iframe>
+											</td>
 												<td><i class="asterik">*</i></td>
 										</tr>
 										<?php } ?>
 										<!--end Upload Surat Keterangan-->
 
 										<!--Upload Surat Pertanyaan-->
-										<?php if($sess_surat_pernyataan == null) { ?>
+										<?php if(!isset($value->upload_surat_pernyataan_kebenaran_data)) { ?>
 										<tr>
 											<td>Upload Surat Pernyataan Kebenaran Data (PDF)</td>
 											<td>:</td>
@@ -353,18 +355,20 @@
 										</tr>
 										<?php } ?>
 
-										<?php if($sess_surat_pernyataan != null) { ?>
+										<?php if(isset($value->upload_surat_pernyataan_kebenaran_data)) { ?>
 										<tr>
 											<td>Upload Surat Pernyataan Kebenaran Data (PDF)</td>
 											<td>:</td>
-											<td><img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_rek_listrik; ?>"></td>
+											<td>
+											<iframe src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_surat_pernyataan_kebenaran_data; ?>" style="height:250px;"></iframe>
+											</td>
 												<td><i class="asterik">*</i></td>
 										</tr>
 										<?php } ?>
 										<!--end Upload Surat Pertanyaan-->
 
 										<!--Upload Surat Pertanyaan-->
-										<?php if($sess_surat_pernyataan == null) { ?>
+										<?php if(!isset($value->upload_surat_pernyataan_kipk)) { ?>
 										<tr>
 											<td>Upload Surat Pernyataan KIP-K (PDF)</td>
 											<td>:</td>
@@ -373,18 +377,20 @@
 										</tr>
 										<?php } ?>
 
-										<?php if($sess_surat_pernyataan != null) { ?>
+										<?php if(isset($value->upload_surat_pernyataan_kipk)) { ?>
 										<tr>
 											<td>Upload Surat Pernyataan KIP-K (PDF)</td>
 											<td>:</td>
-											<td><img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_rek_listrik; ?>"></td>
+											<td>
+												<iframe src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_surat_pernyataan_kipk; ?>" style="height:250px;"></iframe>
+											</td>
 												<td><i class="asterik">*</i></td>
 										</tr>
 										<?php } ?>
 										<!--end Upload Surat Pertanyaan-->
 
 										<!--Upload Fakta Integritas-->
-										<?php if($sess_fakta_integritas == null) { ?>
+										<?php if(!isset($value->upload_fakta_integritas)) { ?>
 										<tr>
 											<td>Upload Fakta Integritas (PDF)</td>
 											<td>:</td>
@@ -393,18 +399,20 @@
 										</tr>
 										<?php } ?>
 
-										<?php if($sess_fakta_integritas != null) { ?>
+										<?php if(isset($value->upload_fakta_integritas)) { ?>
 										<tr>
 											<td>Upload Fakta Integritas (PDF)</td>
 											<td>:</td>
-											<td><img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_rek_listrik; ?>"></td>
+											<td>
+												<iframe src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_fakta_integritas; ?>" style="height:250px;"></iframe>
+											</td>
 												<td><i class="asterik">*</i></td>
 										</tr>
 										<?php } ?>
 										<!--end Upload Fakta Integritas-->
 
 										<!--Upload Scan Raport-->
-										<?php if($sess_scan_raport == null && $value->tahun == date('Y')) { ?>
+										<?php if(!isset($value->upload_scan_raport) && $value->tahun == date('Y')) { ?>
 										<tr>
 											<td>Upload Scan Raport (PDF)</td>
 											<td>:</td>
@@ -413,11 +421,13 @@
 										</tr>
 										<?php } ?>
 
-										<?php if($sess_scan_raport != null && $value->tahun == date('Y')) { ?>
+										<?php if(isset($value->upload_scan_raport) && $value->tahun == date('Y')) { ?>
 										<tr>
 											<td>Upload Scan Raport (PDF)</td>
 											<td>:</td>
-											<td><img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_rek_listrik; ?>"></td>
+											<td>
+												<iframe src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_scan_raport; ?>" style="height:250px;"></iframe>
+											</td>
 												<td><i class="asterik">*</i></td>
 										</tr>
 										<?php } ?>
@@ -462,8 +472,8 @@
 											<div class="form-group">
 												<label>Surat Keterangan Pemilik Rumah (PDF)</label>
 												<br/>
-												<input type="checkbox" name="ubah_surat_keterangan_pemilik_rumah" value="10">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Surat Keterangan Pemilik Rumah
-												<input type="file" class="form-control" name="surat_keterangan_pemilik_rumah">
+												<input type="checkbox" name="ubah_surat_keterangan_kepemilikan_rumah" value="10">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Surat Keterangan Pemilik Rumah
+												<input type="file" class="form-control" name="surat_keterangan_kepemilikan_rumah">
 											</div>
 
 											<div class="form-group">

@@ -37,10 +37,10 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="float-left button-date">
-					<?php 
+					<?php
 						date_default_timezone_set('Asia/Jakarta');
 						$tgl = date('d/m/Y H:i');
-						//echo $tgl; 
+						//echo $tgl;
 					?>
 				</div>
 
@@ -49,8 +49,8 @@
 						<nav>
 							<ul>
 								<li>
-									<a target="_blank" href="https://kipk.uinsgd.ac.id/assets/document/panduan aplikasi bidikmisi.pdf"><b>Panduan Penggunaan</b></a>
-									
+									<a style="visibility: hidden;" target="_blank" href="https://kipk.uinsgd.ac.id/assets/document/panduan aplikasi bidikmisi.pdf"><b>Panduan Penggunaan</b></a>
+
 									<span>|</span>
 
 									<a href="<?=base_url('C_login/logout'); ?>"><b>Keluar</b></a>
@@ -63,7 +63,7 @@
 		</div>
 	</header>
 
-	<div class="header-bd col-md-12 col-xd-12">	
+	<div class="header-bd col-md-12 col-xd-12">
         <br>
 		<div class="container col-md-12 col-xd-12">
 			<div class="row col-sm-4 col-md-4 col-xd-4" align="center">
@@ -109,33 +109,33 @@
                                 if($nim){
                             ?>
     				            <li><a href="<?=base_url('C_mhs/biodata'); ?>">
-                                <span class="glyphicon glyphicon-user"></span>  
+                                <span class="glyphicon glyphicon-user"></span>
                                     Biodata
                                 </a></li>
 
-                                <li><a href="<?=base_url('C_mhs/report_bidikmisi'); ?>"><span class="glyphicon glyphicon-exclamation-sign"></span>
+                                <!-- <li><a href="<?=base_url('C_mhs/report_bidikmisi'); ?>"><span class="glyphicon glyphicon-exclamation-sign"></span>
                                     Report Bidikmisi
-                                </a></li>
-                            <?php  
+                                </a></li> -->
+                            <?php
                                }else if($reg == 0 || $reg == 1){
     				        ?>
         						<li><a href="<?=base_url('C_mhs/biodata'); ?>">
-        						<span class="glyphicon glyphicon-user"></span>	
+        						<span class="glyphicon glyphicon-user"></span>
         							Biodata
         						</a></li>
-        
-        					
+
+
     						<?php }else if($reg == 2 || $reg == 3){ ?>
         						<li><a href="<?=base_url('C_mhs/biodata'); ?>">
-        						<span class="glyphicon glyphicon-user"></span>	
+        						<span class="glyphicon glyphicon-user"></span>
         							Biodata
         						</a></li>
-        						
+
         						<li><a href="<?=base_url('C_mhs/pengumuman'); ?>">
-    							<span class="glyphicon glyphicon-bullhorn"></span>	
+    							<span class="glyphicon glyphicon-bullhorn"></span>
     								Pengumuman
     							</a></li>
-    							
+
     							<li>
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-print"></span> Cetak <span class="caret"></span></a></a>
 									<ul class="dropdown-menu">
@@ -156,7 +156,7 @@
 										</li>
 									</ul>
 								</li>
-    							
+
     							<li class="dropdown">
                         			<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-download-alt"></span> Download Document
                         			<span class="caret"></span></a>
@@ -186,9 +186,9 @@
                                         <?php } ?>
                         			</ul>
                         		</li>
-        
-        					
-        						
+
+
+
     						<?php } ?>
     							<li>
                                     <a href="<?=base_url('C_mhs/change'); ?>">
@@ -196,22 +196,22 @@
         							Ganti Password
             						</a>
                                 </li>
-        						
+
         						<li>
-                                    <a target="_blank" href="https://beasiswa.uinsgd.ac.id/assets/document/panduan aplikasi bidikmisi.pdf">
+                                    <!-- <a target="_blank" href="https://beasiswa.uinsgd.ac.id/assets/document/panduan aplikasi bidikmisi.pdf">
         						      <span class="glyphicon glyphicon-book"></span>
         							Panduan Penggunaan
-            						</a>
+            						</a> -->
                                 </li>
-        						
+
         						<li>
                                     <a target="_blank" href="https://beasiswa.uinsgd.ac.id">
-        						      <i class="icon-bullhorn"></i>	
+        						      <i class="icon-bullhorn"></i>
         							Pusat Informasi
             						</a>
                                 </li>
-        						
-        						<li>	
+
+        						<li>
                                     <a href="<?=base_url('C_login/logout'); ?>">
         						      <i class="icon-exclamation-sign"></i>
         							Keluar
@@ -246,35 +246,35 @@
                                 if($nim){
                             ?>
                                 <li><a href="<?=base_url('C_mhs/biodata'); ?>">
-                                <span class="glyphicon glyphicon-user"></span>  
+                                <span class="glyphicon glyphicon-user"></span>
                                     Biodata
                                 </a></li>
                                 <br>
                                 <li><a href="<?=base_url('C_mhs/report_bidikmisi'); ?>"><span class="glyphicon glyphicon-exclamation-sign"></span>
                                     Report Bidikmisi
                                 </a></li>
-                            <?php  
+                            <?php
                                }else if($reg == 0 || $reg == 1){
                             ?>
                                 <li>
                                     <a href="<?=base_url('C_mhs/biodata'); ?>">
-                                    <span class="glyphicon glyphicon-user"></span>  
+                                    <span class="glyphicon glyphicon-user"></span>
                                         Biodata
                                     </a>
                                 </li>
-        
-                            
+
+
                             <?php }else if($reg == 2 || $reg == 3){ ?>
                                 <li>
                                     <a href="<?=base_url('C_mhs/biodata'); ?>">
-                                    <span class="glyphicon glyphicon-user"></span>  
+                                    <span class="glyphicon glyphicon-user"></span>
                                         Biodata
                                     </a>
                                 </li>
                                 <br>
                                 <li>
                                     <a href="<?=base_url('C_mhs/pengumuman'); ?>">
-                                    <span class="glyphicon glyphicon-bullhorn"></span>  
+                                    <span class="glyphicon glyphicon-bullhorn"></span>
                                         Pengumuman
                                     </a>
                                 </li>
@@ -329,9 +329,9 @@
                                         <?php } ?>
                                     </ul>
                                 </li>
-        
-                            
-                                
+
+
+
                             <?php } ?>
                                 <br>
                                 <li>
@@ -342,20 +342,20 @@
                                 </li>
                                 <br>
                                 <li>
-                                    <a target="_blank" href="https://beasiswa.uinsgd.ac.id/assets/document/panduan aplikasi bidikmisi.pdf">
+                                    <!-- <a target="_blank" href="https://beasiswa.uinsgd.ac.id/assets/document/panduan aplikasi bidikmisi.pdf">
                                       <span class="glyphicon glyphicon-book"></span>
                                     Panduan Penggunaan
-                                    </a>
+                                    </a> -->
                                 </li>
                                 <br>
                                 <li>
                                     <a target="_blank" href="https://beasiswa.uinsgd.ac.id">
-                                      <i class="icon-bullhorn"></i> 
+                                      <i class="icon-bullhorn"></i>
                                     Pusat Informasi
                                     </a>
                                 </li>
                                 <br>
-                                <li>    
+                                <li>
                                     <a href="<?=base_url('C_login/logout'); ?>">
                                       <i class="icon-exclamation-sign"></i>
                                     Keluar

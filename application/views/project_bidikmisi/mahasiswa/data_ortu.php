@@ -65,6 +65,8 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 				<?php echo $this->session->flashdata('upload_foto_ktp_ayah_error'); ?>
 				<?php echo $this->session->flashdata('upload_foto_ktp_ibu_success'); ?>
 				<?php echo $this->session->flashdata('upload_foto_ktp_ibu_error'); ?>
+				<?php echo $this->session->flashdata('upload_foto_surat_keterangan_penghasilan_ortu_success'); ?>
+				<?php echo $this->session->flashdata('upload_foto_surat_keterangan_penghasilan_ortu_error'); ?>
 			</div>
 
 			<div class="container col-md-8">
@@ -143,7 +145,12 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 
 								<div class="tab-content">
 									<div class="tab-pane active" id="data">
-										<?php foreach($data_diri as $value) { ?>
+										<?php
+										$sess_foto_ktp_ayah 		= $this->session->userdata('foto_ktp_ayah');
+										$sess_foto_ktp_ibu 		= $this->session->userdata('foto_ktp_ibu');
+										$sess_foto_keterangan_penghasilan_ortu 		= $this->session->userdata('foto_keterangan_penghasilan_ortu');
+
+										foreach($data_diri as $value) { ?>
 										<table class="table">
 											<tr>
 												<td>Nama Ayah</td>
@@ -408,28 +415,40 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 											<tr>
 												<td>Upload KTP Ayah</td>
 												<td>:</td>
-												<td> </td>
+												<td>
+													<?php if(isset($value->upload_foto_ktp_ayah)) { ?>
+													<img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_ktp_ayah; ?>">
+													<?php } ?>
+												</td>
 												<td><b class="asterik">*</b></td>
 											</tr>
 
 											<tr>
 												<td>Upload KTP Ibu</td>
 												<td>:</td>
-												<td> </td>
+												<td>
+													<?php if(isset($value->upload_foto_ktp_ibu)) { ?>
+													<img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_ktp_ibu; ?>">
+													<?php } ?>
+												</td>
 												<td><b class="asterik">*</b></td>
 											</tr>
 
 											<tr>
 												<td>Upload Foto Surat Keterangan Penghasilan Ortu</td>
 												<td>:</td>
-												<td> </td>
+												<td>
+													<?php if(isset($value->upload_foto_surat_keterangan_penghasilan_ortu)) { ?>
+													<img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_surat_keterangan_penghasilan_ortu; ?>">
+													<?php } ?>
+												</td>
 												<td><b class="asterik">*</b></td>
 											</tr>
 										</table>
 									</div>
 
 									<div class="tab-pane" id="edit">
-										<form action="<?=base_url('C_mhs/direct3'); ?>" method="POST">
+										<form action="<?=base_url('C_mhs/direct3'); ?>" method="POST" enctype="multipart/form-data">
 											<div class="form-group">
 												<label>Nama Ayah <i class="asterik">*</i></label>
 												<input class="form-control input" type="text" placeholder="Nama Ayah Anda" name="nama_ayah" required="required" value="<?php echo $value->nama_ayah; ?>">
@@ -895,8 +914,8 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 											<div class="form-group">
 												<label>Foto Surat Keterangan Penghasilan Orang tua</label>
 												<br/>
-												<input type="checkbox" name="ubah_foto_keterangan_penghasilan_ortu" value="2">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto Surat Keterangan Pengahasilan Orang Tua
-												<input type="file" class="form-control" name="foto_keterangan_penghasilan_ortu">
+												<input type="checkbox" name="ubah_foto_surat_keterangan_penghasilan_ortu" value="2">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto Surat Keterangan Pengahasilan Orang Tua
+												<input type="file" class="form-control" name="foto_surat_keterangan_penghasilan_ortu">
 											</div>
 
 											<div class="text-center">

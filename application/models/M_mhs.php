@@ -111,6 +111,12 @@
 		}
 		//end fungsi edit banyak foto
 
+		//create new master mhs new
+		public function insertNewMhs($no_pendaftaran, $data)
+		{
+			return $this->db->insert('mastermhs_new', $data);
+		}
+
 		//fungsi update kuota
 		public function update_kuota($fakultas){
 			$query = $this->db->query("UPDATE kuota SET kuota = kuota-1 WHERE id_fakultas = '$fakultas'");
@@ -185,19 +191,19 @@
 			return $this->db->get('mastermhs_new')->row();
 		}
 		//end fungsi getWhere kolom default
-	   
+
 	    //funtion get tabel tahun lulus secara ascending
 		public function getTahun_lulus(){
 			$res = $this->db->query("SELECT * FROM tahun_lulus ORDER BY tahun_lulus ASC");
 			return $res->result();
 		}
-	    
+
 	    //function view data document bidikmisi
 	    public function getDocument_bidikmisi(){
 	        $query = $this->db->query("SELECT * FROM document WHERE id_document=1");
 		    return $query;
 	    }
-	    
+
 	    public function getDocument_bidikmisi2(){
 	        $query = $this->db->query("SELECT * FROM document WHERE id_document=2");
 		    return $query;
@@ -241,12 +247,12 @@
 			return $this->db->query("UPDATE mastermhs_report SET ip_k8 = (t_sks1+t_sks2+t_sks3+t_sks4+t_sks5+t_sks6+t_sks7+t_sks8)/(sks1+sks2+sks3+sks4+sks5+sks6+sks7+sks8) WHERE nim='$nim'");
 		}
 		//end function report bidikmisi
-		
+
 		public function timer(){
 			$this->db->select('*');
 			$this->db->from('jadwal');
 			$query = $this->db->get();
-			
+
 			if($query->num_rows() > 0){
 				return $query->row();
 			}

@@ -20,7 +20,8 @@
 		<div class="container col-md-8">
 			<!--Halaman Untuk Report Beasiswa-->
 			<div class="row">
-				<?php if($this->session->userdata('nim') != NULL) { ?>
+				<?php if(false) { ?>
+					<!-- $this->session->userdata('nim') != NULL -->
 				<div class="row">
 					<div class="panel-group">
 						<?php foreach($data as $value) { ?>
@@ -33,7 +34,7 @@
 	    							<p>Tanda Asterik (*) Wajib diisi</p>
 	    						</div>
 									<p>Silahkan untuk mengedit Biodata Mahasiswa dengan mengklik tabs <b>Edit Mahasiswa</b> di Biodata Mahasiswa jika biodata mahasiswa anda masih kosong atau ada perubahan data</p>
-									<p>Silahkan klik <b>Report Bidikmisi</b> pada menu bidikmisi, untuk melaporkan prestasi semester anda saat ini.</p>
+									<!-- <p>Silahkan klik <b>Report Bidikmisi</b> pada menu bidikmisi, untuk melaporkan prestasi semester anda saat ini.</p> -->
 						</div>
 						<br>
 						<!--End Rule-->
@@ -115,7 +116,7 @@
 											<tr>
 												<td>No Hp</td>
 												<td>:</td>
-												<td><?php echo $value->no_hp; ?></td>
+												<td><?php if(isset($value->no_hp)) { echo $value->no_hp; } ?></td>
 												<td><b style="color:red;">*</b></td>
 											</tr>
 
@@ -123,10 +124,10 @@
 												<td>Angkatan</td>
 												<td>:</td>
 												<td>
-												<?php if($value->angkatan == 0000) { ?>
+												<?php if($value->tahun == 0000) { ?>
 												<?php echo '-'; ?>
-												<?php }else if($value->angkatan != NULL) { ?>
-												<?php echo $value->angkatan; ?>
+												<?php }else if($value->tahun != NULL) { ?>
+												<?php echo $value->tahun; ?>
 												<?php } ?>
 												</td>
 												<td><b style="color:red;">*</b></td>
@@ -223,12 +224,12 @@
 
 											<div class="form-group">
 												<label>No Hp</label>
-												<input type="number" placeholder="Nomor Handphone" required="required" class="form-control" name="no_hp" value="<?php echo $value->no_hp; ?>">
+												<input type="number" placeholder="Nomor Handphone" required="required" class="form-control" name="no_hp" value="<?php if(isset($value->no_hp)) { echo $value->no_hp; } ?>">
 											</div>
 
 											<div class="form-group">
 												<label>Angkatan</label>
-												<input type="number" placeholder="example : 2015 Or 2016" required="required" class="form-control" name="angkatan" value="<?php if($value->angkatan == 0000) {}else if($value->angkatan != NULL) {echo $value->angkatan; }?>">
+												<input disabled type="number" placeholder="example : 2015 Or 2016" required="required" class="form-control" name="angkatan" value="<?php if($value->tahun == 0000) {}else if($value->tahun != NULL) {echo $value->tahun; }?>">
 											</div>
 
 											<div class="text-right">
@@ -264,7 +265,7 @@
 							  <div class="penting">
 		    							<p>Tanda Asterik (*) Wajib diisi</p>
 		    						</div>
-										<p>Akan ada <b style="color: red;">10 tahap</b> yang harus diisi oleh pendaftar Beasiswa KIP-K dan pada setiap tahap akan ada RULE/Peraturan dalam pengisian data Beasiswa KIP-K.
+										<p>Akan ada <b style="color: red;">11 tahap</b> yang harus diisi oleh pendaftar Beasiswa KIP-K dan pada setiap tahap akan ada RULE/Peraturan dalam pengisian data Beasiswa KIP-K.
 										</p>
 
 										<p>Silahkan cek kembali biodata pendaftar dan <b style="color: red;">Tanda Asterik (*) Wajib diisi</b>, jika masih ada kekeliruan dengan biodata pendaftar, anda dapat mengeditnya dengan mengklik tombol Edit dibawah dan mengisi ulang kembali data. jika sudah yakin dengan biodata pendaftar yang sudah ada, silahkan untuk klik tombol <a class="btn btn-info" href="#" type="submit">Lanjut &raquo;</a> </p>

@@ -48,39 +48,22 @@
 						</div>
 
 						<div class="panel-body">
-							<div class="alert alert-success">
-								<table class="table bordeles">
-
-									<!--<tr>
-										<td>Portal Login</td>
-										<td>:</td>
-										<td><b id="buka_portal_login"></b></td>
-									</tr>
-                                   -->
-
-
-									<tr>
-										<td>Pengumuman Tahap 1</td>
-										<td>:</td>
-										<td><b id="buka_pengumum">30 September 2020</b></td>
-									</tr>
-
-									<tr>
-										<td>Pendaftaran Beasiswa KIP-K</td>
-										<td>:</td>
-										<td><b id="buka_pendaftaran"></b></td>
-									</tr>
-								</table>
-	                            <p><b></b>Ketentuan (Username dan Password) Sistem Pendaftaran Beasiswa KIP-K</p>
-								<p><b>1)</b> Gunakan Nomor NIM dan password SALAM untuk login ke website ini.</p>
-								<p><b>2)</b> Khusus untuk mahasiswa angkatan 2019 dan 2020.</p>
-							</div>
-
-							<form autocomplete="off" accept-charset="UTF-8" role="form" action="<?=base_url('C_login/login'); ?>" method="POST" enctype="multipart/form-data">
+							<center><h4><u>Register Akun KIP-K UIN Sunan Gunung Djati Bandung</h4></u></center>
+							<form autocomplete="off" accept-charset="UTF-8" role="form" action="<?=base_url('C_login/registerPostData'); ?>" method="POST" enctype="multipart/form-data">
 								<fieldset>
 									<div class="form-group text">
-										<label><b>Nomor NIM</b></label>
-										<input class="form-control" type="text" name="no_pendaftaran" placeholder="Ex : 1187050044" required="required" style="height: auto;">
+										<label><b>Nomor Pendaftaran</b></label>
+										<input class="form-control" type="text" name="no_pendaftaran" placeholder="Ex : CBT-1187050044 / THZ-23453433" required="required" style="height: auto;">
+									</div>
+
+									<div class="form-group text">
+										<label><b>Nama</b></label>
+										<input class="form-control" type="text" name="nama_mahasiswa" placeholder="" required="required" style="height: auto;">
+									</div>
+
+                  <div class="form-group text">
+										<label><b>Email</b></label>
+										<input class="form-control" type="email" name="email" placeholder="" required="required" style="height: auto;">
 									</div>
 
 									<div class="form-group text">
@@ -101,8 +84,7 @@
 										</div>
 									</div>
 									<div class="col-md-12 col-xd-12 col-sm-12 col-xs-12 col-style">
-										<button class="btn btn-success btn-block" type="submit"><i class="icon-plane"></i> Masuk</button>
-										<a href="<?=base_url('C_login/register'); ?>" class="btn btn-primary btn-block"><i class="icon-plane"></i> Tidak punya akun SALAM? Daftar disini</a>
+										<button class="btn btn-success btn-block" type="submit"><i class="icon-plane"></i> Register</button>
 									</div>
 									<!-- <div class="col-md-6 col-xd-6 col-sm-6 col-xs-6 col-style">
 										<button class="btn btn-warning btn-block" type="reset"><i class="icon-cogs"></i> Kosongkan Formulir</button>

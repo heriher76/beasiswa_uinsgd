@@ -14,6 +14,28 @@
 	}
 </style>
 	<body>
+		<script type="text/javascript">
+			//cek pondok
+			function cek_punya(){
+				  var kode = document.getElementById('punya_kipk').checked;
+				  var elems = document.getElementsByClassName('list_kipk');
+				  if ( kode == false ) {
+				      for(var i = 0; i < elems.length; i++) {
+				          elems[i].style.backgroundColor = "#DCDCDC";
+				          elems[i].disabled = true;
+				          elems[i].required = false;
+				      }
+				  } else {
+				      for(var i = 0; i < elems.length; i++) {
+				          elems[i].style.backgroundColor = '#FFFFFF';
+				          elems[i].disabled = false;
+				          elems[i].required = true;
+				      	}
+				  	}
+				}
+			//End cek pondok
+		</script>
+
 		<div class="notif notifikasi col-md-offset-8">
 			<?php echo $this->session->flashdata('direct8_success'); ?>
 		</div>
@@ -94,6 +116,19 @@
 										<?php foreach($data_diri as $value) { ?>
 											<!--KIP-K-->
 											<table class="table">
+												<tr>
+													<td>Punya KIPK?</td>
+													<td>:</td>
+													<td>
+														<?php 
+														if($value->punya_kipk > 0) 
+															echo 'Ya';
+														else if ($value->punya_kipk == 0)
+															echo 'Tidak'; 
+														?>
+													</td>
+													<td><i class="asterik">*</i></td>
+												</tr>
 											    <tr>
 													<td>Jenis KIP-K</td>
 													<td>:</td>
@@ -112,9 +147,17 @@
 
 										<div class="tab-pane" id="edit">
 											<form action="<?=base_url('C_mhs/direct8'); ?>" method="POST">
+												<div class="form-group">
+													<label>Punya KIPK ? <i class="asterik">*</i></label>
+													<br/>
+													<input style=" cursor: pointer;" class="input" type="radio" value="1" checked="checked" required="required" name="punya_kipk" id="punya_kipk" onclick="cek_punya()">
+													<label>Ya</label>&nbsp;&nbsp;
+													<input style=" cursor: pointer;" id="punya_kipk" class="input" required="required" value="0" onclick="cek_punya()" type="radio" name="punya_kipk">
+													<label>Tidak</label>
+												</div>
 											    	<div class="form-group">
 													<label>Jenis KIP-K <i class="asterik"></i></label>
-													<select class="form-control input" name="jenis_kipk">
+													<select class="form-control input list_kipk" name="jenis_kipk">
 														<?php if($value->jenis_kipk == null || $value->jenis_kipk == '0') { ?>
 															<option value="">-Pilih SalahSatu-</option>
 															<option value="kip">Kartu Indonesia Pintar(KIP)</option>
@@ -132,7 +175,7 @@
 
 												<div class="form-group">
 													<label>Nomor KIP-K <b class="asterik"></b></label>
-													<input class="form-control input" type="text" placeholder="Nomor KIP-K" name="nomor_kipk" value="<?php echo $value->nomor_kipk; ?>">
+													<input class="form-control input list_kipk" type="text" placeholder="Nomor KIP-K" name="nomor_kipk" value="<?php echo $value->nomor_kipk; ?>">
 												</div>
 
 												<div class="text-center">

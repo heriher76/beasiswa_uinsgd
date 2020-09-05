@@ -9,8 +9,8 @@ class C_mhs extends CI_Controller{
 		$no_pendaftaran = $this->session->userdata('no_pendaftaran');
 		$token = $this->session->userdata('token');
 		$nim = $this->session->userdata('nim');
-
-		if((empty($no_pendaftaran) && empty($token)) || (!$no_pendaftaran && $token != '77400cmmsadmfAkdieO03Adkjd009ADk22dkd' ) || (empty($nim) && empty($token)) || (!$nim && $token != '77400cmmsadmfAkdieO03Adkjd009ADk22dkd' )) {
+// die($no_pendaftaran);
+		if((empty($no_pendaftaran) && empty($token)) || (empty($nim) && empty($token))) {
 			redirect('C_login');
 		}
 	}
@@ -41,12 +41,22 @@ class C_mhs extends CI_Controller{
 	}
 
 	public function step2(){
+		$token = $this->session->userdata('token');
 		$reg = $this->session->userdata('reg');
 		$buka = $this->session->userdata('buka');
 		$tutup = $this->session->userdata('tutup');
+		$nim = $this->session->userdata('nim');
+		// date_default_timezone_set('Asia/Jakarta');
+		// if (date('m') > 8)
+		// 	$semesterNya = date('Y').'1';
+		// else
+		// 	$semesterNya = (date('Y')-1).'2';
+		//
+		// die($getKHS);
+
 
 		date_default_timezone_set('Asia/Jakarta');
-        $sekarang = date('Y-m-d H:i:s');
+    $sekarang = date('Y-m-d H:i:s');
 
 		if($reg == 2){
 			redirect('C_mhs/biodata');
@@ -665,50 +675,66 @@ class C_mhs extends CI_Controller{
     			$tanggal_lahir 		= $this->input->post('tgl_lahir');
     			$fakultas 			= $this->input->post('fakultas');
     			$jurusan 			= $this->input->post('jurusan');
+    			$no_hp 			= $this->input->post('no_hp');
     			$jalur_pendaftaran 	= $this->input->post('jalur_pendaftaran');
     			$kategori			= $this->input->post('kategori');
 
     			$data = [ 'nama_mahasiswa'	  => $nama_mahasiswa,
-    					  'jenis_kelamin' 	  => $jenis_kelamin,
-    					  'tanggal_lahir' 	  => $tanggal_lahir,
-    					  'jalur_pendaftaran' => $jalur_pendaftaran,
-    					  'fakultas'		  => $fakultas,
-    					  'jurusan' 		  => $jurusan,
-    					  'kategori' 		  => $kategori
+					  'jenis_kelamin' 	  => $jenis_kelamin,
+					  'tanggal_lahir' 	  => $tanggal_lahir,
+					  'jalur_pendaftaran' => $jalur_pendaftaran,
+					  'fakultas'		  => $fakultas,
+					  'jurusan' 		  => $jurusan,
+					  'kategori' 		  => $kategori,
+						'no_hp' 				=> $no_hp
     			];
     			$edit_data = $this->M_mhs->edit_data($no_pendaftaran, $data);
     			$query_fak = $this->db->get_where('mastermhs_new', array(
     					'no_pendaftaran' => $no_pendaftaran
     				))->row();
 
+					$this->M_mhs->getReg1($no_pendaftaran);
+					$login_mhs = $this->db->get_where('mastermhs_new',array(
+	    			'no_pendaftaran' => $no_pendaftaran
+	    		))->row();
+					$sess_reg = array(
+							'reg' => $login_mhs->reg
+					);
+					$this->session->set_userdata($sess_reg);
+
     			$sess_fakultas = array(
     				'fakultas' => $query_fak->fakultas
     			);
     			$this->session->set_userdata($sess_fakultas);
     		}
-		}else if($nim != NULL){
-			$nim 			= $this->input->post('nim');
-			$nama_mahasiswa = $this->input->post('nama_lengkap');
-			$jenis_kelamin 	= $this->input->post('jenis_kelamin');
-			$fakultas 		= $this->input->post('fakultas');
-			$jurusan 		= $this->input->post('jurusan');
-			$no_hp 			= $this->input->post('no_hp');
-			$angkatan 		= $this->input->post('angkatan');
-			$ip_address 	= $this->input->ip_address();
-
-
-			$data = [
-				'nama_mahasiswa' => $nama_mahasiswa,
-				'jenis_kelamin' => $jenis_kelamin,
-				'fakultas' => $fakultas,
-				'jurusan' => $jurusan,
-				'no_hp' => $no_hp,
-				'angkatan' => $angkatan,
-				'updated_at' => $time,
-				'ip_address' => $ip_address
-			];
-			$insert_data = $this->M_mhs->update_data_nim($nim, $data);
-		}
+			}
+		// else if($nim != NULL){
+		// 	$nim 			= $this->input->post('nim');
+		// 	$nama_mahasiswa = $this->input->post('nama_lengkap');
+		// 	$jenis_kelamin 	= $this->input->post('jenis_kelamin');
+		// 	$fakultas 		= $this->input->post('fakultas');
+		// 	$jurusan 		= $this->input->post('jurusan');
+		// 	$no_hp 			= $this->input->post('no_hp');
+		// 	$angkatan 		= $this->input->post('angkatan');
+		// 	$ip_address 	= $this->input->ip_address();
+		//
+		// 	$data = [
+		// 		'nama_mahasiswa' => $nama_mahasiswa,
+		// 		'jenis_kelamin' => $jenis_kelamin,
+		// 		'fakultas' => $fakultas,
+		// 		'jurusan' => $jurusan,
+		// 		'no_hp' => $no_hp,
+		// 		'angkatan' => $angkatan,
+		// 		'updated_at' => $time,
+		// 		'ip_address' => $ip_address
+		// 	];
+		// 	$insert_data = $this->M_mhs->update_data_nim($nim, $data);
+		// 	$this->M_mhs->getReg1($no_pendaftaran);
+		// 	$sess_reg = array(
+		// 			'reg' => $login_mhs->reg
+		// 	);
+		// 	$this->session->set_userdata($sess_reg);
+		// }
     	$this->session->set_flashdata('message',
     	                    '<div class="alert alert-success">
     							<p>Data Anda Sudah di Update</p>
@@ -851,6 +877,8 @@ class C_mhs extends CI_Controller{
 			$kelurahan			= $this->input->post('kelurahan_2');
 			$kecamatan			= $this->input->post('kecamatan_2');
 			$kode_pos 			= $this->input->post('kode_pos');
+			$ipk 			= $this->input->post('ipk');
+			$nilai_rata_rata_raport 			= $this->input->post('nilai_rata_rata_raport');
 
 			$data = [ 'nik'			 		=> $nik,
 					  'tempat_lahir' 		=> $tempat_lahir,
@@ -864,9 +892,46 @@ class C_mhs extends CI_Controller{
 					  'rw_2'				=> $rw,
 					  'kelurahan_2' 		=> $kelurahan,
 					  'kecamatan_2'			=> $kecamatan,
-					  'kode_pos' 			=> $kode_pos
+					  'kode_pos' 			=> $kode_pos,
+					  'ipk' 				=> $ipk,
+					  'nilai_rata_rata_raport' => $nilai_rata_rata_raport
 			];
 			$this->M_mhs->edit_data($no_pendaftaran, $data);
+			//upload foto
+			$foto = $this->M_mhs->getFoto($no_pendaftaran);
+			$ubah_foto_kartu_rencana_studi		 	= $this->input->post('ubah_foto_kartu_rencana_studi');
+
+			$config['upload_path'] 		= './assets/foto_dokumen/';
+			$config['allowed_types'] 	= 'png|jpg|jpeg|JPEG|PNG|JPG|PDF';
+			$config['max_size']			= 3100;
+
+			$this->load->library('upload', $config);
+
+			if($ubah_foto_kartu_rencana_studi != null ){
+				switch($ubah_foto_kartu_rencana_studi){
+					case 0 :
+					{
+						if(!$this->upload->do_upload('foto_kartu_rencana_studi')){
+						$this->session->set_flashdata('upload_foto_kartu_rencana_studi_error',
+							'<div class="alert alert-warning">
+								<p>Upload Foto Kartu Rencana Studi Gagal, Silahkan Cek Kembali Ukuran dan Format File Foto Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							//unlink('assets/foto_dokumen/'.$foto->upload_foto_kartu_rencana_studi);
+
+							$data = ['upload_foto_kartu_rencana_studi' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('upload_foto_kartu_rencana_studi_success', '
+								<div class="alert alert-success">
+									<p>Data Foto Kartu Rencana Studi Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+
+			$ubah_foto_kartu_rencana_studi		 	= $this->input->post('ubah_foto_kartu_rencana_studi');
 			$this->session->set_flashdata('direct2_success',
 				'<div class="alert alert-success">
 					<p>Data Identitas Anda sudah Tersimpan, Silahkan Lanjut Ke tahap Selanjutnya</p>
@@ -955,6 +1020,97 @@ class C_mhs extends CI_Controller{
 					  'jumlah_saudara_kandung_tang_ortu' => $saudara_kandung
 			];
 			$this->M_mhs->edit_data($no_pendaftaran, $data);
+			//upload foto
+			$sess_foto_ktp_ayah 	= $this->session->userdata('foto_ktp_ayah');
+			$sess_foto_ktp_ibu 	= $this->session->userdata('foto_ktp_ibu');
+			$sess_foto_surat_keterangan_penghasilan_ortu 	= $this->session->userdata('foto_surat_keterangan_penghasilan_ortu');
+
+			$foto = $this->M_mhs->getFoto($no_pendaftaran);
+
+			$ubah_foto_ktp_ayah		 	= $this->input->post('ubah_foto_ktp_ayah');
+			$ubah_foto_ktp_ibu		 	= $this->input->post('ubah_foto_ktp_ibu');
+			$ubah_foto_surat_keterangan_penghasilan_ortu		 	= $this->input->post('ubah_foto_surat_keterangan_penghasilan_ortu');
+
+			$config['upload_path'] 		= './assets/foto_dokumen/';
+			$config['allowed_types'] 	= 'png|jpg|jpeg|JPEG|PNG|JPG';
+			$config['max_size']			= 1100;
+
+			$this->load->library('upload', $config);
+
+			if($ubah_foto_ktp_ayah != null ){
+				switch($ubah_foto_ktp_ayah){
+					case 0 :
+					{
+						if(!$this->upload->do_upload('foto_ktp_ayah')){
+						$this->session->set_flashdata('upload_foto_ktp_ayah_error',
+							'<div class="alert alert-warning">
+								<p>Upload Foto KTP Ayah Gagal, Silahkan Cek Kembali Ukuran dan Format File Foto Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							//unlink('assets/foto_dokumen/'.$foto->upload_foto_ktp_ayah);
+
+							$data = ['upload_foto_ktp_ayah' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('upload_foto_ktp_ayah_success', '
+								<div class="alert alert-success">
+									<p>Data Foto KTP Ayah Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+
+			if($ubah_foto_ktp_ibu != null ){
+				switch($ubah_foto_ktp_ibu == 1){
+					case 1 :
+					{
+						if(!$this->upload->do_upload('foto_ktp_ibu')){
+						$this->session->set_flashdata('upload_foto_ktp_ibu_error',
+							'<div class="alert alert-warning">
+								<p>Upload Foto KTP Ibu Gagal, Silahkan Cek Kembali Ukuran dan Format File Foto Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							//unlink('assets/foto_dokumen/'.$foto->upload_foto_ktp_ibu);
+
+							$data = ['upload_foto_ktp_ibu' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('upload_foto_ktp_ibu_success', '
+								<div class="alert alert-success">
+									<p>Data Foto KTP Ibu Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+
+			if($sess_foto_surat_keterangan_penghasilan_ortu == null ){
+				switch($ubah_foto_surat_keterangan_penghasilan_ortu == 2){
+					case 2 :
+					{
+						if(!$this->upload->do_upload('foto_surat_keterangan_penghasilan_ortu')){
+						$this->session->set_flashdata('upload_foto_surat_keterangan_penghasilan_ortu_error',
+							'<div class="alert alert-warning">
+								<p>Upload Foto Keterangan Penghasilan Gagal, Silahkan Cek Kembali Ukuran dan Format File Foto Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							//unlink('assets/foto_dokumen/'.$foto->upload_foto_surat_keterangan_penghasilan_ortu);
+
+							$data = ['upload_foto_surat_keterangan_penghasilan_ortu' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('upload_foto_surat_keterangan_penghasilan_ortu_success', '
+								<div class="alert alert-success">
+									<p>Data Foto Keterangan Penghasilan Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+
+			//end upload foto
+
 			$this->session->set_flashdata('direct3_success',
 				'<div class="alert alert-success">
 					<p>Data Orang Tua Anda sudah Tersimpan, Silahkan Lanjut Ke tahap Selanjutnya</p>
@@ -1014,6 +1170,43 @@ class C_mhs extends CI_Controller{
 			];
 
 			$this->M_mhs->edit_data($no_pendaftaran, $data);
+			
+			$sess_surat_keterangan_kepemilikan_rumah 	= $this->session->userdata('surat_keterangan_kepemilikan_rumah');
+
+			$foto = $this->M_mhs->getFoto($no_pendaftaran);
+
+			$ubah_surat_keterangan_kepemilikan_rumah		 	= $this->input->post('ubah_surat_keterangan_kepemilikan_rumah');
+			
+			$config['upload_path'] 		= './assets/foto_dokumen/';
+			$config['allowed_types'] 	= 'png|jpg|jpeg|JPEG|PNG|JPG|PDF';
+			$config['max_size']			= 1100;
+
+			$this->load->library('upload', $config);
+
+			if($ubah_surat_keterangan_kepemilikan_rumah != null ){
+				switch($ubah_surat_keterangan_kepemilikan_rumah){
+					case 3 :
+					{
+						if(!$this->upload->do_upload('surat_keterangan_kepemilikan_rumah')){
+						$this->session->set_flashdata('upload_surat_keterangan_kepemilikan_rumah_error',
+							'<div class="alert alert-warning">
+								<p>Upload Surat Keterangan Kepemilikan Rumah Gagal, Silahkan Cek Kembali Ukuran dan Format File Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							//unlink('assets/foto_dokumen/'.$foto->upload_surat_keterangan_kepemilikan_rumah);
+
+							$data = ['upload_surat_keterangan_kepemilikan_rumah' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('upload_surat_keterangan_kepemilikan_rumah_success', '
+								<div class="alert alert-success">
+									<p>Data Surat Keterangan Kepemilikan Rumah Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+
 			$this->session->set_flashdata('direct4_success',
 				'<div class="alert alert-success">
 					<p>Data Kondisi Rumah Anda sudah Tersimpan, Silahkan Lanjut Ke tahap Selanjutnya</p>
@@ -1211,8 +1404,11 @@ class C_mhs extends CI_Controller{
 			$no_pendaftaran 	= $this->session->userdata('no_pendaftaran');
 			$jenis_kipk 		= $this->input->post('jenis_kipk');
 			$nomor_kipk 	= $this->input->post('nomor_kipk');
+			$punya_kipk 	= $this->input->post('punya_kipk');
 
-			$data = ['jenis_kipk' 	=> $jenis_kipk,
+			$data = [
+					  'punya_kipk'	=> $punya_kipk,
+					  'jenis_kipk' 	=> $jenis_kipk,
 					  'nomor_kipk' => $nomor_kipk
 			];
 			$this->M_mhs->edit_data($no_pendaftaran, $data);
@@ -1272,16 +1468,16 @@ class C_mhs extends CI_Controller{
 			$ubah_foto_rumah_kanan 	= $this->input->post('ubah_foto_rumah_kanan');
 			$ubah_foto_rumah_dalam 	= $this->input->post('ubah_foto_rumah_dalam');
 			$ubah_foto_pbb 			= $this->input->post('ubah_foto_pbb');
-			$ubah_foto_rek_listrik		 	= $this->input->post('ubah_foto_rek_listrik');
-			$ubah_surat_keterangan		 	= $this->input->post('ubah_surat_keterangan');
+			$ubah_foto_rek		 	= $this->input->post('ubah_foto_rek');
+			$ubah_surat_keterangan		 	= $this->input->post('ubah_surat_keterangan_kepemilikan_rumah');
 			$ubah_surat_pernyataan_kebenaran_data		 	= $this->input->post('ubah_surat_pernyataan_kebenaran_data');
 			$ubah_surat_pernyataan_kipk		 	= $this->input->post('ubah_surat_pernyataan_kipk');
 			$ubah_fakta_integritas		 	= $this->input->post('ubah_fakta_integritas');
 			$ubah_scan_raport		 	= $this->input->post('ubah_scan_raport');
 
 			$config['upload_path'] 		= './assets/foto_dokumen/';
-			$config['allowed_types'] 	= 'png|jpg|jpeg|JPEG|PNG|JPG';
-			$config['max_size']			= 1100;
+			$config['allowed_types'] 	= 'png|jpg|jpeg|JPEG|PNG|JPG|pdf|PDF';
+			$config['max_size']			= 10100;
 
 			$this->load->library('upload', $config);
 
@@ -1508,6 +1704,128 @@ class C_mhs extends CI_Controller{
 				}
 			}
 			//end upload foto pbb, kipk dan rekening listrik
+
+			//upload dokumen baru
+			if($sess_surat_keterangan == null){
+				switch($ubah_surat_keterangan == 10){
+					case 10 :
+					{
+						if(!$this->upload->do_upload('surat_keterangan_kepemilikan_rumah')){
+						$this->session->set_flashdata('update8_surat_keterangan_error',
+							'<div class="alert alert-warning">
+								<p>Upload Surat Keterangan Pemilik Rumah Gagal, Silahkan Cek Kembali Ukuran dan Format File PDF Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							// unlink('assets/dokumen_pdf/'.$foto->upload_surat_keterangan);
+
+							$data = ['upload_surat_keterangan_kepemilikan_rumah' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('update8_surat_keterangan_success', '
+								<div class="alert alert-success">
+									<p>Data Surat Keterangan Kepemilikan Rumah Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+
+			if($sess_surat_pernyataan_kebenaran_data == null){
+				switch($ubah_surat_pernyataan_kebenaran_data == 11){
+					case 11 :
+					{
+						if(!$this->upload->do_upload('surat_pernyataan_kebenaran_data')){
+						$this->session->set_flashdata('update8_surat_pernyataan_kebenaran_data_error',
+							'<div class="alert alert-warning">
+								<p>Upload Surat Pernyataan Kebenaran Data Gagal, Silahkan Cek Kembali Ukuran dan Format File PDF Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							// unlink('assets/dokumen_pdf/'.$foto->upload_surat_pernyataan_kebenaran_data);
+
+							$data = ['upload_surat_pernyataan_kebenaran_data' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('update8_surat_pernyataan_kebenaran_data_success', '
+								<div class="alert alert-success">
+									<p>Data Surat Pernyataan Kebenaran Data Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+
+			if($sess_fakta_integritas == null){
+				switch($ubah_fakta_integritas == 12){
+					case 12 :
+					{
+						if(!$this->upload->do_upload('fakta_integritas')){
+						$this->session->set_flashdata('update8_fakta_integritas_error',
+							'<div class="alert alert-warning">
+								<p>Upload Fakta Integritas Error, Silahkan Cek Kembali Ukuran dan Format File PDF Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							// unlink('assets/dokumen_pdf/'.$foto->upload_fakta_integritas);
+
+							$data = ['upload_fakta_integritas' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('update8_fakta_integritas_success', '
+								<div class="alert alert-success">
+									<p>Data Fakta Integritas Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+
+			if($sess_scan_raport == null){
+				switch($ubah_scan_raport == 13){
+					case 13 :
+					{
+						if(!$this->upload->do_upload('scan_raport')){
+						$this->session->set_flashdata('update8_scan_raport_error',
+							'<div class="alert alert-warning">
+								<p>Upload Scan Raport Gagal, Silahkan Cek Kembali Ukuran dan Format File PDF Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							// unlink('assets/dokumen_pdf/'.$foto->upload_scan_raport);
+
+							$data = ['upload_scan_raport' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('update8_scan_raport_success', '
+								<div class="alert alert-success">
+									<p>Data Scan Raport Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+
+			if($sess_surat_pernyataan_kipk == null){
+				switch($ubah_surat_pernyataan_kipk == 14){
+					case 14 :
+					{
+						if(!$this->upload->do_upload('surat_pernyataan_kipk')){
+						$this->session->set_flashdata('update8_surat_pernyataan_kipk_error',
+							'<div class="alert alert-warning">
+								<p>Upload Surat Pernyataan KIP-K Gagal, Silahkan Cek Kembali Ukuran dan Format File Surat Pernyataan Anda</p>
+							</div>' );
+						}else{
+							$file = $this->upload->data();
+							// unlink('assets/dokumen_pdf/'.$foto->upload_surat_pernyataan_kipk);
+
+							$data = ['upload_surat_pernyataan_kipk' => $file['file_name']];
+							$this->M_mhs->edit_data($no_pendaftaran, $data);
+							$this->session->set_flashdata('update8_surat_pernyataan_kipk_success', '
+								<div class="alert alert-success">
+									<p>Data Surat Pernyataan KIP-K Berhasil diUpdate</p>
+								</div>');
+						}
+					}
+				}
+			}
+			//end upload dokumen baru
 
 			//update upload foto ktp dan kk
 			if($sess_foto_ktp != null ){

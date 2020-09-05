@@ -15,6 +15,8 @@
 	<body>
 		<div class="notif notifikasi col-md-offset-8">
 			<?php echo $this->session->flashdata('direct2_success'); ?>
+			<?php echo $this->session->flashdata('upload_foto_kartu_rencana_studi_success'); ?>
+			<?php echo $this->session->flashdata('upload_foto_kartu_rencana_studi_error'); ?>
 		</div>
 
 		<div class="container col-md-8">
@@ -203,14 +205,18 @@
 										<tr>
 											<td>IPK *min 3.00</td>
 											<td>:</td>
-											<td> </td>
+											<td><?php echo $value->ipk; ?></td>
 											<td><b class="asterik">*</b></td>
 										</tr>
 
 										<tr>
 											<td>Rencana Studi</td>
 											<td>:</td>
-											<td> </td>
+											<td>
+												<?php if(isset($value->upload_foto_kartu_rencana_studi)) { ?>
+													<img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_kartu_rencana_studi; ?>">
+													<?php } ?>
+											</td>
 											<td><b class="asterik">*</b></td>
 										</tr>
 
@@ -218,7 +224,7 @@
 										<tr>
 											<td>Nilai rata-rata Raport</td>
 											<td>:</td>
-											<td> </td>
+											<td><?php echo $value->nilai_rata_rata_raport; ?></td>
 											<td><b class="asterik">*</b></td>
 										</tr>
 										<?php } ?>
@@ -227,7 +233,7 @@
 								</div>
 
 								<div class="tab-pane" id="edit">
-									<form action="<?=base_url('C_mhs/direct2'); ?>" method="POST">
+									<form action="<?=base_url('C_mhs/direct2'); ?>" method="POST" enctype="multipart/form-data">
 										<div class="form-group">
 											<label>NIK <b class="asterik">*</b></label>
 											<input class="form-control input" type="text" placeholder="NIK" name="nik" required="required" value="<?php echo $value->nik; ?>">
@@ -358,8 +364,20 @@
 										</div>
 
 										<div class="form-group">
-											<label>Nilai rata-rata raport <b class="asterik">*</b></label>
-											<input class="form-control input" type="text" placeholder="Nilai rata-rata raport" name="nilai_rata_rata_raport" required="required" value="<?php echo 'belum diganti nih'; ?>">
+											<label>IPK <b class="asterik">*</b></label>
+											<input class="form-control input" type="text" placeholder="IPK" name="ipk" required="required" placeholder="IPK"value="<?php echo $value->ipk; ?>">
+										</div>
+
+										<div class="form-group">
+											<label>Upload Kartu Rencana Studi <b class="asterik">*</b></label>
+											<br/>
+												<input type="checkbox" name="ubah_foto_kartu_rencana_studi" value="0">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto KRS
+												<input type="file" class="form-control" name="foto_kartu_rencana_studi">
+										</div>
+
+										<div class="form-group">
+											<label>Nilai Rata-rata raport <b class="asterik">*</b></label>
+											<input class="form-control input" type="text" placeholder="Nilai rata-rata raport" name="nilai_rata_rata_raport" required="required" value="<?php echo $value->nilai_rata_rata_raport; ?>">
 										</div>
 
 										<div class="text-center">

@@ -211,19 +211,23 @@
 											<td><b class="asterik">*</b></td>
 										</tr>
 
-										<tr>
+										<!-- <tr>
 											<td>Upload Foto Surat Keterangan Kepemilikan Rumah</td>
 											<td>:</td>
-											<td> </td>
+											<td> 
+												<?php if(isset($value->upload_surat_keterangan_kepemilikan_rumah)) { ?>
+													<img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_surat_keterangan_kepemilikan_rumah; ?>">
+													<?php } ?>
+											</td>
 											<td><b class="asterik">*</b></td>
-										</tr>
+										</tr> -->
 									</table>
 									<!--End Data Kondisi Rumah-->
 								</div> <!--End class="tab-pane" id="data"-->
 
 								<div class="tab-pane" id="edit">
 
-									<form action="<?=base_url('C_mhs/direct4'); ?>" method="POST">
+									<form action="<?=base_url('C_mhs/direct4'); ?>" method="POST" enctype="multipart/form-data">
 										<div class="form-group">
 											<label>Luas Rumah <i class="asterik">*</i></label>
 											<select class="form-control input" required="required" name="luas_rumah">
@@ -484,12 +488,12 @@
 											</select>
 										</div>
 
-										<div class="form-group">
+										<!-- <div class="form-group">
 											<label>Foto Surat Keterangan Kepemilikan Rumah</label>
 											<br/>
-											<input type="checkbox" name="ubah_foto_keterangan_kepemilikan_rumah" value="3">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto Surat Keterangan Kepemilikan Rumah
-											<input type="file" class="form-control" name="foto_keterangan_kepemilikan_rumah">
-										</div>
+											<input type="checkbox" name="ubah_surat_keterangan_kepemilikan_rumah" value="3">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto Surat Keterangan Kepemilikan Rumah
+											<input type="file" class="form-control" name="surat_keterangan_kepemilikan_rumah">
+										</div> -->
 
 										<div class="text-center">
 											<button type="submit" class="btn btn-success">
