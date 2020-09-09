@@ -69,7 +69,36 @@
 							<span class="glyphicon glyphicon-print"></span>
 								Cetak Formulir Mahasiswa
 							</a>
+							<?php if(!empty($value->berkas_sudah_diterima_oleh)) {?>
+								<a style="pointer-events: none;" href="#" class="btn btn-default">&#9745; Berkas Sudah Diterima oleh: <?php echo $value->berkas_sudah_diterima_oleh; ?></a>
+							<?php } else { ?>
+							<a class="btn btn-success" data-toggle="modal" data-target="#berkas_diterima_oleh">Lihat Bukti Pengiriman Berkas</a>
 
+							<form action="<?=base_url().'Auth1/berkasDiterimaOleh/'.sha1(md5(sha1(md5(sha1($value->no_pendaftaran))))); ?>" method="POST">
+								<div id="berkas_diterima_oleh" class="modal fade" role="dialog">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 class="modal-title">Bukti Pengiriman Berkas</h4>
+											</div>
+
+											<div class="modal-body">
+												<img class="img-responsive" style="width: auto;" src="<?php echo base_url(). 'assets/bukti_pemberkasan/'.$value->bukti_berkas_dikirim; ?>">
+												<label>Masukkan Nama Penerima Berkas</label>
+												<input type="text" name="berkas_sudah_diterima_oleh" class="form-control" placeholder="Nama" required>
+												<br>
+												<button type="submit" class="btn btn-primary">Kirim</button>
+											</div>
+
+											<div class="modal-footer">
+												<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+							<?php } ?>
 							<!-- <a class="btn btn-info" target="_blank" href="<?=base_url('Admin/cetak_survey_validasi_all'); ?>">
 							<span class="glyphicon glyphicon-print"></span>
 								Cetak Lembar Validasi/Survey 2

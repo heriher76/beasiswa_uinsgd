@@ -17,6 +17,14 @@
 			?>
 		</div>
 
+		<div class="notif notifikasi col-md-offset-8">
+			<?php echo $this->session->flashdata('direct_error'); ?>
+		</div>
+
+		<div class="notif notifikasi col-md-offset-10">
+			<?php echo $this->session->flashdata('direct_success'); ?>
+		</div>
+
 		<div class="container col-md-8">
 			<!--Halaman Untuk Report Beasiswa-->
 			<div class="row">
@@ -259,8 +267,30 @@
 									<div class="alert alert-warning alert-dismissible col-md-offset-1" role="alert">
 									  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 										<?php if($value->reg == 2) { ?>
-											<h3 style="color: red;">Wajib Diperhatikan!</h3>
-											<h2>Seluruh berkas persyaratan HVS ukuran F4 (Folio) dan dimasukkan dalam <b>amplop berwarna sesuai fakultas masing-masing, pada pojok kanan atas ditulis Program KIP Kuliah Angkatan Tahun 2019, NAMA, NIM, Jurusan, dan Fakultas</b> dikirimkan ke Bagian Kemahasiswaan dan Alumni Gedung O. Djauharudin lantai 4 UIN Sunan Gunung Djati Bandung Jl. A.H. Nasution No. 105 Cibiru Bandung.</h2>  	
+											<?php 
+											if(!empty($value->berkas_sudah_diterima_oleh)) { ?>
+												<h3>Alhamdulillah, berkas sudah berhasil diterima oleh <b> : <?php echo $value->berkas_sudah_diterima_oleh; ?></b>, mohon ditunggu pengumuman berikutnya.</h3>
+											<?php 
+											} else if(!empty($value->bukti_berkas_dikirim)) { ?>
+												<h3>Terimakasih sudah mengirimkan berkas, mohon ditunggu pengumuman berikutnya.</h3>
+										  		<img class="img-responsive" src="<?php echo base_url(). 'assets/bukti_pemberkasan/'.$value->bukti_berkas_dikirim; ?>">
+										  		<br>
+										  		<p style="color: red;">Jika ingin mengubah foto bukti pengiriman, silahkan upload ulang bukti dibawah ini.</p>
+										  		<form method="POST" action="<?=base_url('C_mhs/buktiPemberkasan'); ?>" enctype="multipart/form-data">
+											  		<input type="file" name="bukti_berkas_dikirim">
+											  		<br>
+											  		<button type="submit" class="btn btn-success">Simpan Bukti</button>
+											  	</form>
+										  	<?php } else { ?>
+										  		<h3 style="color: red;">Wajib Diperhatikan!</h3>
+												<h2>Seluruh berkas persyaratan HVS ukuran F4 (Folio) dan dimasukkan dalam <b>amplop berwarna sesuai fakultas masing-masing, pada pojok kanan atas ditulis Program KIP Kuliah Angkatan Tahun 2019, NAMA, NIM, Jurusan, dan Fakultas</b> dikirimkan ke Bagian Kemahasiswaan dan Alumni Gedung O. Djauharudin lantai 4 UIN Sunan Gunung Djati Bandung Jl. A.H. Nasution No. 105 Cibiru Bandung.</h2>  	
+											  	<h3 style="color: red;">Jika berkas sudah dikirim, silahkan input foto bukti pengiriman dibawah ini.</h3>
+											  	<form method="POST" action="<?=base_url('C_mhs/buktiPemberkasan'); ?>" enctype="multipart/form-data">
+											  		<input type="file" name="bukti_berkas_dikirim">
+											  		<br>
+											  		<button type="submit" class="btn btn-success">Simpan Bukti</button>
+											  	</form>
+											<?php } ?>
 										  <?php } else { ?>
 										<b>Assalamu'alaikum, <?php echo $value->nama_mahasiswa; ?> selamat datang</b>
 										<br><br>

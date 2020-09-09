@@ -2670,4 +2670,112 @@ class C_mhs extends CI_Controller{
 		redirect('C_mhs/report_bidikmisi');
 	}
 	//end function report bidikmisi
+
+	//function update bukti pemberkasan
+	public function buktiPemberkasan(){
+		$reg = $this->session->userdata('reg');
+		$buka = $this->session->userdata('buka');
+		$tutup = $this->session->userdata('tutup');
+
+		date_default_timezone_set('Asia/Jakarta');
+        $sekarang = date('Y-m-d H:i:s');
+
+		if($sekarang >= $buka && $sekarang <= $tutup){
+			$no_pendaftaran = $this->session->userdata('no_pendaftaran');
+
+			$sess_bukti_berkas_dikirim 		= $this->session->userdata('bukti_berkas_dikirim');
+			$foto 			= $this->M_mhs->getFoto($no_pendaftaran);
+
+			if($sess_bukti_berkas_dikirim == null){
+				$config['upload_path'] 	 = './assets/bukti_pemberkasan/';
+				$config['allowed_types'] = 'png|jpg|jpeg|JPEG|PNG|JPG';
+				$config['max_size'] 	 = 1000;
+
+				$this->load->library('upload', $config);
+
+				if(!$this->upload->do_upload('bukti_berkas_dikirim')){
+						$error = array(
+							'error' => $this->upload->display_errors(),
+							'data_diri' => $this->M_mhs->getData_login($no_pendaftaran)->result()
+						);
+						$this->session->set_flashdata('direct_error',
+							'<div class="alert alert-warning">
+								<p>Upload Foto Gagal, Silahkan Cek Kembali Ukuran dan Format File Foto Anda</p>
+							</div>');
+						$this->load->view('project_bidikmisi/mahasiswa/dashboard_mhs', $error);
+				}else{
+					$file = $this->upload->data();
+					//unlink('assets/foto_mhs/'.$foto->upload_foto);
+					$data = ['bukti_berkas_dikirim' => $file['file_name']];
+					$this->M_mhs->edit_data($no_pendaftaran, $data);
+
+					$query_foto = $this->db->get_where('mastermhs_new', array(
+						'no_pendaftaran' => $no_pendaftaran
+					))->row();
+
+					$sess_reg = array(
+						'bukti_berkas_dikirim' => $query_foto->upload_foto
+					);
+
+					$this->session->set_userdata($sess_reg);
+
+					$this->session->set_flashdata('direct_success', '
+						<div class="alert alert-success">
+							<p>Foto Berhasil diUpload</p>
+						</div>');
+
+					redirect('C_mhs/biodata');
+				}
+			}else if($sess_bukti_berkas_dikirim != null){
+				$config['upload_path'] 	 = './assets/bukti_pemberkasan/';
+				$config['allowed_types'] = 'png|jpg|jpeg|JPEG|PNG|JPG';
+				$config['max_size'] 	 = 1024;
+
+				$this->load->library('upload', $config);
+
+				if(!$this->upload->do_upload('bukti_berkas_dikirim')){
+						$error = array(
+							'error' => $this->upload->display_errors(),
+							'data_diri' => $this->M_mhs->getData_login($no_pendaftaran)->result()
+						);
+						$this->session->set_flashdata('direct_error',
+							'<div class="alert alert-warning">
+								<p>Upload Foto Gagal, Silahkan Cek Kembali Ukuran dan Format File Foto Anda</p>
+							</div>');
+						$this->load->view('project_bidikmisi/mahasiswa/dashboard_mhs', $error);
+				}else{
+					$file = $this->upload->data();
+					unlink('assets/bukti_pemberkasan/'.$foto->upload_foto);
+					$data = ['bukti_berkas_dikirim' => $file['file_name']];
+					$this->M_mhs->edit_data($no_pendaftaran, $data);
+
+					$query_foto = $this->db->get_where('mastermhs_new', array(
+						'no_pendaftaran' => $no_pendaftaran
+					))->row();
+
+					$sess_reg = array(
+						'bukti_berkas_dikirim' => $query_foto->upload_foto
+					);
+
+					$this->session->set_userdata($sess_reg);
+
+					$this->session->set_flashdata('direct_success', '
+						<div class="alert alert-success">
+							<p>Foto Berhasil diUpload</p>
+						</div>');
+
+					redirect('C_mhs');
+				}
+			}
+		}else if($buka < $sekarang){
+			$this->session->set_flashdata('belum_buka','<script>alert("Pendaftaran Beasiswa KIP-K Uin Bandung Tidak dibuka"); </script>');
+        	echo $this->session->flashdata('belum_buka');
+        	$this->biodata();
+		}else if($tutup > $sekarang){
+			$this->session->set_flashdata('tutup','<script>alert("Pendaftaran Beasiswa KIP-K Uin Bandung Sudah Tutup"); </script>');
+        	echo $this->session->flashdata('tutup');
+        	$this->biodata();
+		}
+	}
+	//end function update bukti pemberkasan
 }?>
