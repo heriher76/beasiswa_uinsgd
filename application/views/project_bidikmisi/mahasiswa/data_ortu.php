@@ -265,7 +265,7 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 												}else if($value->pekerjaan_ayah == '3'){
 													echo "Tukang";
 												}else if($value->pekerjaan_ayah == '4'){
-													echo "Buruh Tani/Petani";
+													echo "Buruh/Petani";
 												}
 												?>
 												</td>
@@ -304,8 +304,8 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 													echo "Wiraswasta";
 												}else if($value->pekerjaan_ibu == 'Ibu Rumah Tangga'){
 													echo "Ibu Rumah Tangga";
-												}else if($value->pekerjaan_ibu == 'Buruh Tani/Petani'){
-													echo "Buruh Tani/Petani";
+												}else if($value->pekerjaan_ibu == 'Buruh/Petani'){
+													echo "Buruh/Petani";
 												}
 												?></td>
 												<td><b class="asterik">*</b></td>
@@ -595,7 +595,7 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 												<select class="form-control input" id="pekerjaan_ayah" onchange="proses()" required="required" name="pekerjaan_ayah">
 													<?php if($value->pekerjaan_ayah == null || $value->pekerjaan_ayah == 0) { ?>
 														<option value="">-Pilih SalahSatu-</option>
-														<option value="4">Buruh Tani/Petani</option>
+														<option value="4">Buruh/Petani</option>
 														<option value="1">PNS/TNI/POLRI</option>
 														<option value="3">Tukang</option>
 														<option value="2">Wiraswasta</option>
@@ -609,12 +609,12 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 																}else if($value->pekerjaan_ayah == 3) {
 																	echo "Tukang";
 																}else if($value->pekerjaan_ayah == 4) {
-																	echo "Buruh Tani/Petani";
+																	echo "Buruh/Petani";
 																}
 															?>
 														</option>
 														<option value="">--</option>
-														<option value="4">Buruh Tani/Petani</option>
+														<option value="4">Buruh/Petani</option>
 														<option value="1">PNS/TNI/POLRI</option>
 														<option value="3">Tukang</option>
 														<option value="2">Wiraswasta</option>
@@ -694,14 +694,14 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 														<option value="PNS/TNI/POLRI">PNS/TNI/POLRI</option>
 														<option value="Wiraswasta">Wiraswasta</option>
 														<option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
-														<option value="Buruh Tani/Petani">Buruh Tani/Petani</option>
+														<option value="Buruh/Petani">Buruh/Petani</option>
 													<?php }else{ ?>
 														<option value="<?php echo $value->pekerjaan_ibu; ?>"><?php echo $value->pekerjaan_ibu; ?></option>
 														<option value="">--</option>
 														<option value="PNS/TNI/POLRI">PNS/TNI/POLRI</option>
 														<option value="Wiraswasta">Wiraswasta</option>
 														<option value="Ibu Rumah Tangga">Ibu Rumah Tangga</option>
-														<option value="Buruh Tani/Petani">Buruh Tani/Petani</option>
+														<option value="Buruh/Petani">Buruh/Petani</option>
 													<?php } ?>
 												</select>
 											</div>
@@ -902,6 +902,7 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 												<br/>
 												<input type="checkbox" name="ubah_foto_ktp_ayah" value="0">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto KTP Ayah
 												<input type="file" class="form-control" name="foto_ktp_ayah">
+												<span style="color: red;">Maksimal Ukuran File KTP 300 KB</span>
 											</div>
 
 											<div class="form-group">
@@ -909,6 +910,7 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 												<br/>
 												<input type="checkbox" name="ubah_foto_ktp_ibu" value="1">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto KTP Ibu
 												<input type="file" class="form-control" name="foto_ktp_ibu">
+												<span style="color: red;">Maksimal Ukuran File KTP 300 KB</span>
 											</div>
 
 											<div class="form-group">
@@ -916,6 +918,7 @@ $this->load->view('project_bidikmisi/header/mahasiswa/header');
 												<br/>
 												<input type="checkbox" name="ubah_foto_surat_keterangan_penghasilan_ortu" value="2">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto Surat Keterangan Pengahasilan Orang Tua
 												<input type="file" class="form-control" name="foto_surat_keterangan_penghasilan_ortu">
+												<span style="color: red;">Maksimal Ukuran File Surat 500 KB</span>
 											</div>
 
 											<div class="text-center">

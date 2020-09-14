@@ -202,10 +202,11 @@
 											<td><b class="asterik">*</b></td>
 										</tr>
 
+										<?php if($value->tahun == 2019){ ?>
 										<tr>
 											<td>IPK *min 3.00</td>
 											<td>:</td>
-											<td><?php echo $value->ipk; ?></td>
+											<td><?php echo $ipk; ?></td>
 											<td><b class="asterik">*</b></td>
 										</tr>
 
@@ -214,13 +215,14 @@
 											<td>:</td>
 											<td>
 												<?php if(isset($value->upload_foto_kartu_rencana_studi)) { ?>
-													<img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_kartu_rencana_studi; ?>">
+													<iframe src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_kartu_rencana_studi; ?>" style="height:250px;"></iframe>
 													<?php } ?>
 											</td>
 											<td><b class="asterik">*</b></td>
 										</tr>
+										<?php } ?>
 
-										<?php if(true){ ?>
+										<?php if($value->tahun == 2020){ ?>
 										<tr>
 											<td>Nilai rata-rata Raport</td>
 											<td>:</td>
@@ -363,22 +365,27 @@
 											<input class="form-control input" type="text" placeholder="Kode Pos Alamat Anda" name="kode_pos" required="required" value="<?php echo $value->kode_pos; ?>">
 										</div>
 
+										<?php if($value->tahun == 2019){ ?>
 										<div class="form-group">
 											<label>IPK <b class="asterik">*</b></label>
-											<input class="form-control input" type="text" placeholder="IPK" name="ipk" required="required" placeholder="IPK"value="<?php echo $value->ipk; ?>">
+											<input class="form-control input" type="text" placeholder="IPK" name="ipk" required="required" placeholder="IPK"value="<?php echo $ipk; ?>" disabled>
 										</div>
 
 										<div class="form-group">
 											<label>Upload Kartu Rencana Studi <b class="asterik">*</b></label>
 											<br/>
-												<input type="checkbox" name="ubah_foto_kartu_rencana_studi" value="0">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto KRS
+												<input type="checkbox" name="ubah_foto_kartu_rencana_studi" value="0">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah File KRS
 												<input type="file" class="form-control" name="foto_kartu_rencana_studi">
+												<span style="color: red;">Maksimal Ukuran File KRS 3 MB</span>
 										</div>
+										<?php } ?>
 
+										<?php if($value->tahun == 2020){ ?>
 										<div class="form-group">
 											<label>Nilai Rata-rata raport <b class="asterik">*</b></label>
 											<input class="form-control input" type="text" placeholder="Nilai rata-rata raport" name="nilai_rata_rata_raport" required="required" value="<?php echo $value->nilai_rata_rata_raport; ?>">
 										</div>
+										<?php } ?>
 
 										<div class="text-center">
 											<button type="submit" class="btn btn-success">

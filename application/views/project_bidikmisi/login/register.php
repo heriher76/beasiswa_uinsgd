@@ -53,7 +53,7 @@
 								<fieldset>
 									<div class="form-group text">
 										<label><b>Nomor Pendaftaran</b></label>
-										<input class="form-control" type="text" name="no_pendaftaran" placeholder="Ex : CBT-1187050044 / THZ-23453433" required="required" style="height: auto;">
+										<input class="form-control" type="text" name="no_pendaftaran" placeholder="Ex : MDR-89474388 / THZ-23453433 / PRS-84749334" required="required" style="height: auto;">
 									</div>
 
 									<div class="form-group text">
@@ -86,6 +86,9 @@
 									<div class="col-md-12 col-xd-12 col-sm-12 col-xs-12 col-style">
 										<button class="btn btn-success btn-block" type="submit"><i class="icon-plane"></i> Register</button>
 									</div>
+									<!-- <div class="col-md-12 col-xd-12 col-sm-12 col-xs-12 col-style">
+										<a href="<?=base_url('C_login'); ?>" class="btn btn-primary btn-block"><i class="icon-plane"></i> Punya akun SALAM? Login disini</a>
+									</div> -->
 									<!-- <div class="col-md-6 col-xd-6 col-sm-6 col-xs-6 col-style">
 										<button class="btn btn-warning btn-block" type="reset"><i class="icon-cogs"></i> Kosongkan Formulir</button>
 									</div> -->

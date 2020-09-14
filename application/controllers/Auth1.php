@@ -74,6 +74,7 @@ class Auth1 extends CI_Controller{
 		$tgl_tutup = $this->input->post('tgl_tutup');
 		$tgl_pengumuman = $this->input->post('tgl_pengumuman');
 		$tgl_tutup_pengumuman = $this->input->post('tgl_tutup_pengumuman');
+		$terakhir_pemberkasan = $this->input->post('terakhir_pemberkasan');
 		$check_ukt = $this->input->post('check_ukt');
 
 		$data = [
@@ -83,6 +84,7 @@ class Auth1 extends CI_Controller{
 			'tanggal_tutup' => $tgl_tutup,
 			'tanggal_pengumuman' => $tgl_pengumuman,
 			'tanggal_tutup_pengumuman' => $tgl_tutup_pengumuman,
+			'terakhir_pemberkasan' => $terakhir_pemberkasan,
 			'check_ukt' => $check_ukt
 		];
 		$this->M_utama->edit_data_jadwal($data);

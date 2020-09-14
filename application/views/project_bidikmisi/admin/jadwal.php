@@ -66,6 +66,12 @@
 										<input placeholder="Example : 2015-12-05 13:30:35" type="text" class="form-control" name="tgl_tutup_pengumuman" required="required" value="<?php echo $value->tanggal_tutup_pengumuman; ?>">
 										<span class="add-on"><i class="icon-th"></i></span>
 									</div>
+
+									<div class="form-group input-append date form_datetime">
+										<label>Tanggal Terakhir Pemberkasan</label>
+										<input placeholder="Example : 2015-12-05 13:30:35" type="text" class="form-control" name="terakhir_pemberkasan" required="required" value="<?php echo $value->terakhir_pemberkasan; ?>">
+										<span class="add-on"><i class="icon-th"></i></span>
+									</div>
 								</div>
 								<?php } ?>
 

@@ -110,6 +110,7 @@
 										<?php } ?>
 											<div id="input-foto">
 												<input type="file" name="foto" required="required">
+												<span style="color: red;">Maksimal Ukuran Foto 100 Kb</span>
 											</div>
 										</center>
 									</div>

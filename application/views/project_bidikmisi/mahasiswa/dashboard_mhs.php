@@ -283,7 +283,11 @@
 											  	</form>
 										  	<?php } else { ?>
 										  		<h3 style="color: red;">Wajib Diperhatikan!</h3>
-												<h2>Seluruh berkas persyaratan HVS ukuran F4 (Folio) dan dimasukkan dalam <b>amplop berwarna sesuai fakultas masing-masing, pada pojok kanan atas ditulis Program KIP Kuliah Angkatan Tahun 2019, NAMA, NIM, Jurusan, dan Fakultas</b> dikirimkan ke Bagian Kemahasiswaan dan Alumni Gedung O. Djauharudin lantai 4 UIN Sunan Gunung Djati Bandung Jl. A.H. Nasution No. 105 Cibiru Bandung.</h2>  	
+												<h2>Seluruh berkas persyaratan HVS ukuran F4 (Folio) dan dimasukkan dalam <b>amplop berwarna sesuai fakultas masing-masing, pada pojok kanan atas ditulis Program KIP Kuliah Angkatan Tahun 2019 atau 2020, NAMA, NIM, Jurusan, dan Fakultas</b> dikirimkan ke Bagian Kemahasiswaan dan Alumni Gedung O. Djauharudin lantai 4 UIN Sunan Gunung Djati Bandung Jl. A.H. Nasution No. 105 Cibiru Bandung. <br>( Terakhir Pengumpulan Berkas Tanggal <b>
+													<?php 
+													echo date("d F Y H:i", strtotime($timer->terakhir_pemberkasan)); 
+													?>
+												</b>)</h2>	
 											  	<h3 style="color: red;">Jika berkas sudah dikirim, silahkan input foto bukti pengiriman dibawah ini.</h3>
 											  	<form method="POST" action="<?=base_url('C_mhs/buktiPemberkasan'); ?>" enctype="multipart/form-data">
 											  		<input type="file" name="bukti_berkas_dikirim">
@@ -301,7 +305,7 @@
 												<p>Akan ada <b style="color: red;">11 tahap</b> yang harus diisi oleh pendaftar Beasiswa KIP-K dan pada setiap tahap akan ada RULE/Peraturan dalam pengisian data Beasiswa KIP-K.
 												</p>
 
-												<p>Silahkan cek kembali biodata pendaftar dan <b style="color: red;">Tanda Asterik (*) Wajib diisi</b>, jika masih ada kekeliruan dengan biodata pendaftar, anda dapat mengeditnya dengan mengklik tombol Edit dibawah dan mengisi ulang kembali data. jika sudah yakin dengan biodata pendaftar yang sudah ada, silahkan untuk klik tombol <a class="btn btn-info" href="#" type="submit">Lanjut &raquo;</a> </p>
+												<p>Silahkan cek kembali biodata pendaftar dan <b style="color: red;">Tanda Asterik (*) Wajib diisi</b>, jika masih ada kekeliruan dengan biodata pendaftar, anda dapat mengeditnya dengan mengklik tombol Edit dibawah dan mengisi ulang kembali data. jika sudah yakin dengan biodata pendaftar yang sudah ada, silahkan untuk klik tombol <a class="btn btn-info" href="<?=base_url('C_mhs')?>" type="submit">Lanjut &raquo;</a> </p>
 										<?php } ?>
 									</div>
 									<br>
@@ -319,7 +323,7 @@
 
 									if($reg == 0 || $reg == 1){
 								?>
-								<a class="btn btn-success" href="#edit-pendaftar" data-toggle="tab"><i class="glyphicon glyphicon-pencil"></i> Edit Data Orang Tua</a>
+								<a class="btn btn-success" href="#edit-pendaftar" data-toggle="tab"><i class="glyphicon glyphicon-pencil"></i> Edit Biodata</a>
 								<br><br>
 								<?php } ?>
 								<ul class="nav nav-tabs" style="border: none;">
@@ -403,7 +407,24 @@
 											<tr>
 												<td>Kategori UKT</td>
 												<td>:</td>
-												<td><?php echo $value->kategori; ?></td>
+												<td>
+													<?php
+													if($kategori_ukt == 'I') 
+														echo 'K1';
+													else if($kategori_ukt == 'II') 
+														echo 'K2';
+													else if($kategori_ukt == 'III') 
+														echo 'K3';
+													else if($kategori_ukt == 'IV') 
+														echo 'K4';
+													else if($kategori_ukt == 'V') 
+														echo 'K5';
+													else if($kategori_ukt == 'VI') 
+														echo 'K6';
+													else if($kategori_ukt == 'VII') 
+														echo 'K7';
+													?>	
+												</td>
 												<td><b style="color:red;">*</b></td>
 											</tr>
 										</table>
@@ -526,7 +547,10 @@
 
 											<div class="form-group">
 												<label>Kategori UKT</label>
-												<select name="kategori" class="form-control" required="required">
+												<select name="kategori" class="form-control" required="required" <?php if($status_get_ukt)
+													echo 'disabled';?>
+												>
+												<?php if(!$status_get_ukt){ ?>
 													<?php if($value->kategori == null) { ?>
 														<option value="">-Pilih SalahSatu-</option>
 														<option value="K1">K1</option>
@@ -547,6 +571,25 @@
 														<option value="K6">K6</option>
 														<option value="K7">K7</option>
 													<?php } ?>
+												<?php }else{ ?>
+													<?php
+													if($kategori_ukt == 'I') 
+														$theCategory = 'K1';
+													else if($kategori_ukt == 'II') 
+														$theCategory ='K2';
+													else if($kategori_ukt == 'III') 
+														$theCategory ='K3';
+													else if($kategori_ukt == 'IV') 
+														$theCategory ='K4';
+													else if($kategori_ukt == 'V') 
+														$theCategory ='K5';
+													else if($kategori_ukt == 'VI') 
+														$theCategory ='K6';
+													else if($kategori_ukt == 'VII') 
+														$theCategory ='K7';
+													?>	
+													<option value="<?php echo $theCategory; ?>"><?php echo $theCategory; ?></option>
+												<?php } ?>
 												</select>
 											</div>
 

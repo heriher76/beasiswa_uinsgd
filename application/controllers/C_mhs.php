@@ -54,20 +54,38 @@ class C_mhs extends CI_Controller{
 		//
 		// die($getKHS);
 
-
 		date_default_timezone_set('Asia/Jakarta');
-    $sekarang = date('Y-m-d H:i:s');
+    	$sekarang = date('Y-m-d H:i:s');
 
 		if($reg == 2){
 			redirect('C_mhs/biodata');
 		}else if($sekarang >= $buka && $sekarang <= $tutup){
 			$no_pendaftaran = $this->session->userdata('no_pendaftaran');
 
-			$data = array(
-				'data_diri' => $this->M_mhs->getData_login($no_pendaftaran)->result(),
-				'propinsi' => $this->M_mhs->propinsi(),
-				'kota' => $this->M_mhs->kab_kota()
-			);
+			$token = 'XjDfKZvYiZu2w7qiS64fjagqEcGzkZ18txWjAfKnLb4P8NxOo1OBZ4QTgRVYFjm9';
+
+			$dataUser = [
+				'nim' => $no_pendaftaran,
+				'token' => $token
+			];
+			$url_ipk_simak = 'https://simak.uinsgd.ac.id/akademik/services/my_service/get_ipk.php';
+			$getIPK = $this->httpPost($url_ipk_simak, $dataUser);
+
+			if ($getIPK[0]['status']) {
+				$data = array(
+					'data_diri' => $this->M_mhs->getData_login($no_pendaftaran)->result(),
+					'propinsi' => $this->M_mhs->propinsi(),
+					'kota' => $this->M_mhs->kab_kota(),
+					'ipk' => $getIPK[0]['ipk']
+ 				);
+			}else{
+				$data = array(
+					'data_diri' => $this->M_mhs->getData_login($no_pendaftaran)->result(),
+					'propinsi' => $this->M_mhs->propinsi(),
+					'kota' => $this->M_mhs->kab_kota(),
+					'ipk' => NULL
+ 				);
+			}
 
 			$this->load->view('project_bidikmisi/mahasiswa/identitas_diri', $data);
 		}else if($buka < $sekarang){
@@ -642,6 +660,22 @@ class C_mhs extends CI_Controller{
 	//function view biodata
 	public function biodata(){
 		$no_pendaftaran = $this->session->userdata('no_pendaftaran');
+		$arrContextOptions=array(
+			"ssl"=>array(
+				"verify_peer"=>false,
+				"verify_peer_name"=>false,
+			)
+		);
+		
+		$wskey = 'Y9SdptijlddozZo_3D';
+		$getUKT = file_get_contents("http://keuangan.uinsgd.ac.id/b2b/SPP/status/nim/".$no_pendaftaran."?wskey=".$wskey, false, stream_context_create($arrContextOptions));
+		$decodedUKT = json_decode($getUKT, true);
+
+		if($decodedUKT['status'])
+			$kategoryUKTSaya = $decodedUKT['data']['kat_smt1'];
+		else
+			$kategoryUKTSaya = NULL;
+
 		$nim = $this->session->userdata('nim');
 		$data = array(
 			'data' => $this->M_mhs->getData_login($no_pendaftaran)->result(),
@@ -651,7 +685,9 @@ class C_mhs extends CI_Controller{
 			'fakultas' => $this->M_mhs->fakultas(),
 			'data_document' => $this->M_mhs->getDocument_bidikmisi()->result(),
 			'data_document2' => $this->M_mhs->getDocument_bidikmisi2()->result(),
-			'timer' => $this->M_mhs->timer()
+			'timer' => $this->M_mhs->timer(),
+			'status_get_ukt' => $decodedUKT['status'],
+			'kategori_ukt' => $kategoryUKTSaya
 		);
 		$this->load->view('project_bidikmisi/mahasiswa/dashboard_mhs', $data);
 	}
@@ -852,6 +888,23 @@ class C_mhs extends CI_Controller{
 	}
 	//end function update foto bidik misi
 
+	private function httpPost($url, $data)
+	{
+		$ch = curl_init();
+
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$server_output = curl_exec($ch);
+
+		curl_close ($ch);
+
+		return json_decode($server_output, true);
+	}
+
 	//function update identitas diri
 	public function direct2(){
 		$reg = $this->session->userdata('reg');
@@ -903,7 +956,7 @@ class C_mhs extends CI_Controller{
 			$ubah_foto_kartu_rencana_studi		 	= $this->input->post('ubah_foto_kartu_rencana_studi');
 
 			$config['upload_path'] 		= './assets/foto_dokumen/';
-			$config['allowed_types'] 	= 'png|jpg|jpeg|JPEG|PNG|JPG|PDF';
+			$config['allowed_types'] 	= 'png|jpg|jpeg|JPEG|PNG|JPG|PDF|pdf';
 			$config['max_size']			= 3100;
 
 			$this->load->library('upload', $config);

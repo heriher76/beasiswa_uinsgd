@@ -208,7 +208,7 @@
 											</div>
 											<?php }  ?>
 											<div class="form-group">
-												<label class="input">Formulir Pendaftaran Bidik Misi yang telah diisi <i class="asterik">*</i></label>
+												<label class="input">Formulir Pendaftaran Beasiswa KIP-K yang telah diisi <i class="asterik">*</i></label>
 												<select class="form-control input" required="required" name="formulir_pendaftaran">
 													<?php if($value->formulir_pendaftaran == null) { ?>
 														<option value="">-Pilih SalahSatu-</option>

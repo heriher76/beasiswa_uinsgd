@@ -1189,7 +1189,7 @@
 									</tr>
 
 									<tr>
-										<td>Formulir Pedaftaran Bidik Misi yang telah diisi</td>
+										<td>Formulir Pedaftaran Beasiswa KIP-K yang telah diisi</td>
 										<td>:</td>
 										<td><?php echo $value->formulir_pendaftaran; ?></td>
 									</tr>
