@@ -242,10 +242,10 @@ class C_login extends CI_Controller {
 
 	    	$this->session->set_flashdata('gagal2', '<script>alert("Anda tidak diperkenankan register KIP-K"); </script>');
 
-	    	if (substr($no_pendaftaran,0,3) != 119 || substr($no_pendaftaran,0,3) != 120) { 
-				echo $this->session->flashdata('gagal2');
-				return $this->index();
-			}
+	  //   	if (substr($no_pendaftaran,0,3) != 119 || substr($no_pendaftaran,0,3) != 120) { 
+			// 	echo $this->session->flashdata('gagal2');
+			// 	return $this->index();
+			// }
 
 			$checkMhs = $this->db->get_where('mastermhs_new',array(
 				'no_pendaftaran' => $no_pendaftaran

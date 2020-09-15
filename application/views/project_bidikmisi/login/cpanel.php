@@ -72,14 +72,14 @@
 									</tr>
 								</table>
 	                            <p><b></b>Ketentuan (Username dan Password) Sistem Pendaftaran Beasiswa KIP-K</p>
-								<p><b>1)</b> Gunakan Nomor NIM dan password SALAM untuk login ke website ini.</p>
+								<p><b>1)</b> Gunakan NIM dan password SALAM untuk login ke website ini.</p>
 								<p><b>2)</b> Khusus untuk mahasiswa angkatan 2019 dan 2020.</p>
 							</div>
 
 							<form autocomplete="off" accept-charset="UTF-8" role="form" action="<?=base_url('C_login/login'); ?>" method="POST" enctype="multipart/form-data">
 								<fieldset>
 									<div class="form-group text">
-										<label><b>Nomor NIM</b></label>
+										<label><b>NIM</b></label>
 										<input class="form-control" type="text" name="no_pendaftaran" placeholder="Ex : 1187050044" required="required" style="height: auto;">
 									</div>
 
