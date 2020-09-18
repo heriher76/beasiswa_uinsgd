@@ -1,3 +1,3 @@
-# bidikmisi
+kemahasiswaan-kipk
 
-development bidikmisi
+Beasiswa KIPK
