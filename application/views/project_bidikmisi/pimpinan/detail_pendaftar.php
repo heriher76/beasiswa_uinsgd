@@ -92,6 +92,7 @@
 									<li><a class="style-tabs" href="#data-keterampilan" data-toggle="tab">Data Keterampilan</a></li>
 									<li><a class="style-tabs" href="#data-dokumen-pendukung" data-toggle="tab">Data Dokumen Pendukung</a></li>
 									<li><a class="style-tabs" href="#data-peryaratan-dokumen" data-toggle="tab">Data Persyaratan Dokumen</a></li>
+									<li><a class="style-tabs" href="#data-kip" data-toggle="tab">Data KIP</a></li>
 								</ul>
 
 								<div class="col-md-12">
@@ -265,10 +266,23 @@
 												</tr>
 				                                
 				                                <tr>
-				                                    <td>Tahun Daftar Bidikmisi</td>
+				                                    <td>Angkatan</td>
 				                                    <td>:</td>
 				                                    <td><?php echo $value->tahun; ?></td>
 				                                </tr>
+				                               <?php if($value->tahun == date('Y')){ ?>
+				                                <tr>
+				                                    <td>IPK</td>
+				                                    <td>:</td>
+				                                    <td><?php echo $value->ipk; ?></td>
+				                                </tr>
+				                            	<?php }else{ ?>
+				                            	<tr>
+				                                    <td>Nilai Rata-rata Raport</td>
+				                                    <td>:</td>
+				                                    <td><?php echo $value->niai_rata_rata_raport; ?></td>
+				                                </tr>
+				                            	<?php } ?>
 				                            </table>
 										</div>
 										<!--End Identitas Diri-->	
@@ -1117,6 +1131,32 @@
 										</div>
 										<!--End Data Keterampilan-->
 
+										<div class="tab-pane" id="data-kip">
+											<table class="table">
+												<h3>IX. Data KIP</h3>
+
+												<tr>
+													<td>Punya Program Bantuan Beasiswa atau Sosial?</td>
+													<td>:</td>
+													<td><?php
+													if($value->punya_kipk == 1) echo 'Ya'; else echo 'Tidak' ; ?></td>
+												</tr>
+
+												<tr>
+													<td>Jenis Program</td>
+													<td>:</td>
+													<td><?php echo $value->jenis_kipk; ?></td>
+												</tr>
+
+												<tr>
+													<td>Nomor Kartu/Surat</td>
+													<td>:</td>
+													<td><?php echo $value->nomor_kipk; ?></td>
+												</tr>
+
+											</table>
+										</div>
+
 										<!--Data Dokumen Pendukung-->
 										<div class="tab-pane" id="data-dokumen-pendukung">
 											<table class="table">
@@ -1185,6 +1225,30 @@
 														<button class="btn btn-primary" data-toggle="modal" data-target="#view-foto-kk" type="submit">Lihat</button>
 													</td>
 												</tr>
+
+												<tr>
+										<td>Fakta Integritas</td>
+										<td>:</td>
+										<td><a href="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_fakta_integritas; ?>" class="btn btn-primary">Lihat</a></td>
+									</tr>
+
+									<tr>
+										<td>Surat Keterangan Pemilik Rumah</td>
+										<td>:</td>
+										<td><a href="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_surat_keterangan_kepemilikan_rumah; ?>" class="btn btn-primary">Lihat</a></td>
+									</tr>
+
+									<tr>
+										<td>Surat Pernyataan Kebenaran Data</td>
+										<td>:</td>
+										<td><a href="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_surat_pernyataan_kebenaran_data; ?>" class="btn btn-primary">Lihat</a></td>
+									</tr>
+
+									<tr>
+										<td>Surat Pernyataan KIPK</td>
+										<td>:</td>
+										<td><a href="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_surat_pernyataan_kipk; ?>" class="btn btn-primary">Lihat</a></td>
+									</tr>
 
 												<tr>
 													<td>Semua Foto Dokumen</td>

@@ -316,6 +316,19 @@
 										<td>:</td>
 										<td><?php echo $value->kode_pos; ?></td>
 									</tr>
+									<?php if($value->tahun == date('Y')){ ?>
+	                                <tr>
+	                                    <td>IPK</td>
+	                                    <td>:</td>
+	                                    <td><?php echo $value->ipk; ?></td>
+	                                </tr>
+	                            	<?php }else{ ?>
+	                            	<tr>
+	                                    <td>Nilai Rata-rata Raport</td>
+	                                    <td>:</td>
+	                                    <td><?php echo $value->niai_rata_rata_raport; ?></td>
+	                                </tr>
+	                            	<?php } ?>
 									<!--End Identitas Diri-->
 								</table>
 
@@ -1090,10 +1103,16 @@
 
                 <!--Data KIP-K-->
                 <div id="kipk">
-                  <h2><b>VII. Data KIP</b></h2>
+                  <h3><b>VII. Data KIP</b></h3>
                 </div>
 
                 <table class="table">
+                  <tr>
+                    <td>Punya Program Bantuan Beasiswa atau Sosial?</td>
+                    <td>:</td>
+                    <td><?php if($value->punya_kipk == 1) echo 'Ya'; else echo 'Tidak'; ?></td>
+                  </tr>
+
                   <tr>
                     <td>Jenis Program</td>
                     <td>:</td>
@@ -1126,14 +1145,16 @@
 									else if($value->jenis_kipk == 'kjp')
 										$namaUploadFotonya = 'Kartu Jakarta Pintar';
 									else
-										$namaUploadFotonya = 'KIP';
+										$namaUploadFotonya = NULL;
 								?>
 								<table class="table">
+									<?php if(!empty($namaUploadFotonya)) { ?>
                   					<tr>
 										<td>Foto <?php echo $namaUploadFotonya; ?></td>
 										<td>:</td>
 										<td><button class="btn btn-primary" data-toggle="modal" data-target="#view-foto-kipk" type="submit">Lihat</button></td>
 									</tr>
+									<?php } ?>
 
                   					<tr>
 										<td>Foto Rumah Bagian Depan</td>
@@ -1184,6 +1205,30 @@
 									</tr>
 
 									<tr>
+										<td>Fakta Integritas</td>
+										<td>:</td>
+										<td><a href="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_fakta_integritas; ?>" class="btn btn-primary">Lihat</a></td>
+									</tr>
+
+									<tr>
+										<td>Surat Keterangan Pemilik Rumah</td>
+										<td>:</td>
+										<td><a href="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_surat_keterangan_kepemilikan_rumah; ?>" class="btn btn-primary">Lihat</a></td>
+									</tr>
+
+									<tr>
+										<td>Surat Pernyataan Kebenaran Data</td>
+										<td>:</td>
+										<td><a href="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_surat_pernyataan_kebenaran_data; ?>" class="btn btn-primary">Lihat</a></td>
+									</tr>
+
+									<tr>
+										<td>Surat Pernyataan KIPK</td>
+										<td>:</td>
+										<td><a href="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_surat_pernyataan_kipk; ?>" class="btn btn-primary">Lihat</a></td>
+									</tr>
+
+									<tr>
 										<td>Semua Foto Dokumen</td>
 										<td>:</td>
 										<td><button class="btn btn-primary" data-toggle="modal" data-target="#view-foto-semua" type="submit">Lihat</button></td>
@@ -1198,19 +1243,20 @@
 
 								<table class="table">
 									<tr>
+										<td>Formulir Pedaftaran Beasiswa KIP-K yang telah diisi</td>
+										<td>:</td>
+										<td><?php echo $value->formulir_pendaftaran; ?></td>
+									</tr>
+
+									<?php if($value->tahun == date('Y')) { ?>
+									<tr>
 										<td>Kartu Peserta Jalur <?php echo $value->jalur_pendaftaran.' '.date('Y'); ?></td>
 										<td>:</td>
 										<td><?php echo $value->kartu_tes; ?></td>
 									</tr>
 
 									<tr>
-										<td>Formulir Pedaftaran Beasiswa KIP-K yang telah diisi</td>
-										<td>:</td>
-										<td><?php echo $value->formulir_pendaftaran; ?></td>
-									</tr>
-
-									<tr>
-										<td>Surat Keterangan Lulus dari Kepela Sekolah</td>
+										<td>Surat Keterangan Lulus dari Kepala Sekolah</td>
 										<td>:</td>
 										<td><?php echo $value->surat_ket_lulus; ?></td>
 									</tr>
@@ -1234,8 +1280,10 @@
 										<td><?php echo $value->fotocopy_nilai_uan; ?></td>
 									</tr>
 
+									<?php } ?>
+
 									<tr>
-										<td>Surat Keterangan Prestasi dan Bukti Pendukung Prestasi yang dilegalisir Kepala Sekolah</td>
+										<td>Surat Keterangan Prestasi dan Bukti Pendukung Prestasi <!--yang dilegalisir Kepala Sekolah --></td>
 										<td>:</td>
 										<td><?php echo $value->surat_ket_prestasi; ?></td>
 									</tr>

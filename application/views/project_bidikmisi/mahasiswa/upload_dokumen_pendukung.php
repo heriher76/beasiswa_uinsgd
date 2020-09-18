@@ -157,15 +157,19 @@
 											$namaUploadFotonya = 'Kartu Keluarga Sejahtera';
 										else if($value->jenis_kipk == 'kjp')
 											$namaUploadFotonya = 'Kartu Jakarta Pintar';
+										else
+											$namaUploadFotonya = NULL;
 
-										if($sess_foto_kipk == null) { ?>
-										<tr>
-											<td>Foto <?php echo $namaUploadFotonya ?></td>
-											<td>:</td>
-											<td></td>
-											<td><i class="asterik"></i></td>
-										</tr>
-										<?php } ?>
+										if($sess_foto_kipk == null) { 
+											if(!empty($namaUploadFotonya)) {
+											?>
+											<tr>
+												<td>Foto <?php echo $namaUploadFotonya ?></td>
+												<td>:</td>
+												<td></td>
+												<td><i class="asterik"></i></td>
+											</tr>
+										<?php }} ?>
 
 										<?php if($sess_foto_kipk != null) { ?>
 										<tr>
@@ -174,7 +178,7 @@
 											<td><img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_kipk; ?>"></td>
 												<td><i class="asterik">*</i></td>
 										</tr>
-										<?php } ?>
+										<?php }?>
 										<!--end KIPK-K-->
 
 										<!--KTP-->
@@ -534,13 +538,15 @@
 												<input type="checkbox" name="ubah_foto_rek" value="8">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto Rekening Listrik
 												<input type="file" class="form-control" name="foto_rek_listrik">
 											</div>
-
+											<?php 
+											if(!empty($namaUploadFotonya)) { ?>
 											<div class="form-group">
 												<label>Foto <?php echo $namaUploadFotonya ?></label>
 												<br/>
 												<input type="checkbox" name="ubah_foto_kipk" value="9">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto <?php echo $namaUploadFotonya ?>
 												<input type="file" class="form-control" name="foto_kipk">
 											</div>
+											<?php } ?>
 
 											<?php foreach ($data_diri as $item) { if($item->tahun == date('Y')) { ?>
 											<div class="form-group">

@@ -296,10 +296,24 @@
 												</tr>
 
 				                                <tr>
-				                                    <td>Tahun Daftar Bidikmisi</td>
+				                                    <td>Angkatan</td>
 				                                    <td>:</td>
 				                                    <td><?php echo $value->tahun; ?></td>
 				                                </tr>
+
+				                                <?php if($value->tahun == date('Y')){ ?>
+				                                <tr>
+				                                    <td>IPK</td>
+				                                    <td>:</td>
+				                                    <td><?php echo $value->ipk; ?></td>
+				                                </tr>
+				                            	<?php }else{ ?>
+				                            	<tr>
+				                                    <td>Nilai Rata-rata Raport</td>
+				                                    <td>:</td>
+				                                    <td><?php echo $value->niai_rata_rata_raport; ?></td>
+				                                </tr>
+				                            	<?php } ?>
 				                            </table>
 										</div>
 										<!--End Identitas Diri-->
@@ -1152,7 +1166,7 @@
 										<!--Data KIPK-->
 										<div class="tab-pane" id="data-kipk">
 											<table class="table">
-												<h3>IX. Data KIP-K</h3>
+												<h3>IX. Data KIP</h3>
 
 												<tr>
 													<td>Jenis KIP-K</td>
@@ -1255,6 +1269,30 @@
 														<a target="_blank" href="<?=base_url().'Auth1/cetak_dokumen/'.sha1(md5(sha1(md5(sha1($value->no_pendaftaran))))).'/'.$param8; ?>" class="btn btn-warning">Cetak</a>
 													</td>
 												</tr>
+
+												<tr>
+										<td>Fakta Integritas</td>
+										<td>:</td>
+										<td><a href="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_fakta_integritas; ?>" class="btn btn-primary">Lihat</a></td>
+									</tr>
+
+									<tr>
+										<td>Surat Keterangan Pemilik Rumah</td>
+										<td>:</td>
+										<td><a href="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_surat_keterangan_kepemilikan_rumah; ?>" class="btn btn-primary">Lihat</a></td>
+									</tr>
+
+									<tr>
+										<td>Surat Pernyataan Kebenaran Data</td>
+										<td>:</td>
+										<td><a href="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_surat_pernyataan_kebenaran_data; ?>" class="btn btn-primary">Lihat</a></td>
+									</tr>
+
+									<tr>
+										<td>Surat Pernyataan KIPK</td>
+										<td>:</td>
+										<td><a href="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_surat_pernyataan_kipk; ?>" class="btn btn-primary">Lihat</a></td>
+									</tr>
 
 												<tr>
 													<td>Semua Foto Dokumen</td>
