@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Executive Bidikmisi - Uin Bandung</title>
+<title>Executive Beasiswa KIP-K - Uin Bandung</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="<?php echo base_url('assets/img/logo-uin.ico'); ?>">
@@ -50,7 +50,7 @@
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"></a>
-          <a class="navbar-brand" href="#">BIDIKIMISI UIN BANDUNG</a>
+          <a class="navbar-brand" href="#">Beasiswa KIP-K UIN BANDUNG</a>
           <div class="navbar-custom-menu">
               <ul class="nav navbar-nav">
                 <li>
@@ -89,7 +89,7 @@
             </li>
 
            <li class="treeview">
-              <a href="#"><i class="fa  fa-list-ul fa-lg"></i> Data Pendaftar Tahun <?php echo date('Y'); ?><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+              <a href="#"><i class="fa  fa-list-ul fa-lg"></i> Data Pendaftar<span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
               <ul class="treeview-menu">
                 <li><a href="<?=base_url('Auth0/view6'); ?>"><i class="fa fa-circle-o"></i>Data Seluruh Peserta</a></li>
                 <li><a href="<?=base_url('Auth0/view1'); ?>"><i class="fa fa-circle-o"></i>Data Peserta</a></li>

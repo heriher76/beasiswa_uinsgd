@@ -43,7 +43,7 @@
 				<div class="small-box bg-blue">
 					<div class="inner">
 						<h3><?php echo $jml_pendaf; ?></sup></h3>
-						<p>Pendaftar Bidikmisi</p>
+						<p>Pendaftar Beasiswa KIP-K</p>
 					</div>
 					<div class="icon">
 						<i class="ion ion-stats-bars"></i>
@@ -122,7 +122,7 @@
 			<div class="col-md-6">
 				<div class="box md-3">
 					<div class="box-body">
-						<h3>Jadwal Bidikmisi</h3>
+						<h3>Jadwal Beasiswa KIP-K</h3>
 
 						<div class="box md-3">
 							<div class="box-body">
@@ -191,7 +191,7 @@
 				<div class="col-sm-12">
 					<div class="box">
 						<div class="box-header">
-							<h3 class="box-title">Grafik Bidikmisi</h3>
+							<h3 class="box-title">Grafik Beasiswa KIP-K</h3>
 						</div>
 						<div class="box-body">
 							<canvas id="myChart" style="height: 230px;"></canvas>
@@ -202,7 +202,7 @@
 									data: {
 										labels: ["USHULUDDIN", "TARBIYAH DAN KEGURUAN", "SYARIAH DAN HUKUM", "DAKWAH DAN KOMUNIKASI", "ADAB DAN HUMANIORA", "PSIKOLOGI","SAINS DAN TEKNOLOGI","ILMU SOSIAL DAN ILMU POLITIK"],
 										datasets: [{
-											label: 'Pendaftar Bidikmisi',
+											label: 'Pendaftar Beasiswa KIP-K',
 											data: [
 											<?php echo $f1;?>,
 											<?php echo $f2;?>,

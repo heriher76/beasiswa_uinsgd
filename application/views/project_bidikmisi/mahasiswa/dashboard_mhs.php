@@ -283,7 +283,7 @@
 											  	</form>
 										  	<?php } else { ?>
 										  		<h3 style="color: red;">Wajib Diperhatikan!</h3>
-												<h2>Seluruh berkas persyaratan HVS ukuran F4 (Folio) dan dimasukkan dalam <b>amplop berwarna sesuai fakultas masing-masing, pada pojok kanan atas ditulis Program KIP Kuliah Angkatan Tahun 2019 atau 2020, NAMA, NIM, Jurusan, dan Fakultas</b> dikirimkan ke Bagian Kemahasiswaan dan Alumni Gedung O. Djauharudin lantai 4 UIN Sunan Gunung Djati Bandung Jl. A.H. Nasution No. 105 Cibiru Bandung. <br>( Terakhir Pengumpulan Berkas Tanggal <b>
+												<h2>Seluruh berkas persyaratan HVS ukuran F4 (Folio) dan dimasukkan dalam <b>amplop berwarna coklat, pada pojok kanan atas ditulis Program KIP Kuliah Angkatan Tahun 2019 atau 2020, NAMA, NIM, Jurusan, dan Fakultas</b> dikirimkan ke Bagian Kemahasiswaan dan Alumni Gedung O. Djauharudin lantai 4 UIN Sunan Gunung Djati Bandung Jl. A.H. Nasution No. 105 Cibiru Bandung. <br>( Terakhir Pengumpulan Berkas Tanggal <b>
 													<?php 
 													echo date("d F Y H:i", strtotime($timer->terakhir_pemberkasan)); 
 													?>

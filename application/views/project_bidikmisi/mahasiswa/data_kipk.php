@@ -102,9 +102,9 @@
 										<br><br>
 									</div>
 									<div class="col-xs-10 col-md-12">
-									<h3><span class="label label-default">Tahap 8 Data KIP-K</span></h3>
+									<h3><span class="label label-default">Tahap 8 Data KIP</span></h3>
 									<br>
-									<a class="btn btn-success" href="#edit" data-toggle="tab"><i class="glyphicon glyphicon-pencil"></i> Edit Data KIP-K</a>
+									<a class="btn btn-success" href="#edit" data-toggle="tab"><i class="glyphicon glyphicon-pencil"></i> Edit Data KIP</a>
 									<br><br>
 									<ul class="nav nav-tabs" style="border: none;">
 										<!-- <li><a href="#data" data-toggle="tab">Data Identitas Diri</a></li> -->
@@ -114,10 +114,10 @@
 									<div class="tab-content">
 										<div class="tab-pane active" id="data">
 										<?php foreach($data_diri as $value) { ?>
-											<!--KIP-K-->
+											<!--KIP-->
 											<table class="table">
 												<tr>
-													<td>Punya KIPK?</td>
+													<td>Punya Program Bantuan Beasiswa atau Sosial?</td>
 													<td>:</td>
 													<td>
 														<?php 
@@ -130,13 +130,13 @@
 													<td><i class="asterik">*</i></td>
 												</tr>
 											    <tr>
-													<td>Jenis KIP-K</td>
+													<td>Jenis Program</td>
 													<td>:</td>
 													<td><?php echo $value->jenis_kipk; ?></td>
 													<td><i class="asterik"></i></td>
 												</tr>
 												<tr>
-													<td>Nomor KIP-K</td>
+													<td>Nomor Kartu/Surat Program</td>
 													<td>:</td>
 													<td><?php echo $value->nomor_kipk; ?></td>
 													<td><i class="asterik"></i></td>
@@ -148,7 +148,7 @@
 										<div class="tab-pane" id="edit">
 											<form action="<?=base_url('C_mhs/direct8'); ?>" method="POST">
 												<div class="form-group">
-													<label>Punya KIPK ? <i class="asterik">*</i></label>
+													<label>Punya Program Bantuan Beasiswa atau Sosial? <i class="asterik">*</i></label>
 													<br/>
 													<input style=" cursor: pointer;" class="input" type="radio" value="1" checked="checked" required="required" name="punya_kipk" id="punya_kipk" onclick="cek_punya()">
 													<label>Ya</label>&nbsp;&nbsp;
@@ -156,26 +156,32 @@
 													<label>Tidak</label>
 												</div>
 											    	<div class="form-group">
-													<label>Jenis KIP-K <i class="asterik"></i></label>
+													<label>Jenis Program<i class="asterik"></i></label>
 													<select class="form-control input list_kipk" name="jenis_kipk">
 														<?php if($value->jenis_kipk == null || $value->jenis_kipk == '0') { ?>
 															<option value="">-Pilih SalahSatu-</option>
 															<option value="kip">Kartu Indonesia Pintar(KIP)</option>
 															<option value="kks">Kartu Keluarga Sejahtera(KKS)</option>
 															<option value="kjp">Kartu Jakarta Pintar (KJP)</option>
+															<option value="sktm">Surat Keterangan Tidak Mampu (SKTM)</option>
+															<option value="covid-meninggal">Terdampak Covid-Ortu Meninggal Dunia</option>
+															<option value="covid-phk">Terdampak Covid-Ortu Terkena PHK</option>
 														<?php }else{ ?>
 															<option value="<?php echo $value->jenis_kipk; ?>"><?php echo $value->jenis_kipk; ?></option>
 															<option value="">--</option>
 															<option value="kip">Kartu Indonesia Pintar(KIP)</option>
 															<option value="kks">Kartu Keluarga Sejahtera(KKS)</option>
 															<option value="kjp">Kartu Jakarta Pintar (KJP)</option>
+															<option value="sktm">Surat Keterangan Tidak Mampu (SKTM)</option>
+															<option value="covid-meninggal">Terdampak Covid-Ortu Meninggal Dunia</option>
+															<option value="covid-phk">Terdampak Covid-Ortu Terkena PHK</option>
 														<?php } ?>
 													</select>
 												</div>
 
 												<div class="form-group">
-													<label>Nomor KIP-K <b class="asterik"></b></label>
-													<input class="form-control input list_kipk" type="text" placeholder="Nomor KIP-K" name="nomor_kipk" value="<?php echo $value->nomor_kipk; ?>">
+													<label>Nomor Kartu/Surat Program <b class="asterik"></b></label>
+													<input class="form-control input list_kipk" type="text" placeholder="Nomor" name="nomor_kipk" value="<?php echo $value->nomor_kipk; ?>">
 												</div>
 
 												<div class="text-center">

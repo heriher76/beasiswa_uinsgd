@@ -144,9 +144,23 @@
 									?>
 									<table class="table">
 										<!--KIPK-K-->
-										<?php if($sess_foto_kipk == null) { ?>
+										<?php 
+										if($value->jenis_kipk == 'sktm')
+											$namaUploadFotonya = 'Surat Keterangan Tidak Mampu (SKTM)';
+										else if($value->jenis_kipk == 'covid-meninggal')
+											$namaUploadFotonya = 'Surat Keterangan Ortu Meninggal Terdampak Covid';
+										else if($value->jenis_kipk == 'covid-phk')
+											$namaUploadFotonya = 'Surat Keterangan Ortu PHK Terdampak Covid';
+										else if($value->jenis_kipk == 'kip')
+											$namaUploadFotonya = 'Kartu Indonesia Pintar';
+										else if($value->jenis_kipk == 'kks')
+											$namaUploadFotonya = 'Kartu Keluarga Sejahtera';
+										else if($value->jenis_kipk == 'kjp')
+											$namaUploadFotonya = 'Kartu Jakarta Pintar';
+
+										if($sess_foto_kipk == null) { ?>
 										<tr>
-											<td>Foto KIP-K</td>
+											<td>Foto <?php echo $namaUploadFotonya ?></td>
 											<td>:</td>
 											<td></td>
 											<td><i class="asterik"></i></td>
@@ -155,7 +169,7 @@
 
 										<?php if($sess_foto_kipk != null) { ?>
 										<tr>
-											<td>Foto KIP-K</td>
+											<td>Foto <?php echo $namaUploadFotonya ?></td>
 											<td>:</td>
 											<td><img style="height: 150px;" src="<?php echo base_url(). 'assets/foto_dokumen/'.$value->upload_foto_kipk; ?>"></td>
 												<td><i class="asterik">*</i></td>
@@ -522,9 +536,9 @@
 											</div>
 
 											<div class="form-group">
-												<label>Foto KIP-K</label>
+												<label>Foto <?php echo $namaUploadFotonya ?></label>
 												<br/>
-												<input type="checkbox" name="ubah_foto_kipk" value="9">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto KIP-K
+												<input type="checkbox" name="ubah_foto_kipk" value="9">&nbsp;&nbsp;Ceklis, Jika Ingin mengubah Foto <?php echo $namaUploadFotonya ?>
 												<input type="file" class="form-control" name="foto_kipk">
 											</div>
 
