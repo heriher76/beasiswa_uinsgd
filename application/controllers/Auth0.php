@@ -698,4 +698,14 @@ class Auth0 extends CI_Controller {
 		);
 		$this->load->view('project_bidikmisi/pimpinan/data_pendaftar', $data);
 	}
+
+	public function berkasDiterimaOleh($no_pendaftaran){
+	    $data = [
+	       'berkas_sudah_diterima_oleh' => $this->input->post('berkas_sudah_diterima_oleh')
+	    ];
+		$this->M_utama->edit_data_mahasiswa($no_pendaftaran, $data);
+		$this->session->set_flashdata('berhasil','<script>alert("Update Penerima Berkas Berhasil"); </script>');
+		echo $this->session->flashdata('berhasil');
+		$this->view5($no_pendaftaran);
+	}
 }?>
