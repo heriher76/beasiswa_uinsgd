@@ -272,7 +272,9 @@
 												<h3>Alhamdulillah, berkas sudah berhasil diterima oleh <b> : <?php echo $value->berkas_sudah_diterima_oleh; ?></b>, mohon ditunggu pengumuman berikutnya.</h3>
 											<?php 
 											} else if(!empty($value->bukti_berkas_dikirim)) { ?>
-												<h3>Terimakasih sudah mengirimkan berkas, mohon ditunggu pengumuman berikutnya.</h3>
+												<h3>Terimakasih sudah mengirimkan berkas.
+													<br>
+													<b>Status:</b> Sedang menunggu penerimaan berkas oleh pihak panitia</h3>
 										  		<img class="img-responsive" src="<?php echo base_url(). 'assets/bukti_pemberkasan/'.$value->bukti_berkas_dikirim; ?>">
 										  		<br>
 										  		<p style="color: red;">Jika ingin mengubah foto bukti pengiriman, silahkan upload ulang bukti dibawah ini.</p>
