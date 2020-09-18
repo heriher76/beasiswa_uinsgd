@@ -136,7 +136,7 @@
     								Pengumuman
     							</a></li>
 
-    							<li>
+    							<!-- <li>
 									<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-print"></span> Cetak <span class="caret"></span></a></a>
 									<ul class="dropdown-menu">
 										<li>
@@ -155,7 +155,7 @@
 											<a target="_blank" href="<?=base_url().'C_mhs/cetak/formulir_ceklis'; ?>">Formulir Ceklis</a>
 										</li>
 									</ul>
-								</li>
+								</li> -->
 
     							<li class="dropdown">
                         			<a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-download-alt"></span> Download Document

@@ -1090,18 +1090,18 @@
 
                 <!--Data KIP-K-->
                 <div id="kipk">
-                  <h2><b>VII. Data KIP-K</b></h2>
+                  <h2><b>VII. Data KIP</b></h2>
                 </div>
 
                 <table class="table">
                   <tr>
-                    <td>Jenis Kartu</td>
+                    <td>Jenis Program</td>
                     <td>:</td>
                     <td><?php echo $value->jenis_kipk; ?></td>
                   </tr>
 
                   <tr>
-                    <td>Nomor Kartu</td>
+                    <td>Nomor Kartu/Surat</td>
                     <td>:</td>
                     <td><?php echo $value->nomor_kipk; ?></td>
                   </tr>
@@ -1112,15 +1112,30 @@
 								<div id="upload-dokumen-pendukung">
 									<h2><b>VIII. Dokumen Pendukung</b></h2>
 								</div>
-
+								<?php 
+									if($value->jenis_kipk == 'sktm')
+										$namaUploadFotonya = 'Surat Keterangan Tidak Mampu (SKTM)';
+									else if($value->jenis_kipk == 'covid-meninggal')
+										$namaUploadFotonya = 'Surat Keterangan Ortu Meninggal Terdampak Covid';
+									else if($value->jenis_kipk == 'covid-phk')
+										$namaUploadFotonya = 'Surat Keterangan Ortu PHK Terdampak Covid';
+									else if($value->jenis_kipk == 'kip')
+										$namaUploadFotonya = 'Kartu Indonesia Pintar';
+									else if($value->jenis_kipk == 'kks')
+										$namaUploadFotonya = 'Kartu Keluarga Sejahtera';
+									else if($value->jenis_kipk == 'kjp')
+										$namaUploadFotonya = 'Kartu Jakarta Pintar';
+									else
+										$namaUploadFotonya = 'KIP';
+								?>
 								<table class="table">
-                  <tr>
-										<td>Foto Kartu KIP</td>
+                  					<tr>
+										<td>Foto <?php echo $namaUploadFotonya; ?></td>
 										<td>:</td>
 										<td><button class="btn btn-primary" data-toggle="modal" data-target="#view-foto-kipk" type="submit">Lihat</button></td>
 									</tr>
 
-                  <tr>
+                  					<tr>
 										<td>Foto Rumah Bagian Depan</td>
 										<td>:</td>
 										<td><button class="btn btn-primary" data-toggle="modal" data-target="#view-foto-rumah-bagian-depan" type="submit">Lihat</button></td>
@@ -1308,13 +1323,13 @@
 		</div>
 		<!--End Modal Confirm Verifikasi-->
 
-    <!--View Foto KIP-K-->
+    	<!--View Foto KIP-K-->
 		<div id="view-foto-kipk" class="modal fade" role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Foto Kartu KIP <?php echo $value->upload_foto_kipk; ?></h4>
+						<h4 class="modal-title">Foto <?php echo $namaUploadFotonya; ?> <?php echo $value->upload_foto_kipk; ?></h4>
 					</div>
 
 					<div class="modal-body">

@@ -411,6 +411,7 @@
 												<td>:</td>
 												<td>
 													<?php
+													if(isset($kategori_ukt)) {
 													if($kategori_ukt == 'I') 
 														echo 'K1';
 													else if($kategori_ukt == 'II') 
@@ -425,6 +426,9 @@
 														echo 'K6';
 													else if($kategori_ukt == 'VII') 
 														echo 'K7';
+													}else{
+														echo $value->kategori;
+													}
 													?>	
 												</td>
 												<td><b style="color:red;">*</b></td>
