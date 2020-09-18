@@ -1,3 +1,0 @@
-# kemahasiswaan-kipk
-
-Beasiswa KIPK
